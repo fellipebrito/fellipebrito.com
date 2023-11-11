@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PostHeader from './PostHeader';
 import PostLinkBack from './PostLinkBack';
-import MetaTags from './MetaTags'; // Import the MetaTags component
+import { Helmet } from 'react-helmet'; // Import Helmet from react-helmet
 
 const DisplayCurrentURL = () => {
   const { title } = useParams();
@@ -32,12 +32,12 @@ const DisplayCurrentURL = () => {
   return (
     <div className="px-4 py-4 pb-1 md:p-8 bg-slate-100">
       <div className="w-full max-w-6xl mx-auto">
-        {/* Use the MetaTags component to dynamically update meta tags */}
-        <MetaTags
-          title={postContent.metadata.title}
-          description={postContent.metadata.description}
-          imageUrl={`/images/${postContent.metadata.image}`} // Construct the image URL based on your data
-        />
+        {/* Use Helmet to dynamically update meta tags */}
+        <Helmet>
+          <title>{postContent.metadata.title}</title>
+          <meta name="description" content={postContent.metadata.description} />
+          <meta property="og:image" content={`/images/${postContent.metadata.image}`} />
+        </Helmet>
 
         <PostHeader title={postContent.metadata.title} image={postContent.metadata.image} />
 

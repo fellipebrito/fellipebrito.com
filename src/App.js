@@ -24,13 +24,13 @@ function Content() {
         {/* Define the routes for the application */}
         <Routes>
           {/* Route for posts in English */}
-          <Route path={ENGLISH_PATH} element={<PostsList language="en" />} />
+          <Route path={`${ENGLISH_PATH}/*`} element={<PostsList language="en" />} />
           {/* Route for posts in Portuguese */}
           <Route path={`${PORTUGUESE_PATH}/*`} element={<PostsList language="pt" />} />
           {/* Route for displaying the current URL */}
-          <Route path="/:title" element={<DisplayCurrentURL />} />
+          <Route path="/:title/*" element={<DisplayCurrentURL />} />
           {/* Default route */}
-          <Route path="/" element={<PostsList language={language} />} />
+          <Route path="/*" element={<PostsList language={language} />} />
         </Routes>
       </header>
     </div>

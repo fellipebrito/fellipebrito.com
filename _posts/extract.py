@@ -20,6 +20,7 @@ def get_date(post):
 
 for root, _, files in os.walk(markdown_root):
     for filename in files:
+        print(filename)
         if filename.endswith(".md"):
             file_path = os.path.join(root, filename)
             with open(file_path, 'r', encoding='utf-8') as file:

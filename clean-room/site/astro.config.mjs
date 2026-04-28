@@ -1,12 +1,11 @@
-// Initial deploy: project page URL.
-// When custom domain (fellipebrito.com) is wired, switch site → 'https://fellipebrito.com'
-// and base → '/'.
+// Custom domain — fellipebrito.com via GitHub Pages
+// (DNS apex A records → 185.199.108-111.153, www CNAME → fellipebrito.github.io)
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://fellipebrito.github.io',
-  base: '/fellipebrito.com',
+  site: 'https://fellipebrito.com',
+  base: '/',
   vite: {
     plugins: [tailwindcss()],
   },

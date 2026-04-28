@@ -1,0 +1,20 @@
+---
+import clientsData from '../data/clients.json';
+import ClientCaseNote from './ClientCaseNote.astro';
+
+interface Props {
+  phase?: 'past' | 'current';
+}
+const { phase } = Astro.props;
+const clients = phase
+  ? clientsData.clients.filter((c) => c.phase === phase)
+  : clientsData.clients;
+const displayOnly = phase === 'past' ? 'logo' : 'card';
+---
+<section data-component="ClientGrid" data-phase={phase}>
+  <div class="client-grid">
+    {clients.map((c) => (
+      <ClientCaseNote name={c.name} slug={c.slug} caseNote={c.case_note} displayOnly={displayOnly} />
+    ))}
+  </div>
+</section>

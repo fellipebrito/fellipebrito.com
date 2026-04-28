@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ArticleHero from '../../../components/ArticleHero.astro';
+import ArticleNavigation from '../../../components/ArticleNavigation.astro';
+import { getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const data = (await import('../../../data/articles.json')).default;
+  return data.articles.map((a: { slug: string }) => ({
+    params: { slug: a.slug },
+    props: { article: a },
+  }));
+}
+
+interface Article {
+  slug: string;
+  title: string;
+  date: string | null;
+  category: string;
+  prev_slug: string | null;
+  next_slug: string | null;
+}
+const { article } = Astro.props as { article: Article };
+const entry = await getEntry('articles', article.slug);
+const { Content } = await entry.render();
+---
+<BaseLayout title={`${article.title} — Fellipe Brito`}>
+  <ArticleHero
+    title={article.title}
+    date={article.date}
+    category={article.category}
+  />
+
+  <article data-component="ArticleBody">
+    <Content />
+  </article>
+
+  <ArticleNavigation slug={article.slug} />
+</BaseLayout>

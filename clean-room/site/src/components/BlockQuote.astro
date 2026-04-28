@@ -1,0 +1,21 @@
+---
+// Generic blockquote wrapper. Variants ('quote' | 'scripture' | 'pull') drive the kicker label.
+interface Props {
+  variant?: 'quote' | 'scripture' | 'pull';
+  attribution?: string;
+  reference?: string;
+}
+const { variant = 'quote', attribution, reference } = Astro.props;
+const kindLabel: Record<string, string> = {
+  quote: 'Quote',
+  scripture: 'Scripture',
+  pull: 'Pull quote',
+};
+---
+<blockquote data-component="BlockQuote" data-variant={variant}>
+  <span class="qkind">{kindLabel[variant]}</span>
+  <slot />
+  {(attribution || reference) && (
+    <footer><small>{[attribution, reference].filter(Boolean).join(' — ')}</small></footer>
+  )}
+</blockquote>

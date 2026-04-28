@@ -1,0 +1,51 @@
+{
+  "crawled_at": "2026-04-27T00:00:00Z",
+  "source": "fellipebrito.com",
+  "discovery_method": "sitemap.xml",
+  "page_count": 30,
+  "pages": [
+    { "url": "https://www.fellipebrito.com/", "slug": "index", "title": "Fellipe Brito", "file": "pages/index.md", "section_count": 4 },
+    { "url": "https://www.fellipebrito.com/privacy-policy", "slug": "privacy-policy", "title": "Privacy Policy - Newsbook", "file": "pages/privacy-policy.md", "section_count": 13 },
+    { "url": "https://www.fellipebrito.com/style-guide", "slug": "style-guide", "title": "Style Guide - Newsbook", "file": "pages/style-guide.md", "section_count": 8 },
+    { "url": "https://www.fellipebrito.com/licenses", "slug": "licenses", "title": "Licenses - Newsbook", "file": "pages/licenses.md", "section_count": 5 },
+    { "url": "https://www.fellipebrito.com/passworld", "slug": "passworld", "title": "Passworld (template gate)", "file": "pages/passworld.md", "section_count": 1 },
+    { "url": "https://www.fellipebrito.com/blog/all", "slug": "blog--all", "title": "Blog - Fellipe Brito", "file": "pages/blog--all.md", "section_count": 4 },
+    { "url": "https://www.fellipebrito.com/blog/bible", "slug": "blog--bible", "title": "Bible - Fellipe Brito", "file": "pages/blog--bible.md", "section_count": 4 },
+    { "url": "https://www.fellipebrito.com/blog/music", "slug": "blog--music", "title": "Music - Fellipe Brito", "file": "pages/blog--music.md", "section_count": 3 },
+    { "url": "https://www.fellipebrito.com/blog/tech", "slug": "blog--tech", "title": "Tech - Fellipe Brito", "file": "pages/blog--tech.md", "section_count": 4 },
+    { "url": "https://www.fellipebrito.com/blog/golf", "slug": "blog--golf", "title": "Golf - Fellipe Brito", "file": "pages/blog--golf.md", "section_count": 4 },
+    { "url": "https://www.fellipebrito.com/blog/all/we-never-lose", "slug": "blog--all--we-never-lose", "title": "We never lose", "file": "pages/blog--all--we-never-lose.md", "section_count": 3, "category": "Golf", "date": "2026-04-14" },
+    { "url": "https://www.fellipebrito.com/blog/all/ai-where-i-m-drawing-the-line", "slug": "blog--all--ai-where-i-m-drawing-the-line", "title": "AI :: Where I'm drawing the line", "file": "pages/blog--all--ai-where-i-m-drawing-the-line.md", "section_count": 2, "category": "Tech", "date": "2026-02-24" },
+    { "url": "https://www.fellipebrito.com/blog/all/a-conversation-with-my-anxiety", "slug": "blog--all--a-conversation-with-my-anxiety", "title": "A Conversation with My Anxiety", "file": "pages/blog--all--a-conversation-with-my-anxiety.md", "section_count": 3, "category": "Free Thought", "date": "2025-08-14" },
+    { "url": "https://www.fellipebrito.com/blog/all/breaking-90-and-the-illusion-of-arrival", "slug": "blog--all--breaking-90-and-the-illusion-of-arrival", "title": "Breaking 90, and the Illusion of Arrival", "file": "pages/blog--all--breaking-90-and-the-illusion-of-arrival.md", "section_count": 2, "category": "Golf", "date": "2025-07-21" },
+    { "url": "https://www.fellipebrito.com/blog/all/lessons-from-my-first-golf-tournament", "slug": "blog--all--lessons-from-my-first-golf-tournament", "title": "Lessons from My First Golf Tournament", "file": "pages/blog--all--lessons-from-my-first-golf-tournament.md", "section_count": 6, "category": "Golf", "date": "2025-07-14" },
+    { "url": "https://www.fellipebrito.com/blog/all/the-light-the-darkness-cannot-understand", "slug": "blog--all--the-light-the-darkness-cannot-understand", "title": "The Light the Darkness Cannot Understand", "file": "pages/blog--all--the-light-the-darkness-cannot-understand.md", "section_count": 8, "category": "Bible", "date": "2025-05-28" },
+    { "url": "https://www.fellipebrito.com/blog/all/i-am-recovering-the-divine-voice", "slug": "blog--all--i-am-recovering-the-divine-voice", "title": "\"I Am\": Recovering the Divine Voice", "file": "pages/blog--all--i-am-recovering-the-divine-voice.md", "section_count": 11, "category": "Bible", "date": null },
+    { "url": "https://www.fellipebrito.com/blog/all/a-message-from-the-courtyard-friday-reflections", "slug": "blog--all--a-message-from-the-courtyard-friday-reflections", "title": "A Message from the Courtyard: Friday Reflections", "file": "pages/blog--all--a-message-from-the-courtyard-friday-reflections.md", "section_count": 2, "category": "Bible", "date": "2025-04-18" },
+    { "url": "https://www.fellipebrito.com/blog/all/the-challenge-of-being-a-believer", "slug": "blog--all--the-challenge-of-being-a-believer", "title": "The Challenge of Being \"A Believer\"", "file": "pages/blog--all--the-challenge-of-being-a-believer.md", "section_count": 2, "category": "Free Thought", "date": "2015-04-06" },
+    { "url": "https://www.fellipebrito.com/blog/all/thanksgiving", "slug": "blog--all--thanksgiving", "title": "Thanksgiving", "file": "pages/blog--all--thanksgiving.md", "section_count": 2, "category": "Bible", "date": "2024-11-28" },
+    { "url": "https://www.fellipebrito.com/blog/all/happy-4th-of-july", "slug": "blog--all--happy-4th-of-july", "title": "Happy 4th of July", "file": "pages/blog--all--happy-4th-of-july.md", "section_count": 2, "category": "Free Thought", "date": "2023-07-04" },
+    { "url": "https://www.fellipebrito.com/blog/all/i-think-therefore-i-believe", "slug": "blog--all--i-think-therefore-i-believe", "title": "I think, therefore I believe", "file": "pages/blog--all--i-think-therefore-i-believe.md", "section_count": 11, "category": "Bible", "date": null },
+    { "url": "https://www.fellipebrito.com/blog/all/just-keep-swiming", "slug": "blog--all--just-keep-swiming", "title": "Just keep swiming", "file": "pages/blog--all--just-keep-swiming.md", "section_count": 2, "category": "Bible", "date": "2024-12-03" },
+    { "url": "https://www.fellipebrito.com/blog/all/it-is-she", "slug": "blog--all--it-is-she", "title": "It is she!", "file": "pages/blog--all--it-is-she.md", "section_count": 2, "category": "Short Stories", "date": null },
+    { "url": "https://www.fellipebrito.com/blog/all/the-case-for-christian-skepticism", "slug": "blog--all--the-case-for-christian-skepticism", "title": "The Case for christian skepticism", "file": "pages/blog--all--the-case-for-christian-skepticism.md", "section_count": 5, "category": "Bible", "date": "2024-04-01" },
+    { "url": "https://www.fellipebrito.com/blog/all/i-am-not-from-wakanda", "slug": "blog--all--i-am-not-from-wakanda", "title": "I am not from Wakanda", "file": "pages/blog--all--i-am-not-from-wakanda.md", "section_count": 2, "category": "Free Thought", "date": "2023-07-04" },
+    { "url": "https://www.fellipebrito.com/blog/all/never-enough", "slug": "blog--all--never-enough", "title": "Never Enough", "file": "pages/blog--all--never-enough.md", "section_count": 2, "category": "Music", "date": "2024-11-05" },
+    { "url": "https://www.fellipebrito.com/blog/all/why-should-i-read-mark", "slug": "blog--all--why-should-i-read-mark", "title": "Why should I read Mark?", "file": "pages/blog--all--why-should-i-read-mark.md", "section_count": 2, "category": "Bible", "date": "2024-10-02" },
+    { "url": "https://www.fellipebrito.com/blog/all/a-journey-through-the-gospel-of-john", "slug": "blog--all--a-journey-through-the-gospel-of-john", "title": "A Journey Through the Gospel of John", "file": "pages/blog--all--a-journey-through-the-gospel-of-john.md", "section_count": 9, "category": "Bible", "date": "2025-04-16" },
+    { "url": "https://www.fellipebrito.com/blog/all/a-beautiful-day", "slug": "blog--all--a-beautiful-day", "title": "A Beautiful Day Despite Life's Shadows", "file": "pages/blog--all--a-beautiful-day.md", "section_count": 2, "category": "Music", "date": "2024-08-01" }
+  ],
+  "failures": [
+    { "url": "https://www.fellipebrito.com/404", "reason": "WebFetch returned HTTP 404. The /404 slug exists in sitemap.xml but the Framer host returns a real 404 status when accessed directly — the custom 404 page is rendered only as a fallback for unmatched routes, not at /404 itself." }
+  ],
+  "notes": [
+    "Site is built on Framer using a paid template called 'Newsbook' by Moise David. The template chrome is still leaking in several places: privacy-policy, style-guide, licenses, and passworld pages remain template defaults; titles still read 'Newsbook'; privacy-policy body still contains '[Website Name]' and '[Email Address]' placeholders; passworld slug appears to be a typo of 'password'.",
+    "Every public page shares the same global nav (Fellipe Brito | Home | Blog) and footer (Fellipe Brito | Home | Blog) — no About, Contact, Work, or other top-level routes exist.",
+    "Every public page also includes a Framer-native newsletter section H2 'Get Notifications For Each Fresh Post' followed by an H2 'Navigation' footer block. The form fields/action of the newsletter widget did not surface via WebFetch and should be inspected in browser.",
+    "Blog index listings render the same date 'July 25, 2023' on every card — that is the template default placeholder, not the article's true publication date. True dates were recovered from individual article pages and are stored in the per-article dossiers and this manifest's 'date' field.",
+    "Category index pages (/blog/bible, /blog/golf, /blog/music, /blog/tech) returned partial or empty card grids via WebFetch; the canonical post list lives at /blog/all. Phase 2 should re-render these in browser to confirm the actual cards shown.",
+    "No Substack, Calendly, Typeform, Mailchimp, ConvertKit, YouTube, or Vimeo iframes were surfaced by WebFetch on any page. The Framer 'Made in Framer' badge was also not surfaced — verify in browser inspector.",
+    "Total article count: 20. Categories used in CMS: Golf, Tech, Free Thought, Bible, Music, Short Stories.",
+    "Oldest article: 'The Challenge of Being A Believer' (2015-04-06). Newest: 'We never lose' (2026-04-14). The site has been migrated through at least one platform — the 2015 piece references an older code subdomain at code.fellipebrito.com."
+  ]
+}

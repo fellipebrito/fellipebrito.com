@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroBlock from '../../components/HeroBlock.astro';
+import BlogList from '../../components/BlogList.astro';
+import NewsletterInline from '../../components/NewsletterInline.astro';
+import articlesData from '../../data/articles.json';
+
+const articles = articlesData.articles.filter((a) => a.category === 'Music');
+---
+<BaseLayout title="Music — Fellipe Brito">
+  <HeroBlock
+    variant="page-default"
+    h1="Like the Psalms"
+    supporting="Exploring lyrics that move me—songs that echo questions, prayers, and glimpses of beauty in a broken world."
+  />
+  <BlogList articles={articles} />
+  <NewsletterInline
+    heading="Get the Tuesday Notes"
+    copy="Tuesday Notes — written Mondays, sent Tuesdays."
+  />
+</BaseLayout>

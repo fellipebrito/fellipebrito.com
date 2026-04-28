@@ -1,0 +1,17 @@
+---
+// ArticleHero — distinct from HeroBlock; carries article metadata.
+interface Props {
+  title: string;
+  date: string | null;
+  category: string;
+}
+const { title, date, category } = Astro.props;
+---
+<header data-component="ArticleHero">
+  <p><small>{category}</small></p>
+  <h1>{title}</h1>
+  <p><small>By Fellipe Brito</small></p>
+  {date
+    ? <p><time datetime={date}>{date}</time></p>
+    : <p class="needs-review">NEEDS REVIEW: dateless article &mdash; supply real date to fix ordering.</p>}
+</header>

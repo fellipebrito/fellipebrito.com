@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fellipe Brito</title>
+  <link rel="stylesheet" href="wireframe.css">
+</head>
+<body>
+
+<!-- COMPONENT: GlobalHeader -->
+<header data-component="GlobalHeader">
+  <a href="index.html"><strong>Fellipe Brito</strong></a>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blog/all/index.html">Blog</a></li>
+    </ul>
+  </nav>
+</header>
+<!-- /COMPONENT: GlobalHeader -->
+
+<main>
+
+  <!-- COMPONENT: HomeHero -->
+  <section data-component="HomeHero">
+    <h1>Curious About Tech, Faith, and a Better Golf Game?</h1>
+    <h3>Welcome to my digital notebook&mdash;where I share things I'm learning, building, and wrestling with in tech, theology, and golf.</h3>
+    <!-- TBD: hero image src/alt — needs browser inspection -->
+  </section>
+  <!-- /COMPONENT: HomeHero -->
+
+  <section>
+    <h2>Recent Post</h2>
+    <div class="card-grid">
+
+      <!-- COMPONENT: BlogCard -->
+      <article data-component="BlogCard">
+        <p><small>Golf</small></p>
+        <h3><a href="blog/all/we-never-lose/index.html">We never lose</a></h3>
+        <p><time datetime="2026-04-14">2026-04-14</time></p>
+      </article>
+      <!-- /COMPONENT: BlogCard -->
+
+      <!-- COMPONENT: BlogCard -->
+      <article data-component="BlogCard">
+        <p><small>Tech</small></p>
+        <h3><a href="blog/all/ai-where-i-m-drawing-the-line/index.html">AI :: Where I'm drawing the line</a></h3>
+        <p><time datetime="2026-02-24">2026-02-24</time></p>
+      </article>
+      <!-- /COMPONENT: BlogCard -->
+
+      <!-- COMPONENT: BlogCard -->
+      <article data-component="BlogCard">
+        <p><small>Free Thought</small></p>
+        <h3><a href="blog/all/a-conversation-with-my-anxiety/index.html">A Conversation with My Anxiety</a></h3>
+        <p><time datetime="2025-08-14">2025-08-14</time></p>
+      </article>
+      <!-- /COMPONENT: BlogCard -->
+
+      <!-- COMPONENT: BlogCard -->
+      <article data-component="BlogCard">
+        <p><small>Golf</small></p>
+        <h3><a href="blog/all/breaking-90-and-the-illusion-of-arrival/index.html">Breaking 90, and the Illusion of Arrival</a></h3>
+        <p><time datetime="2025-07-21">2025-07-21</time></p>
+      </article>
+      <!-- /COMPONENT: BlogCard -->
+
+      <!-- COMPONENT: BlogCard -->
+      <article data-component="BlogCard">
+        <p><small>Golf</small></p>
+        <h3><a href="blog/all/lessons-from-my-first-golf-tournament/index.html">Lessons from My First Golf Tournament</a></h3>
+        <p><time datetime="2025-07-14">2025-07-14</time></p>
+      </article>
+      <!-- /COMPONENT: BlogCard -->
+
+      <!-- COMPONENT: BlogCard -->
+      <article data-component="BlogCard">
+        <p><small>Bible</small></p>
+        <h3><a href="blog/all/the-light-the-darkness-cannot-understand/index.html">The Light the Darkness Cannot Understand</a></h3>
+        <p><time datetime="2025-05-28">2025-05-28</time></p>
+      </article>
+      <!-- /COMPONENT: BlogCard -->
+
+    </div>
+    <p><a href="blog/all/index.html">Browse more posts</a></p>
+  </section>
+
+  <section>
+    <h2>Featured Blogs</h2>
+    <div class="card-grid">
+
+      <!-- COMPONENT: BlogCard -->
+      <article data-component="BlogCard">
+        <p><small>Bible</small></p>
+        <h3><a href="blog/all/i-am-recovering-the-divine-voice/index.html">"I Am": Recovering the Divine Voice</a></h3>
+        <p><time>TBD</time></p>
+      </article>
+      <!-- /COMPONENT: BlogCard -->
+
+      <!-- COMPONENT: BlogCard -->
+      <article data-component="BlogCard">
+        <p><small>Bible</small></p>
+        <h3><a href="blog/all/a-message-from-the-courtyard-friday-reflections/index.html">A Message from the Courtyard: Friday Reflections</a></h3>
+        <p><time datetime="2025-04-18">2025-04-18</time></p>
+      </article>
+      <!-- /COMPONENT: BlogCard -->
+
+      <!-- COMPONENT: BlogCard -->
+      <article data-component="BlogCard">
+        <p><small>Free Thought</small></p>
+        <h3><a href="blog/all/the-challenge-of-being-a-believer/index.html">The Challenge of Being "A Believer"</a></h3>
+        <p><time datetime="2015-04-06">2015-04-06</time></p>
+      </article>
+      <!-- /COMPONENT: BlogCard -->
+
+      <!-- COMPONENT: BlogCard -->
+      <article data-component="BlogCard">
+        <p><small>Bible</small></p>
+        <h3><a href="blog/all/thanksgiving/index.html">Thanksgiving</a></h3>
+        <p><time datetime="2024-11-28">2024-11-28</time></p>
+      </article>
+      <!-- /COMPONENT: BlogCard -->
+
+      <!-- COMPONENT: BlogCard -->
+      <article data-component="BlogCard">
+        <p><small>Free Thought</small></p>
+        <h3><a href="blog/all/happy-4th-of-july/index.html">Happy 4th of July</a></h3>
+        <p><time datetime="2023-07-04">2023-07-04</time></p>
+      </article>
+      <!-- /COMPONENT: BlogCard -->
+
+    </div>
+    <p><a href="blog/all/index.html">Browse more posts</a></p>
+  </section>
+
+  <!-- COMPONENT: NewsletterSignup -->
+  <section data-component="NewsletterSignup">
+    <h2>Get Notifications For Each Fresh Post</h2>
+    <!-- TBD: Framer-rendered form. Real fields/action/states need browser inspection. -->
+    <form action="#">
+      <input type="email" name="email" placeholder="you@example.com" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+  <!-- /COMPONENT: NewsletterSignup -->
+
+</main>
+
+<!-- COMPONENT: GlobalFooter -->
+<footer data-component="GlobalFooter">
+  <a href="index.html"><strong>Fellipe Brito</strong></a>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blog/all/index.html">Blog</a></li>
+    </ul>
+  </nav>
+  <!-- TBD: GlobalFooter copyright string — needs browser inspection -->
+</footer>
+<!-- /COMPONENT: GlobalFooter -->
+
+</body>
+</html>

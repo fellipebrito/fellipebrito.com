@@ -1,0 +1,16 @@
+---
+// NewsletterForm — email + "Get my Tuesday Notes" submit.
+// Form action is stubbed; ESP/form-tool is a Phase 7+ decision.
+interface Props {
+  variant?: 'hero' | 'footer' | 'inline';
+}
+const { variant = 'inline' } = Astro.props;
+---
+<!-- NEEDS REVIEW: form action / ESP not chosen yet (Mailchimp / ConvertKit / Substack / Buttondown / Resend). Action stubbed to '#' until Fellipe picks. -->
+<form data-component="NewsletterForm" data-variant={variant} action="#" method="post">
+  <label>
+    <span>Email</span>
+    <input type="email" name="email" placeholder="you@domain.com" required />
+  </label>
+  <button type="submit">Get my Tuesday Notes</button>
+</form>

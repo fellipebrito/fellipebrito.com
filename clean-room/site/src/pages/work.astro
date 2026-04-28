@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBlock from '../components/HeroBlock.astro';
+import WorkRow from '../components/WorkRow.astro';
+import ClientGrid from '../components/ClientGrid.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import TestimonialQuote from '../components/TestimonialQuote.astro';
+---
+<BaseLayout title="Selected Work — Fellipe Brito">
+  <HeroBlock variant="page-default" h1="Selected Work" />
+
+  <!-- Bio -->
+  <section data-component="WorkBio">
+    <p>Christian. Entrepreneur. Creative problem solver.</p>
+    <p>I run Bossa Nova Solutions. The work below is the receipts.</p>
+  </section>
+
+  <section data-component="WhereEmbedded">
+    <h2>Where I've been embedded</h2>
+    <p><em>On payroll. Shipped product alongside their teams.</em></p>
+
+    <WorkRow company="Meta" years="2018–2022">
+      <p>Tech Solutions Architect, Media Operations. Music licensing across Facebook, Instagram, WhatsApp. 3-time Meta Hackathon winner (Quest, Messenger).</p>
+    </WorkRow>
+
+    <WorkRow company="SESAC" years="2014–2018">
+      <p>Director of Engineering. Rebuilt the royalty payment system end to end <strong>(3 months &rarr; 1 week, releasing tens of millions in back-pay to artists)</strong>. Built part of the dev team that still serves SESAC, Rumblefish, and MLC today.</p>
+    </WorkRow>
+
+    <WorkRow company="Rumblefish" years="2013–2014">
+      <p>Music licensing tech under the SESAC/HFA umbrella. Tools for independent publishers.</p>
+    </WorkRow>
+  </section>
+
+  <section data-component="ShippedFor">
+    <h2>Shipped for</h2>
+    <p><em>Project work. Delivered. Moved on.</em></p>
+    <ClientGrid phase="past" />
+  </section>
+
+  <section data-component="CurrentlyBuildingWith">
+    <h2>Currently building with</h2>
+    <p><em>Active partnerships. Ongoing work.</em></p>
+    <ClientGrid phase="current" />
+  </section>
+
+  <section data-component="MyProducts">
+    <h2>My products</h2>
+    <p><em>Things I'm building under my own roof.</em></p>
+    <ProductGrid />
+  </section>
+
+  <section data-component="Testimonial">
+    <TestimonialQuote
+      author="Muhammad Qasim"
+      role="CIO at SESAC"
+      showRecommendationsLink={true}
+    >
+      <p>"Hard to distinguish the Bossa Nova team members from our own employees."</p>
+    </TestimonialQuote>
+  </section>
+</BaseLayout>

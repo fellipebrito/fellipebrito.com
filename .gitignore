@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Node (defensive — clean-room/site/.gitignore already covers it)
+node_modules/
+
+# Build artifacts (defensive)
+dist/
+.astro/
+
+# Env
+.env
+.env.local

@@ -1,0 +1,22 @@
+---
+// BlogCard — used in writing indexes and the home WritingTeaser.
+// Date sourced from articles.json `date` field (NOT the listing UI's "July 25, 2023" Framer placeholder).
+const base = import.meta.env.BASE_URL;
+const stripBase = (b: string) => (b.endsWith('/') ? b.slice(0, -1) : b);
+
+interface Props {
+  title: string;
+  slug: string;
+  date: string | null;
+  category: string;
+}
+const { title, slug, date, category } = Astro.props;
+const href = `${stripBase(base)}/blog/all/${slug}`;
+---
+<article data-component="BlogCard">
+  <p><small>{category}</small></p>
+  <h3><a href={href}>{title}</a></h3>
+  {date
+    ? <p><time datetime={date}>{date}</time></p>
+    : <p><small>NEEDS REVIEW: date TBD</small></p>}
+</article>

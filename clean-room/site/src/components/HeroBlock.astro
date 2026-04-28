@@ -1,0 +1,42 @@
+---
+// HeroBlock — variants:
+//   home:         H1 + supporting line + NewsletterForm CTA + secondary text link
+//   page-default: H1 + optional subhead
+import NewsletterForm from './NewsletterForm.astro';
+
+interface Props {
+  variant?: 'home' | 'page-default';
+  h1: string;
+  supporting?: string;
+  microcopy?: string;
+  secondaryLinkHref?: string;
+  secondaryLinkText?: string;
+}
+const {
+  variant = 'page-default',
+  h1,
+  supporting,
+  microcopy,
+  secondaryLinkHref,
+  secondaryLinkText,
+} = Astro.props;
+---
+<section data-component="HeroBlock" data-variant={variant}>
+  <h1>{h1}</h1>
+
+  {supporting && (
+    <p>{supporting}</p>
+  )}
+
+  {variant === 'home' && (
+    <>
+      <NewsletterForm variant="hero" />
+      {microcopy && (
+        <p><small>{microcopy}</small></p>
+      )}
+      {secondaryLinkHref && secondaryLinkText && (
+        <p><a href={secondaryLinkHref}>{secondaryLinkText}</a></p>
+      )}
+    </>
+  )}
+</section>

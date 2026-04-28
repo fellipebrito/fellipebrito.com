@@ -1,0 +1,170 @@
+{
+  "_review_note": "NEEDS REVIEW: 3 articles have date: null (i-am-recovering-the-divine-voice, i-think-therefore-i-believe, it-is-she). They are appended to the END of the chronological chain in sitemap.json order. Fellipe must supply real dates to fix prev/next ordering.",
+  "_ordering": "Articles ordered by date ascending (oldest first). prev_slug = older, next_slug = newer.",
+  "articles": [
+    {
+      "slug": "the-challenge-of-being-a-believer",
+      "title": "The Challenge of Being \"A Believer\"",
+      "date": "2015-04-06",
+      "category": "Free Thought",
+      "prev_slug": null,
+      "next_slug": "happy-4th-of-july"
+    },
+    {
+      "slug": "happy-4th-of-july",
+      "title": "Happy 4th of July",
+      "date": "2023-07-04",
+      "category": "Free Thought",
+      "prev_slug": "the-challenge-of-being-a-believer",
+      "next_slug": "i-am-not-from-wakanda"
+    },
+    {
+      "slug": "i-am-not-from-wakanda",
+      "title": "I am not from Wakanda",
+      "date": "2023-07-04",
+      "category": "Free Thought",
+      "prev_slug": "happy-4th-of-july",
+      "next_slug": "the-case-for-christian-skepticism"
+    },
+    {
+      "slug": "the-case-for-christian-skepticism",
+      "title": "The Case for christian skepticism",
+      "date": "2024-04-01",
+      "category": "Bible",
+      "prev_slug": "i-am-not-from-wakanda",
+      "next_slug": "a-beautiful-day"
+    },
+    {
+      "slug": "a-beautiful-day",
+      "title": "A Beautiful Day Despite Life's Shadows",
+      "date": "2024-08-01",
+      "category": "Music",
+      "prev_slug": "the-case-for-christian-skepticism",
+      "next_slug": "why-should-i-read-mark"
+    },
+    {
+      "slug": "why-should-i-read-mark",
+      "title": "Why should I read Mark?",
+      "date": "2024-10-02",
+      "category": "Bible",
+      "prev_slug": "a-beautiful-day",
+      "next_slug": "never-enough"
+    },
+    {
+      "slug": "never-enough",
+      "title": "Never Enough",
+      "date": "2024-11-05",
+      "category": "Music",
+      "prev_slug": "why-should-i-read-mark",
+      "next_slug": "thanksgiving"
+    },
+    {
+      "slug": "thanksgiving",
+      "title": "Thanksgiving",
+      "date": "2024-11-28",
+      "category": "Bible",
+      "prev_slug": "never-enough",
+      "next_slug": "just-keep-swiming"
+    },
+    {
+      "slug": "just-keep-swiming",
+      "title": "Just keep swiming",
+      "date": "2024-12-03",
+      "category": "Bible",
+      "prev_slug": "thanksgiving",
+      "next_slug": "a-journey-through-the-gospel-of-john"
+    },
+    {
+      "slug": "a-journey-through-the-gospel-of-john",
+      "title": "A Journey Through the Gospel of John",
+      "date": "2025-04-16",
+      "category": "Bible",
+      "prev_slug": "just-keep-swiming",
+      "next_slug": "a-message-from-the-courtyard-friday-reflections"
+    },
+    {
+      "slug": "a-message-from-the-courtyard-friday-reflections",
+      "title": "A Message from the Courtyard: Friday Reflections",
+      "date": "2025-04-18",
+      "category": "Bible",
+      "prev_slug": "a-journey-through-the-gospel-of-john",
+      "next_slug": "the-light-the-darkness-cannot-understand"
+    },
+    {
+      "slug": "the-light-the-darkness-cannot-understand",
+      "title": "The Light the Darkness Cannot Understand",
+      "date": "2025-05-28",
+      "category": "Bible",
+      "prev_slug": "a-message-from-the-courtyard-friday-reflections",
+      "next_slug": "lessons-from-my-first-golf-tournament"
+    },
+    {
+      "slug": "lessons-from-my-first-golf-tournament",
+      "title": "Lessons from My First Golf Tournament",
+      "date": "2025-07-14",
+      "category": "Golf",
+      "prev_slug": "the-light-the-darkness-cannot-understand",
+      "next_slug": "breaking-90-and-the-illusion-of-arrival"
+    },
+    {
+      "slug": "breaking-90-and-the-illusion-of-arrival",
+      "title": "Breaking 90, and the Illusion of Arrival",
+      "date": "2025-07-21",
+      "category": "Golf",
+      "prev_slug": "lessons-from-my-first-golf-tournament",
+      "next_slug": "a-conversation-with-my-anxiety"
+    },
+    {
+      "slug": "a-conversation-with-my-anxiety",
+      "title": "A Conversation with My Anxiety",
+      "date": "2025-08-14",
+      "category": "Free Thought",
+      "prev_slug": "breaking-90-and-the-illusion-of-arrival",
+      "next_slug": "ai-where-i-m-drawing-the-line"
+    },
+    {
+      "slug": "ai-where-i-m-drawing-the-line",
+      "title": "AI :: Where I'm drawing the line",
+      "date": "2026-02-24",
+      "category": "Tech",
+      "prev_slug": "a-conversation-with-my-anxiety",
+      "next_slug": "we-never-lose"
+    },
+    {
+      "slug": "we-never-lose",
+      "title": "We never lose",
+      "date": "2026-04-14",
+      "category": "Golf",
+      "prev_slug": "ai-where-i-m-drawing-the-line",
+      "next_slug": "i-am-recovering-the-divine-voice",
+      "_review_note": "NEEDS REVIEW: this is currently the newest dated article; next_slug points at the first dateless article. Once Fellipe supplies real dates for the dateless 3, recompute next_slug."
+    },
+    {
+      "slug": "i-am-recovering-the-divine-voice",
+      "title": "\"I Am\": Recovering the Divine Voice",
+      "date": null,
+      "category": "Bible",
+      "prev_slug": "we-never-lose",
+      "next_slug": "i-think-therefore-i-believe",
+      "_review_note": "NEEDS REVIEW: dateless article — supply real date to fix ordering."
+    },
+    {
+      "slug": "i-think-therefore-i-believe",
+      "title": "I think, therefore I believe",
+      "date": null,
+      "category": "Bible",
+      "prev_slug": "i-am-recovering-the-divine-voice",
+      "next_slug": "it-is-she",
+      "_review_note": "NEEDS REVIEW: dateless article — supply real date to fix ordering."
+    },
+    {
+      "slug": "it-is-she",
+      "title": "It is she!",
+      "date": null,
+      "category": "Short Stories",
+      "prev_slug": "i-think-therefore-i-believe",
+      "next_slug": null,
+      "_review_note": "NEEDS REVIEW: dateless article — supply real date to fix ordering."
+    }
+  ]
+}

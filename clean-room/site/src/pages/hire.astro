@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBlock from '../components/HeroBlock.astro';
+import ContactBlock from '../components/ContactBlock.astro';
+import TestimonialQuote from '../components/TestimonialQuote.astro';
+---
+<BaseLayout title="Work with me — Fellipe Brito">
+  <HeroBlock variant="page-default" h1="Work with me" />
+
+  <section data-component="HireTestimonial">
+    <TestimonialQuote
+      author="Sam Kling"
+      role="Chief Creative Officer, SESAC"
+      showRecommendationsLink={true}
+    >
+      <p>"In a world of probabilities, where circumstances often predetermine outcomes, Fellipe Britto is an absolute improbability."</p>
+    </TestimonialQuote>
+  </section>
+
+  <ContactBlock />
+</BaseLayout>

@@ -1,0 +1,869 @@
+==================================================================
+CLEAN ROOM — fellipebrito.com
+==================================================================
+Project : Reverse-engineer fellipebrito.com (Framer-hosted) →
+          local wireframe-style scaffold editable via Claude Code.
+Owner   : Fellipe Brito
+Started : 2026-04-27
+Driver  : NOVA (Engineer Augmented Framework)
+
+PURPOSE OF THIS LOG
+-------------------
+Fellipe wants a full audit trail so he can later review:
+  - which agents NOVA used and why
+  - exact prompts sent to each agent
+  - summaries of what each agent returned
+  - architectural decisions and revisions
+This log is the artifact, not the conversation.
+
+PLAN
+----
+Phase 0 — Init: directory structure + log header
+Phase 1 — Discovery: single agent extracts per-page dossier
+          (content, structure, assets, meta) + sitemap
+Phase 2 — Synthesis: wireframe agent produces markdown
+          wireframes + component inventory + IA sitemap
+Phase 3 — Scaffold: agent generates semantic HTML stubs with
+          minimal outline CSS, browsable locally
+
+ARCHITECTURE NOTE — Phase 1 collapse
+------------------------------------
+Original proposal (agreed by Fellipe): 4 parallel parser agents
+(Crawler, Content, Structure, Asset). NOVA revised pre-launch to
+1 unified Discovery agent. Reason: WebFetch returns processed
+content, not raw HTML, so splitting "fetch" from "parse" multiplies
+network calls without adding parallelism. One agent with structured
+extraction prompts produces identical outputs with less context
+churn. Logged here so the design choice is visible.
+
+OUTPUT TREE
+-----------
+clean-room/
+  pages/<slug>.md        — per-page dossier from Phase 1
+  sitemap.json           — Phase 1 manifest
+  wireframes/<slug>.md   — Phase 2 wireframes
+  components.md          — Phase 2 reusable blocks
+  sitemap.md             — Phase 2 IA tree
+  scaffold/              — Phase 3 HTML stubs
+    index.html
+    <path>/index.html
+    wireframe.css
+
+==================================================================
+
+=== [2026-04-27] PHASE 0 — INIT — DONE ===
+Created:
+  clean-room/pages/
+  clean-room/wireframes/
+  clean-room/scaffold/
+  claude.output.log
+
+=== [2026-04-27] PHASE 1 — DISCOVERY — DONE ===
+
+PROMPT SENT (verbatim) — see prompt block below.
+
+----- PROMPT -----
+You are the Discovery agent for a Clean Room reverse-engineering of
+fellipebrito.com (a Framer-hosted personal site). NOVA is building a
+local, editable wireframe replica.
+
+Goal: per-page dossier for every public page + top-level sitemap.
+
+Steps: (1) try /sitemap.xml, fall back to homepage BFS depth=1.
+       (2) for each URL, WebFetch with structured prompt asking for
+           title, meta, heading hierarchy, nav, sections (verbatim
+           copy), CTAs, footer, forms, embeds.
+       (3) write clean-room/pages/<slug>.md per page + sitemap.json.
+       (4) report concise summary (under 300 words).
+
+Constraints: WebFetch only; no asset downloads; verbatim copy in
+sections; cap at 50 pages.
+
+Slug rules: / -> index ; /a -> a ; /a/b -> a--b.
+------------------
+
+RESULT SUMMARY
+--------------
+- discovery method: sitemap.xml (clean, 30 URLs)
+- pages dossiered : 30 of 30 attempted
+- failures        : 1  (/404 returns HTTP 404 on direct access)
+- output dir      : clean-room/pages/ (30 files)
+- manifest        : clean-room/sitemap.json
+
+KEY FINDINGS (Phase 2 must know)
+--------------------------------
+1. Site is the paid Framer template "Newsbook" by Moise David.
+   Template chrome is leaking on 4 pages (privacy-policy, style-guide,
+   licenses, passworld) — NOT Fellipe's content. NOVA decision: Phase 2
+   will skip these unless Fellipe overrides.
+2. Global chrome is identical sitewide. Nav: [Fellipe Brito | Home |
+   Blog]. Footer: same. No About/Work/Contact routes exist.
+3. Site is purely a blog. 1 home + 5 blog index/category routes (all,
+   bible, music, tech, golf) + 20 articles = 26 content pages worth
+   wireframing.
+4. Every article ends with a STATIC "Recent Post" widget showing the
+   same 3 cards (we-never-lose / ai-where-i-m-drawing-the-line /
+   a-conversation-with-my-anxiety) — not dynamic related-posts.
+5. Every page expected to render an H2 "Get Notifications For Each
+   Fresh Post" newsletter block — Framer-native form, fields/action
+   did not surface via WebFetch (JS-rendered). Phase 2 should reserve
+   a wireframe slot but mark form internals as "TBD: needs browser
+   inspection".
+6. Category index pages (Golf, Tech especially) partially failed to
+   surface card grids via WebFetch. Canonical list is /blog/all;
+   /blog/{bible,music,tech,golf} are filtered views. Phase 2 should
+   wireframe categories as variants of /blog/all.
+7. Oldest article 2015, references dead code.fellipebrito.com
+   subdomain (content was migrated). Newest is 2026-04-14 Masters piece.
+8. Card-listing pages show placeholder date "July 25, 2023" on every
+   card — Framer template default. Real dates live inside article
+   pages.
+
+NOVA DECISIONS BEFORE PHASE 2
+-----------------------------
+- Skip 4 template-leak pages from wireframing (flagged to Fellipe).
+- Treat /blog/{bible,music,tech,golf} as variants of /blog/all.
+- Mark newsletter form internals as TBD.
+- Recent-posts widget = shared component, not per-article.
+
+=== [2026-04-27] PHASE 2 — WIREFRAMING — DONE ===
+
+PROMPT SENT (verbatim) — see prompt block below.
+
+----- PROMPT (abbrev.) -----
+You are the Wireframe agent. Read clean-room/sitemap.json + dossiers
+in clean-room/pages/. Wireframe 26 in-scope pages (skip 4 template-
+leak pages). Use canonical templates: 1 ARTICLE-TEMPLATE + 20 thin
+article variants; 1 blog--all canonical + 4 thin category variants.
+Output: clean-room/wireframes/<slug>.md (×27), components.md,
+sitemap.md.
+Constraints: structural intent only, no design/CSS/HTML, verbatim
+H1/H2, reference dossiers for body copy.
+---------------------------
+
+RESULT SUMMARY
+--------------
+- wireframes : 27 files (1 home + 5 blog index + 1 ARTICLE-TEMPLATE
+              + 20 thin article variants)
+- components : 12 components in clean-room/components.md
+              (5 expected + 7 additional: ArticleHero, HomeHero,
+              CategoryHero, BlockQuote/ScripturePullQuote/PullQuote
+              family, GreekVerseHeader [singleton], ArticleSources
+              [singleton], InlineImage, MediaEmbed)
+- IA sitemap : clean-room/sitemap.md (with skipped routes called out)
+
+INCONSISTENCIES FLAGGED
+-----------------------
+- AFFILIATE LEAK: blog-index pages render a "Get the Template" link
+  → Moise David's Lemon Squeezy. Phase 3 must strip.
+- IA GAP: "Free Thought" (4 articles) + "Short Stories" (1 article)
+  are CMS categories with no public index route.
+- 3 articles have date: null — Fellipe must supply.
+- Slug typo: just-keep-swiming (preserve URL, flag for future).
+- Title casing oddity: "The Case for christian skepticism".
+- RecentPostsWidget = latest 3 published excluding self (not pure
+  static). Phase 3 chooses static array vs derived.
+- BlogCard live-site date bug ("July 25, 2023" placeholder) — Phase
+  3 must source date from article record.
+- /blog/tech, /blog/golf returned partial/empty grids — likely
+  Framer collection-filter bug, verify in browser.
+
+BROWSER-INSPECTION PUNCH LIST (12 TBDs)
+---------------------------------------
+1. NewsletterSignup fields/action/states (sitewide).
+2. Hero images alt+src on all pages.
+3. "Made in Framer" badge presence.
+4. Mobile menu / hamburger behavior.
+5. GlobalFooter copyright string.
+6. MediaEmbed iframes on never-enough (song), a-beautiful-day (U2),
+   just-keep-swiming (Finding Nemo).
+7. Inline image src/alt on thanksgiving.
+8. Whether /blog/tech, /blog/golf actually render grids.
+9. Whether NewsletterSignup renders on homepage.
+10. Whether "Browse more posts" CTA renders on every article.
+11. True dates for 3 dateless articles + listing-UI date bug.
+12. Liveness of legacy code.fellipebrito.com.
+
+NOVA DECISIONS BEFORE PHASE 3
+-----------------------------
+- Phase 3 will strip affiliate "Get the Template" link.
+- Phase 3 will leave dateless articles as TBD placeholders.
+- Phase 3 will preserve just-keep-swiming slug (URL-stability).
+- Phase 3 will NOT add Free Thought / Short Stories index routes
+  (out of scope — wireframe replica reflects live site only).
+- Phase 3 will use a single wireframe.css (outline boxes only) and
+  semantic HTML; no design tokens.
+
+=== [2026-04-27] PHASE 3 — SCAFFOLD — DONE ===
+
+PROMPT SENT (verbatim) — see prompt block below.
+
+----- PROMPT (abbrev.) -----
+You are the Scaffold agent. Read clean-room/wireframes/* and pages/*.
+Generate semantic HTML for 26 in-scope pages under clean-room/scaffold/
+with file-based routing. ONE wireframe.css (outline boxes, grayscale,
+under 100 lines). Mark every component with data-component="<Name>"
++ <!-- COMPONENT --> open/close comments. Body copy = stub pointing
+to dossier (don't paste prose). Strip "Get the Template" affiliate.
+NewsletterSignup = stub form with TBD comment. Skip 4 template-leak
+pages. No JS, no CDN, no fonts, no colors, relative paths only
+(file:// must work). Write README.md with TBD punch list.
+---------------------------
+
+RESULT SUMMARY
+--------------
+- HTML pages : 26  (1 home + 5 blog indexes + 20 articles)
+- CSS        : 1   (wireframe.css)
+- README     : 1
+- total size : 128K
+- entrypoint : clean-room/scaffold/index.html (open with `open <path>`)
+
+CARD-COUNT SANITY (matches sitemap.md)
+--------------------------------------
+/blog/all   : 20 cards
+/blog/bible : 9
+/blog/golf  : 3
+/blog/music : 2
+/blog/tech  : 1
+Free Thought (4) + Short Stories (1) only on /blog/all (no public
+index routes for those CMS categories).
+
+INCONSISTENCIES RESOLVED
+------------------------
+- 3 dateless articles -> rendered <time>TBD</time>.
+- RecentPostsWidget exclude-self exception: on /we-never-lose only,
+  swapped self for breaking-90-and-the-illusion-of-arrival. All
+  other 19 articles show canonical static 3.
+- Affiliate "Get the Template" link stripped on all 5 blog indexes
+  (HTML comment marker left).
+- Per-article deviation hooks (BlockQuote, ScripturePullQuote,
+  MediaEmbed, InlineImage, GreekVerseHeader, ArticleSources) wired
+  for the 9 articles flagged in Phase 2; remaining 11 use bare
+  template.
+- Slug "just-keep-swiming" preserved (URL stability).
+- Title "The Case for christian skepticism" preserved verbatim.
+
+CONVENTIONS APPLIED
+-------------------
+- data-component="<Name>" on every wrapper
+- <!-- COMPONENT: <Name> --> open/close comments around every block
+- relative paths from any depth verified to resolve
+
+==================================================================
+PROJECT COMPLETE — CLEAN ROOM v1 (wireframe pass) shipped.
+==================================================================
+
+DELIVERABLES
+------------
+clean-room/
+  pages/             — 30 dossiers (incl. 4 template pages, kept for
+                       audit but not rebuilt)
+  sitemap.json       — Phase 1 manifest
+  wireframes/        — 27 wireframes (canonical templates +
+                       thin variants)
+  components.md      — 12 components inventoried
+  sitemap.md         — IA tree
+  scaffold/          — 26 HTML pages + wireframe.css + README
+
+AGENT TEAM (3, sequential)
+--------------------------
+Phase 1  Discovery    | general-purpose subagent
+Phase 2  Wireframe    | general-purpose subagent
+Phase 3  Scaffold     | general-purpose subagent
+
+Total subagent invocations: 3.
+Pre-launch architecture revision: 4 parallel parsers -> 1 unified
+Discovery (logged with reasoning above).
+
+OWNED BY FELLIPE — NEXT STEPS
+-----------------------------
+1. Open scaffold: `open clean-room/scaffold/index.html`
+2. Walk the wireframe; decide IA changes (Free Thought / Short
+   Stories index routes? About / Hire-me / Newsletter top-level?)
+3. Resolve the 12 TBDs in scaffold/README.md (browser inspection
+   of live Framer site for forms, hero images, mobile menu, etc.)
+4. Decide on design direction.
+5. Decide on hosting (Vercel/Netlify static, or framework like
+   Next/Astro for the article CMS layer).
+6. Migrate real article content from pages/<slug>.md dossiers into
+   the chosen framework when ready.
+
+==================================================================
+
+==================================================================
+PHASE 4 — RESEARCH (LAUNCHED)
+==================================================================
+
+CONTEXT
+-------
+Fellipe wants to evolve Clean Room v1 (blog-only) into a personal
+brand site. Visitor must decode in ~10s: Christian + Entrepreneur +
+Tech Operator + Solutions Builder. Receipts: Facebook, SESAC,
+Rumblefish, PING, Whiskey Social, QWIRE, Netflix, NBC, Spotify.
+Wireframe-style still — no design.
+
+DECISIONS LOCKED PRE-LAUNCH
+---------------------------
+- Audience primary  : (a) potential clients / business partners
+- Audience secondary: (d) writing readers
+- Positioning order : Christian first
+- Work + Projects   : one page ("Selected Work")
+- Contact mechanism : Google Form
+- References to use : NOVA-picked
+- Stack             : TBD at Phase 7 (Astro vs Vite+React+TS+
+                      Tailwind/GH-Pages a la ~/nova/sandbox/
+                      projects/brasileirao2)
+
+AGENTS LAUNCHING (4 PARALLEL, READ-ONLY, WEB)
+---------------------------------------------
+R1 — Pattern Scan        | clean-room/research/01-pattern-scan.md
+R2 — Identity Layering   | clean-room/research/02-identity-layering.md
+R3 — Track-Record        | clean-room/research/03-track-record.md
+R4 — Funnel UX           | clean-room/research/04-funnel-ux.md
+
+
+=== [2026-04-27] PHASE 4 — RESEARCH — DONE ===
+All 4 parallel agents completed.
+
+R1 PATTERN SCAN     | 12 sites + 2 bonus | 01-pattern-scan.md (266 lines)
+  Top 3 patterns   : 2-sentence hero / 3-noun tagline / newsletter w/ social proof
+  Top 2 antipatterns: stale time-stamps in nav / mononym hero from non-famous
+  Surprise         : Tim Challies's anti-AI footer line — 2026 differentiator
+
+R2 IDENTITY LAYER   | 13 sites surveyed   | 02-identity-layering.md (186 lines)
+  6 strategies     : Faith-Forward Hero, Layered Bridge, Credentialed Polymath,
+                     Faith-Coded Nav, Tagged-Content Split, Two-Site Split
+  Best examples    : John Dyer (j.hn) / Russell Moore
+  Hard antipattern : Christianese / Latin / verses in hero
+  Recommendation   : Compound conjunction hero (Dyer/Moore model)
+
+R3 TRACK-RECORD     | 6 patterns + 2 layouts | 03-track-record.md (263 lines)
+  Best mixed comp  : Josh Mateo (employer narrative + nested client roster)
+  Logo verdict     : Use logos in 2 labeled tiers (recognizable / industry-specific)
+  Layout pick A    : Mateo Hybrid (RECOMMENDED)
+  Layout pick B    : Selected Work List (text-only fallback)
+  Header verb      : "Selected Work" + "Where I've been embedded" / "Shipped for"
+
+R4 FUNNEL UX        | 30+ sources         | 04-funnel-ux.md (272 lines)
+  CTA verdict      : Asymmetric single-primary; newsletter dominant in hero
+  Anti-pattern #1  : Two equal-weight CTAs in hero (decision paralysis)
+  Newsletter       : Hero + footer + inline-mid-article; NO popups/sticky/exit-intent
+  Form             : Embed on /work page, never link out to forms.gle
+  Submit copy      : "Tell me about it" / "Send your project" — never "Submit"
+
+CROSS-RESEARCH TENSIONS SURFACED FOR PHASE 5
+--------------------------------------------
+1. Newsletter-dominant CTA (R4 data) vs client-primary audience (Fellipe's stated
+   priority). Phase 5 surfaces both as options.
+2. Google Form (Fellipe's pick) vs Tally/Typeform (R4's recommendation).
+   Phase 5 surfaces tradeoff; deferrable.
+3. 4-noun identity (Christian/Entrepreneur/Tech/Solutions) vs 3-noun research
+   ceiling. Phase 5 proposes Tech+Solutions merge.
+
+=== [2026-04-27] PHASE 5 — SYNTHESIS — DONE ===
+Output: clean-room/research/05-recommendations.md
+
+DELIVERABLES
+------------
+- 5-page IA proposed (1 recommended + 2 alternatives)
+- 3 hero variants drafted with verbatim copy
+- CTA hierarchy: default + inverted, both costed
+- Selected Work: 2 layouts costed
+- Newsletter copy: 3 options
+- Components list for Phase 7 (8 new + 9 refactored)
+- 5 decisions surfaced to Fellipe (+ 2 deferrable bonuses)
+
+
+=== [2026-04-27] PHASE 6 — WIREFRAME EXPANSION — DONE ===
+Single agent (subagent-wireframe-v2). Spec: 05-recommendations.md.
+
+CHANGES
+-------
+WRITTEN/REPLACED (5):
+  index.md       — v2 home (HeroBlock A + WritingTeaser + WorkTeaser
+                   + AboutTeaser + NewsletterInline)
+  work.md        — NEW Selected Work, Mateo Hybrid layout
+  about.md       — NEW 5-section AboutBlock
+  hire.md        — NEW with 6-field ContactBlock (R4 spec)
+  sitemap.md     — v2 IA tree + 301 redirect map
+
+UPDATED (7):
+  blog--all--ARTICLE-TEMPLATE.md — RecentPostsWidget DEPRECATED;
+                                   ArticleNavigation (next/prev) added
+  blog--all.md                   — URL /blog/all -> /writing; H1 -> "Writing"
+  blog--{bible,music,tech,golf}  — URL rename /blog -> /writing
+  components.md                  — 9 new components appended;
+                                   GlobalHeader/Footer v2;
+                                   RecentPostsWidget DEPRECATED
+
+NEW COMPONENTS (9)
+------------------
+HeroBlock, NewsletterForm, NewsletterInline, WorkRow, ClientGrid,
+ClientCaseNote, AboutBlock, ContactBlock, ArticleNavigation
+
+DECISIONS LOGGED BY AGENT
+-------------------------
+- "Recent writing" replaces "Recent Post" home section label
+  (avoids confusion with deprecated RecentPostsWidget)
+- Footer absorbs v1 Framer "Navigation" block — single GlobalFooter
+- Card hrefs on /writing updated to /writing/<slug>
+- ArticleHero stays distinct from HeroBlock (carries byline/date/
+  category) — merge question deferred to Phase 7
+
+TBDs PUNTED (require Fellipe content)
+-------------------------------------
+- Year-ranges for Facebook / SESAC / Rumblefish
+- 3 articles with date: null — how they slot in ArticleNavigation chain
+- ClientCaseNote URL pattern (per-route vs anchor)
+- Form tool (Tally / Typeform / Google Form)
+- Anti-AI footer micro-line (Phase 5 deferred)
+- Social handles in About
+
+
+=== [2026-04-27] PHASE 7 — ASTRO BUILD — DONE ===
+Single agent (subagent-astro-build). Build PASS.
+
+STACK
+-----
+Astro 5.14.1 (latest stable) + plain CSS. NO Tailwind. NO design system.
+277 npm packages installed.
+
+OUTPUT
+------
+clean-room/site/
+  package.json + astro.config.mjs (NEEDS REVIEW: site URL, base path)
+  tsconfig.json + .gitignore + README.md
+  src/
+    layouts/BaseLayout.astro
+    components/  -> 17 .astro components
+    pages/       -> 10 routes (4 top + 5 writing + 1 dynamic [slug])
+    data/        -> articles.json + clients.json
+    styles/wireframe.css
+.github/workflows/deploy.yml  (GitHub Pages, working-directory tweak)
+
+BUILD
+-----
+npm run build : PASS, 0 errors / 0 warnings, 361ms
+dist/         : 228KB, 29 HTML files (4 top + 5 writing-idx + 20 articles)
+node_modules  : 146MB (gitignored)
+
+NEEDS REVIEW MARKERS — EXHAUSTIVE
+---------------------------------
+infrastructure
+  1. astro.config.mjs           : site URL
+  2. astro.config.mjs           : base path
+  3. .github/workflows/deploy.yml: enable note
+
+forms / 3rd-party
+  4. NewsletterForm.astro       : action / ESP (×3 placements)
+  5. ContactBlock.astro         : Tally iframe stubbed about:blank
+
+content placeholders (Fellipe to supply)
+  6. HeroBlock.astro            : hero media slot
+  7. GlobalFooter.astro         : anti-AI tagline (yes/no decision)
+  8. AboutBlock.astro           : social handles (X/LinkedIn/GitHub)
+  9. WorkRow x3                 : Facebook/SESAC/Rumblefish year-ranges + roles
+ 10. clients.json x6            : case notes (Netflix/NBC/Spotify/QWIRE/PING/Whiskey)
+ 11. work.astro                 : optional testimonial pull-quote
+ 12. articles.json              : 3 dateless articles (i-am-recovering-the-divine-
+                                  voice / i-think-therefore-i-believe / it-is-she)
+                                  — supply dates to fix prev/next ordering
+ 13. [slug].astro               : article body content (×20 placeholder)
+ 14. ArticleHero.astro          : visible NEEDS REVIEW renders only on 3 dateless
+
+draft copy (preserved <!-- DRAFT - Fellipe to revise -->)
+ - hero supporting line, AboutTeaser bio, 5 AboutBlock sub-sections,
+   WorkTeaser pitch, footer copyright, NewsletterInline copy,
+   ContactBlock paragraphs, work.astro 3-line bio, NewsletterForm hero microcopy
+
+DECISIONS BY AGENT
+------------------
+- 18 components built (spec called for 16; BlogList + BlockQuote added per
+  components.md inventory)
+- BASE_URL helper inlined per-component (cheap dup; lets base change without
+  touching components)
+- Article navigation chain stored as prev_slug/next_slug in articles.json
+  (not derived at render time)
+- Dateless articles appended at END of chain in original sitemap.json order
+- needs-review CSS = yellow bg + red dashed border + monospace
+  (UNMISSABLE against grey-on-white wireframe)
+- Empty public/ kept (Astro doesn't complain; image assets land here later)
+
+==================================================================
+PROJECT COMPLETE — Clean Room v2 (Astro build) shipped.
+==================================================================
+
+OWNED BY FELLIPE — UNBLOCKED NEXT STEPS
+---------------------------------------
+A. Verify locally:
+     cd clean-room/site && npm install && npm run dev
+     Open http://localhost:4321
+B. Walk every page; review every yellow NEEDS-REVIEW block
+C. Supply content (priority order):
+     1. Tally form URL                  -> swap iframe in ContactBlock
+     2. Year-ranges + roles for 3 employers (WorkRow)
+     3. 6 client case notes              (clients.json)
+     4. 3 dateless article dates         (articles.json)
+     5. Social handles                   (AboutBlock)
+     6. Anti-AI footer line              (yes/no, GlobalFooter)
+     7. Hero supporting line + draft copy revisions
+D. Repo + deploy:
+     1. git init / push to GitHub
+     2. Update astro.config.mjs site + base
+     3. Enable GitHub Pages on the repo (Settings -> Pages -> source:
+        "GitHub Actions")
+     4. Push to main; deploy.yml runs
+
+==================================================================
+
+=== [2026-04-27] ITERATION ROUND 1 — IN-PLACE EDITS ===
+
+USER INPUTS THIS ROUND
+----------------------
+- Newsletter copy override: "Get my Tuesday Notes" (writes Mondays, sends Tuesdays)
+- Picked NOVA's leans on the other 4 Phase 5 decisions
+- New client list (later corrected to "current + past, both surface"):
+  Current/featured: Ping, QWIRE, Whiskey Social, Tee Time Trainer,
+                    UVL, Season Seek
+  Past credits   : Netflix, NBC, Spotify (kept as text mentions, not
+                   ClientGrid cells)
+- LinkedIn URL for testimonial / year-range research
+- 2 PDFs: Recommendation Letters.pdf (5 testimonials) + SamK.pdf
+  (Sam Kling rich letter — strongest narrative material)
+- Social handles: LinkedIn, GitHub NOVA repo, Instagram, SoundCloud
+- Framer DB screenshots — confirmed 17/20 articles dated, 3 dateless
+  (matching Phase 1 Discovery)
+- Authorized self-migration of article bodies (no Framer markdowns
+  needed — Phase 1 dossiers contain verbatim copy)
+
+DIRECT EDITS (NOVA, main thread)
+--------------------------------
+- src/data/clients.json    : replaced with new 6 current clients
+- src/components/AboutBlock.astro:
+    "Where I've been" updated to "embedded at … shipped for past
+    credits … currently building with [new 6]"
+    "How to find me" — 4 social links wired
+- src/components/WorkTeaser.astro: pitch line updated; logo strip
+  Facebook/Netflix/Spotify/NBC retained for first-impression weight
+- src/components/ContactBlock.astro: past-work + current-clients
+  text mentions updated
+- src/pages/work.astro:
+    bio updated
+    Scott Freiman / QWIRE testimonial wired in (replaces NEEDS REVIEW
+    placeholder block)
+
+NEW ARTIFACT
+------------
+clean-room/COPY-WORKSHOP.md — every draft copy item (10–18) with file
+refs, current text, voice constraints, reference material from PDFs,
+3 example variants per item to react against in Claude Desktop.
+
+ARTICLE MIGRATION SUBAGENT (Phase 7+ extension)
+-----------------------------------------------
+First attempt   : STALLED at 600s watchdog (no tool calls before
+                  timeout). No state on disk.
+Retry           : COMPLETED 8 min, 53 tool calls. Build PASS.
+                  Created 20 article files at src/content/articles/
+                  + content collection config (src/content/config.ts)
+                  + updated [slug].astro to render <Content />.
+
+dist size: 228K -> 288K (60K body content added).
+29 routes still generate.
+
+THIN BODY FLAGGED FOR MANUAL RECAPTURE FROM FRAMER
+--------------------------------------------------
+- never-enough              : missing song embed at end
+- just-keep-swiming         : missing Finding Nemo embed/quote at end
+- i-think-therefore-i-believe : 2 sub-sections likely had bulleted
+                               lists that WebFetch flattened
+
+DECISION BY MIGRATION AGENT (LOGGED)
+------------------------------------
+Removed `slug` from content collection schema — Astro reserves `slug`
+as a special frontmatter field, was causing "slug: Required" errors.
+Filename derives slug; getEntry('articles', article.slug) works
+directly off filenames. Frontmatter `slug:` lines kept as harmless
+documentation but not enforced.
+
+NEEDS REVIEW MARKERS REMAINING (post-this-round)
+------------------------------------------------
+Resolved        : 4 (clients.json, social handles, testimonial,
+                  partial copy data lists across 4 components)
+Still standing  : ~15 (form ESP, Tally embed, hero media, year-ranges,
+                  3 dateless dates, anti-AI footer, copy revisions,
+                  3 thin-body articles, repo URL, base path, deploy
+                  workflow enable, hero supporting line, testimonial
+                  section optionally, 6 client case notes)
+
+
+=== [2026-04-27] ITERATION ROUND 2 — COPY REVISION PACK ===
+
+USER INPUT
+----------
+Locked copy from Claude Desktop session for items 10-18 + H1 unlock
++ new /recommendations route + TestimonialQuote component + Footer
+anti-AI line.
+
+H1 UNLOCK (explicit confirmation)
+---------------------------------
+"Christian. Entrepreneur. Builder of tools that last."  (locked)
+                       -> 
+"Christian. Entrepreneur. Creative problem solver."     (unlocked)
+
+Cascading language change: "creative problem solving" + "building
+solutions for [client]" replaces "shipping" / "builder of tools"
+in marketing surfaces. Triad verbs (Embedded at / Shipped for /
+Currently building with) preserved where the relationship type
+matters.
+
+EDITS APPLIED (13 files)
+------------------------
+DATA
+  src/data/clients.json
+    - Split phase: past (Netflix/NBC/Spotify) | current (PING/QWIRE/
+      Whiskey Social/UVL)
+    - Removed: Tee Time Trainer, Season Seek (Fellipe's own products,
+      not clients — surface as text in About sub-3 only)
+
+COMPONENTS
+  ClientGrid.astro              : phase prop ('past' | 'current') filter
+  HeroBlock.astro               : (no edit; props pass through)
+  AboutTeaser.astro             : Item 12 copy
+  AboutBlock.astro              : Item 13 — 5 sub-sections rewritten
+                                  Sub-5 dropped CTA links, kept socials
+  WorkTeaser.astro              : Item 14 pitch line
+  NewsletterInline.astro        : Item 17 default props
+  GlobalFooter.astro            : Item 18 anti-AI line + link to
+                                  /writing/ai-where-i-m-drawing-the-line
+                                  (silent-corrected from /blog/all path)
+                                  + /recommendations in footer nav
+  ContactBlock.astro            : Item 16 intro paragraphs (testimonial
+                                  added at /hire page level, not here)
+  TestimonialQuote.astro        : NEW reusable, slot-based for arbitrary
+                                  body length, optional "more
+                                  recommendations →" link
+
+PAGES
+  src/pages/index.astro         : H1 unlock + Item 10 + Item 11 +
+                                  NewsletterInline default copy
+  src/pages/work.astro          : 3-section restructure
+                                    Where I've been embedded → WorkRow
+                                      x3 (Meta/SESAC/Rumblefish, was
+                                      Facebook)
+                                    Shipped for → ClientGrid phase=past
+                                    Currently building with →
+                                      ClientGrid phase=current
+                                    Italic intros under each H2
+                                  Bio shortened to 2 lines
+                                  Testimonial: Scott Freiman REPLACED
+                                  by Muhammad Qasim
+  src/pages/hire.astro          : Sam Kling testimonial added between
+                                  HeroBlock and ContactBlock
+  src/pages/recommendations.astro : NEW. 6 testimonials in stack order:
+                                  Sam Kling (full letter, "Fillipe"
+                                  silent-corrected to "Fellipe"
+                                  throughout), Muhammad Qasim, Scott
+                                  Freiman, Steve Schaaf, Stephen
+                                  Rollins, Gideon Arom
+
+VERBATIM PRESERVATION
+---------------------
+- Hero supporting line says "Facebook" (Fellipe's exact words)
+- AboutBlock + /work say "Meta" (Fellipe's exact words for those
+  surfaces)
+- WorkTeaser logo strip stays Facebook · Netflix · Spotify · NBC
+  (recognizability for first impression; Fellipe didn't override)
+- "the work below is the receipts" — preserved (intentional voice
+  choice; not normalized to "is the receipt")
+- Sam Kling's voice line "Honestly, it's almost annoying." — kept
+  on /recommendations
+
+BUILD STATUS
+------------
+PASS — 30 pages built in 534ms (up from 29; new route is
+/recommendations).
+
+OPEN ITEMS (still NEEDS REVIEW)
+-------------------------------
+- Hero media slot                   : portrait/mark/illustration/none
+- Newsletter ESP                    : Mailchimp/ConvertKit/Substack/
+                                      Buttondown/Resend
+- Tally form embed                  : real Tally URL pending
+- 3 employer year-ranges + roles    : Meta / SESAC / Rumblefish
+- 3 dateless article dates          : i-am-recovering-the-divine-voice,
+                                      i-think-therefore-i-believe,
+                                      it-is-she
+- 7 client case-note bodies         : 3 past + 4 current, each 2-para
+- 3 thin-body articles              : never-enough, just-keep-swiming,
+                                      i-think-therefore-i-believe (manual
+                                      Framer recapture)
+- Repo URL + base path              : astro.config.mjs
+- Deploy workflow enable note       : .github/workflows/deploy.yml
+- Optional: "My products" /work     : Tee Time Trainer / Season Seek /
+  section                             Prayer Stones / One Take currently
+                                      live as a sentence in About sub-3
+
+
+=== [2026-04-27] ITERATION ROUND 3 — PRODUCTS + ROUTE REVERT ===
+
+USER INPUTS THIS ROUND
+----------------------
+- ADD "My Products" section to /work — 4 products:
+  Season Seek, Tee Time Trainer, Prayer Stones, Koine Quest
+  (One Take REMOVED from prior list — not yet shippable per Fellipe)
+- REVERT /writing → /blog/all routes to preserve SEO equity from
+  existing Framer URLs
+
+ROUTE REVERT
+------------
+Reason: Old Framer URLs are /blog/all/<slug> for articles and
+/blog/<category> for filters. Search engines have indexed these.
+Switching to /writing breaks inbound link equity. Reverting.
+
+Files moved (Astro file-based routing):
+  src/pages/writing/index.astro    -> src/pages/blog/all/index.astro
+  src/pages/writing/[slug].astro   -> src/pages/blog/all/[slug].astro
+  src/pages/writing/bible.astro    -> src/pages/blog/bible.astro
+  src/pages/writing/music.astro    -> src/pages/blog/music.astro
+  src/pages/writing/tech.astro     -> src/pages/blog/tech.astro
+  src/pages/writing/golf.astro     -> src/pages/blog/golf.astro
+  src/pages/writing/                (rmdir)
+
+Internal hrefs updated (10 components/pages):
+  GlobalHeader   : /writing      -> /blog/all
+  GlobalFooter   : /writing      -> /blog/all
+  GlobalFooter   : anti-AI link  -> /blog/all/ai-where-i-m-drawing-the-line
+  WritingTeaser  : /writing      -> /blog/all
+  AboutBlock     : /writing/<cat> -> /blog/<cat>  (×4)
+  BlogCard       : href construction -> /blog/all/<slug>
+  ArticleNavigation : prev/next  -> /blog/all/<slug>
+  blog/all/index.astro : import paths re-leveled (../../→ ../../../)
+  blog/all/[slug].astro : import paths re-leveled
+
+Label decisions
+  Nav label "Writing" preserved (matches brand voice: "I write here
+  weekly", "Tuesday Notes — written Mondays"). Only the URL is /blog.
+  Index H1 "Writing" preserved. Mismatch is contained to address bar.
+
+NEW: MY PRODUCTS SECTION
+------------------------
+Files:
+  src/data/products.json           NEW — 4 products with NEEDS REVIEW
+                                   blurbs + null URLs
+  src/components/ProductCard.astro NEW — card with name, blurb, optional
+                                   visit URL
+  src/components/ProductGrid.astro NEW — renders products.json
+  src/pages/work.astro             new section "My products" between
+                                   "Currently building with" and
+                                   "Testimonial". Italic intro: "Things
+                                   I'm building under my own roof."
+
+Products:
+  - Season Seek
+  - Tee Time Trainer
+  - Prayer Stones
+  - Koine Quest
+
+About sub-3 product list updated: One Take removed, Koine Quest added.
+
+BUILD STATUS
+------------
+PASS — 30 pages built in 491ms.
+30 routes:
+  /
+  /about
+  /work
+  /hire
+  /recommendations
+  /blog/all (writing index)
+  /blog/all/<slug> (×20 articles)
+  /blog/bible
+  /blog/music
+  /blog/tech
+  /blog/golf
+
+OPEN ITEMS (still NEEDS REVIEW)
+-------------------------------
+Same as Round 2, plus:
+  - Product blurbs (×4)
+  - Optional product URLs
+
+
+=== [2026-04-27] ITERATION ROUND 4 — DATA FILL + STRUCTURAL CHANGES ===
+
+USER INPUTS THIS ROUND
+----------------------
+A. Employer rows (Meta/SESAC/Rumblefish) — years + role lines.
+   SESAC line intentionally breaks 1-line format (career-defining
+   story). Parenthetical "(3 months → 1 week, releasing tens of
+   millions in back-pay to artists)" bolded for visual weight.
+C. Product blurbs (Season Seek / TTT / Prayer Stones / Koine Quest).
+D. Past clients restructured: logo-only display, no case-study cards.
+   Universal + Warner ADDED to past list (now 5 total).
+   Current clients (PING/QWIRE/Whiskey Social/UVL) get full
+   2-paragraph case notes.
+
+B. Article dates: pending (Fellipe pulling from Framer DB).
+E. Newsletter ESP: stay stubbed (likely Buttondown).
+   Tally form URL: stay stubbed.
+
+EDITS APPLIED
+-------------
+src/data/clients.json:
+  - Added Universal, Warner past clients
+  - 4 current clients get full 2-paragraph case_note bodies
+  - Past clients case_note=""
+
+src/components/ClientCaseNote.astro:
+  - Added displayOnly prop ('logo' | 'card')
+  - Splits case_note on \n\n into multiple <p> tags for cards
+  - Past clients render h3 only (logo placeholder)
+
+src/components/ClientGrid.astro:
+  - Passes displayOnly='logo' for past, 'card' for current
+
+src/components/WorkRow.astro:
+  - Refactored to use <slot> for rich role-line content
+  - Slot fallback renders NEEDS REVIEW if no content provided
+  - Drops needsReview prop (no longer needed — slot fallback handles)
+
+src/pages/work.astro:
+  - WorkRow companies now wrap rich slot content
+  - Meta: Tech Solutions Architect role + Hackathon wins
+  - SESAC: Director of Engineering + bolded parenthetical
+  - Rumblefish: 1-line role
+  - All three rendered with real years (2018-22 / 2014-18 / 2013-14)
+
+src/components/WorkTeaser.astro:
+  - Logo strip: Meta · Netflix · Spotify · NBC · Universal · Warner
+    (was Facebook · Netflix · Spotify · NBC)
+
+src/components/AboutBlock.astro:
+  - Sub-3 "Where I've been" line updated:
+    "Embedded at Meta, SESAC, Rumblefish. Shipped for Netflix, NBC,
+     Spotify, Universal, Warner. Currently building with PING, QWIRE,
+     Whiskey Social, UVL."
+
+src/data/products.json:
+  - All 4 product blurbs filled
+
+src/components/ProductCard.astro:
+  - isPlaceholder check on blurb — only renders 'needs-review' class
+    if blurb starts with "NEEDS REVIEW"
+
+BUILD STATUS
+------------
+PASS — 30 pages built in 564ms.
+
+NEEDS REVIEW REMAINING
+----------------------
+B. 3 article dates (i-am-recovering-the-divine-voice,
+   i-think-therefore-i-believe, it-is-she) — auto-resolves
+   BlogCard "date TBD" + ArticleHero NEEDS REVIEW
+   + articles.json prev/next chain recompute when supplied
+E. NewsletterForm action / ESP — stays stubbed (Buttondown likely)
+E. ContactBlock Tally iframe — stays stubbed
+DEPLOY (still deferred):
+- astro.config.mjs site URL + base path
+- .github/workflows/deploy.yml enable note
+

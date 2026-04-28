@@ -1,0 +1,29 @@
+---
+interface ProductLinks {
+  ios?: string | null;
+  android?: string | null;
+}
+interface Props {
+  name: string;
+  slug: string;
+  links?: ProductLinks;
+  blurb: string;
+}
+const { name, slug, links, blurb } = Astro.props;
+const isPlaceholder = blurb.startsWith('NEEDS REVIEW');
+const ios = links?.ios;
+const android = links?.android;
+---
+<article data-component="ProductCard" id={`product-${slug}`}>
+  <h3>{name}</h3>
+  {isPlaceholder
+    ? <p class="needs-review">{blurb}</p>
+    : <p>{blurb}</p>}
+  {(ios || android) && (
+    <p class="product-links">
+      {ios && <a href={ios}>App Store</a>}
+      {ios && android && <span> &middot; </span>}
+      {android && <a href={android}>Google Play</a>}
+    </p>
+  )}
+</article>

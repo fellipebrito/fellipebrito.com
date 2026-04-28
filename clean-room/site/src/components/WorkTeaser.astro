@@ -1,0 +1,20 @@
+---
+const base = import.meta.env.BASE_URL;
+const stripBase = (b: string) => (b.endsWith('/') ? b.slice(0, -1) : b);
+---
+<section data-component="WorkTeaser">
+  <h2>Selected Work</h2>
+
+  <p class="logo-strip">
+    <span>Meta</span>
+    <span>&middot; Netflix</span>
+    <span>&middot; Spotify</span>
+    <span>&middot; NBC</span>
+    <span>&middot; Universal</span>
+    <span>&middot; Warner</span>
+  </p>
+
+  <p>26 years of shipping software for companies that need it to last. Logos above are the recognizable ones.</p>
+
+  <p><a href={`${stripBase(base)}/work`}>See selected work &rarr;</a></p>
+</section>

@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import HeroBlock from '../../../components/HeroBlock.astro';
+import BlogList from '../../../components/BlogList.astro';
+import NewsletterInline from '../../../components/NewsletterInline.astro';
+import articlesData from '../../../data/articles.json';
+
+// Render in canonical /blog/all order from the wireframe — match v1 sitemap.json order.
+// articles.json is sorted chronologically; preserve that ordering on this index too.
+const articles = articlesData.articles;
+---
+<BaseLayout title="Writing — Fellipe Brito">
+  <HeroBlock
+    variant="page-default"
+    h1="Writing"
+    supporting="Bible. Music. Tech. Golf. Tuesday Notes weekly."
+  />
+  <BlogList articles={articles} />
+  <NewsletterInline
+    heading="Get the Tuesday Notes"
+    copy="Tuesday Notes — written Mondays, sent Tuesdays."
+  />
+</BaseLayout>

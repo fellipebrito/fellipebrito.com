@@ -1,0 +1,16 @@
+---
+import NewsletterForm from './NewsletterForm.astro';
+interface Props {
+  heading?: string;
+  copy?: string;
+}
+const {
+  heading = 'Like this? More on Tuesdays.',
+  copy = 'Faith, tech, golf, and what I\'m building. Written Mondays. Sent Tuesdays.',
+} = Astro.props;
+---
+<section data-component="NewsletterInline">
+  <h2>{heading}</h2>
+  <p>{copy}</p>
+  <NewsletterForm variant="inline" />
+</section>

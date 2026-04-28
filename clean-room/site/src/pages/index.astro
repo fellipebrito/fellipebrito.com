@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBlock from '../components/HeroBlock.astro';
+import WritingTeaser from '../components/WritingTeaser.astro';
+import WorkTeaser from '../components/WorkTeaser.astro';
+import AboutTeaser from '../components/AboutTeaser.astro';
+
+const base = import.meta.env.BASE_URL;
+const stripBase = (b: string) => (b.endsWith('/') ? b.slice(0, -1) : b);
+---
+<BaseLayout title="Fellipe Brito">
+  <HeroBlock
+    variant="home"
+    h1="Christian. Entrepreneur. Creative problem solver."
+    supporting="Bossa Nova Solutions. Past lives at Facebook and SESAC. Currently building solutions for PING, QWIRE, and a few others."
+    microcopy="One short note. Faith, tech, golf, and what I'm building. Written Mondays. Sent Tuesdays."
+    secondaryLinkHref={`${stripBase(base)}/hire`}
+    secondaryLinkText="Work with me →"
+  />
+  <WritingTeaser />
+  <WorkTeaser />
+  <AboutTeaser />
+</BaseLayout>

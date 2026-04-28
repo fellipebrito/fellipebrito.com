@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>I think, therefore I believe</title>
+  <link rel="stylesheet" href="../../../wireframe.css">
+</head>
+<body>
+
+<!-- COMPONENT: GlobalHeader -->
+<header data-component="GlobalHeader">
+  <a href="../../../index.html"><strong>Fellipe Brito</strong></a>
+  <nav>
+    <ul>
+      <li><a href="../../../index.html">Home</a></li>
+      <li><a href="../../../blog/all/index.html">Blog</a></li>
+    </ul>
+  </nav>
+</header>
+<!-- /COMPONENT: GlobalHeader -->
+
+<main>
+
+  <!-- COMPONENT: ArticleHero -->
+  <article>
+    <header data-component="ArticleHero">
+      <p><small>Bible</small></p>
+      <h1>I think, therefore I believe</h1>
+      <p>By Fellipe Brito &middot; <time>TBD</time></p>
+      <!-- TBD: hero image src/alt — needs browser inspection -->
+    </header>
+    <!-- /COMPONENT: ArticleHero -->
+
+    <p class="copy-stub">Body copy &rarr; see clean-room/pages/i-think-therefore-i-believe.md</p>
+    <blockquote><span class="qkind">BlockQuote (Crick / Gould / Darwin / Sagan / Bacon / Keller / Lewis)</span>Multiple author block quotes &mdash; see clean-room/pages/i-think-therefore-i-believe.md</blockquote>
+  </article>
+
+  <!-- COMPONENT: RecentPostsWidget -->
+  <section data-component="RecentPostsWidget">
+    <h2>Recent Post</h2>
+    <div class="card-grid">
+      <!-- COMPONENT: BlogCard -->
+      <article data-component="BlogCard">
+        <p><small>Golf</small></p>
+        <h3><a href="../we-never-lose/index.html">We never lose</a></h3>
+        <p><time datetime="2026-04-14">2026-04-14</time></p>
+      </article>
+      <!-- /COMPONENT: BlogCard -->
+
+      <!-- COMPONENT: BlogCard -->
+      <article data-component="BlogCard">
+        <p><small>Tech</small></p>
+        <h3><a href="../ai-where-i-m-drawing-the-line/index.html">AI :: Where I'm drawing the line</a></h3>
+        <p><time datetime="2026-02-24">2026-02-24</time></p>
+      </article>
+      <!-- /COMPONENT: BlogCard -->
+
+      <!-- COMPONENT: BlogCard -->
+      <article data-component="BlogCard">
+        <p><small>Free Thought</small></p>
+        <h3><a href="../a-conversation-with-my-anxiety/index.html">A Conversation with My Anxiety</a></h3>
+        <p><time datetime="2025-08-14">2025-08-14</time></p>
+      </article>
+      <!-- /COMPONENT: BlogCard -->
+
+    </div>
+    <p><a href="../index.html">Browse more posts</a></p>
+  </section>
+  <!-- /COMPONENT: RecentPostsWidget -->
+
+  <!-- COMPONENT: NewsletterSignup -->
+  <section data-component="NewsletterSignup">
+    <h2>Get Notifications For Each Fresh Post</h2>
+    <!-- TBD: Framer-rendered form. Real fields/action/states need browser inspection. -->
+    <form action="#">
+      <input type="email" name="email" placeholder="you@example.com" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+  <!-- /COMPONENT: NewsletterSignup -->
+
+  <section>
+    <h2>Navigation</h2>
+    <!-- Framer-native "Navigation" footer block; Phase 3 may absorb into GlobalFooter -->
+    <ul>
+      <li><a href="../../../index.html">Home</a></li>
+      <li><a href="../index.html">Blog</a></li>
+    </ul>
+  </section>
+
+</main>
+
+<!-- COMPONENT: GlobalFooter -->
+<footer data-component="GlobalFooter">
+  <a href="../../../index.html"><strong>Fellipe Brito</strong></a>
+  <nav>
+    <ul>
+      <li><a href="../../../index.html">Home</a></li>
+      <li><a href="../../../blog/all/index.html">Blog</a></li>
+    </ul>
+  </nav>
+  <!-- TBD: GlobalFooter copyright string — needs browser inspection -->
+</footer>
+<!-- /COMPONENT: GlobalFooter -->
+
+</body>
+</html>

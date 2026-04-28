@@ -1,0 +1,26 @@
+---
+import BlogCard from './BlogCard.astro';
+
+interface Article {
+  slug: string;
+  title: string;
+  date: string | null;
+  category: string;
+}
+interface Props {
+  articles: Article[];
+}
+const { articles } = Astro.props;
+---
+<section data-component="BlogList">
+  <div class="card-grid">
+    {articles.map((a) => (
+      <BlogCard
+        title={a.title}
+        slug={a.slug}
+        date={a.date}
+        category={a.category}
+      />
+    ))}
+  </div>
+</section>

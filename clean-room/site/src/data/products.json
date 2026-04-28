@@ -1,0 +1,41 @@
+{
+  "_review_note": "All 4 product blurbs + store links filled by Fellipe 2026-04-27.",
+  "products": [
+    {
+      "slug": "season-seek",
+      "name": "Season Seek",
+      "links": {
+        "ios": "https://apps.apple.com/us/app/season-seek/id6753999350",
+        "android": null
+      },
+      "blurb": "AR scavenger hunts for kids. Mobile, community-built. Made with my wife."
+    },
+    {
+      "slug": "tee-time-trainer",
+      "name": "Tee Time Trainer",
+      "links": {
+        "ios": "https://apps.apple.com/us/app/tee-time-trainer/id6503715019",
+        "android": "https://play.google.com/store/apps/details?id=app.teetimetrainer&hl=en_US"
+      },
+      "blurb": "Golf improvement that survives contact with the actual course. Pre-round planning. Shot dispersion. Coach plans that adapt. Built for golfers who'd rather get better than feel better."
+    },
+    {
+      "slug": "prayer-stones",
+      "name": "Prayer Stones",
+      "links": {
+        "ios": "https://apps.apple.com/us/app/bossanova-prayer-stones/id6477335213",
+        "android": "https://play.google.com/store/apps/details?id=app.prayerstones&hl=en_US"
+      },
+      "blurb": "Carry each other's prayers. Community-driven. iOS and Android."
+    },
+    {
+      "slug": "koine-quest",
+      "name": "Koine Quest",
+      "links": {
+        "ios": "https://apps.apple.com/us/app/koine-quest/id6472606955",
+        "android": null
+      },
+      "blurb": "Learn Koine Greek by reading the New Testament."
+    }
+  ]
+}

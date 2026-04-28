@@ -1,0 +1,37 @@
+---
+import articlesData from '../data/articles.json';
+
+const base = import.meta.env.BASE_URL;
+const stripBase = (b: string) => (b.endsWith('/') ? b.slice(0, -1) : b);
+
+interface Props {
+  slug: string;
+}
+const { slug } = Astro.props;
+
+const articles = articlesData.articles;
+const idx = articles.findIndex((a) => a.slug === slug);
+const current = articles[idx];
+const prev = current?.prev_slug ? articles.find((a) => a.slug === current.prev_slug) : null;
+const next = current?.next_slug ? articles.find((a) => a.slug === current.next_slug) : null;
+---
+<nav data-component="ArticleNavigation" class="article-nav">
+  <div class="nav-prev">
+    {prev ? (
+      <a href={`${stripBase(base)}/blog/all/${prev.slug}`}>
+        &larr; Previous: {prev.title}
+      </a>
+    ) : (
+      <span><small>(no previous article)</small></span>
+    )}
+  </div>
+  <div class="nav-next">
+    {next ? (
+      <a href={`${stripBase(base)}/blog/all/${next.slug}`}>
+        Next: {next.title} &rarr;
+      </a>
+    ) : (
+      <span><small>(no next article)</small></span>
+    )}
+  </div>
+</nav>

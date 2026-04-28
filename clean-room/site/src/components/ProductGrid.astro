@@ -1,0 +1,12 @@
+---
+import productsData from '../data/products.json';
+import ProductCard from './ProductCard.astro';
+const products = productsData.products;
+---
+<section data-component="ProductGrid">
+  <div class="product-grid">
+    {products.map((p) => (
+      <ProductCard name={p.name} slug={p.slug} links={p.links} blurb={p.blurb} />
+    ))}
+  </div>
+</section>

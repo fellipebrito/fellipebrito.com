@@ -1,0 +1,14 @@
+---
+interface Props {
+  company: string;
+  years?: string;
+}
+const { company, years } = Astro.props;
+---
+<article data-component="WorkRow">
+  <h3>{company}</h3>
+  {years && <p><strong>{years}</strong></p>}
+  <slot>
+    <p class="needs-review">NEEDS REVIEW: {company} year-range and 1-line role/outcome.</p>
+  </slot>
+</article>

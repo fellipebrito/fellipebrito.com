@@ -1,0 +1,22 @@
+---
+import TestimonialQuote from './TestimonialQuote.astro';
+const base = import.meta.env.BASE_URL;
+const stripBase = (b: string) => (b.endsWith('/') ? b.slice(0, -1) : b);
+---
+<section data-component="ContactBlock">
+
+  <p>Three kinds of work. Software builds, full product or specific systems. Strategy and advisory when the problem is upstream of code. Longer-term partnerships when the work doesn't end at delivery.</p>
+
+  <p>If you're not sure which one your project is, that's fine. Use the form anyway. We'll figure it out.</p>
+
+  <p class="needs-review">NEEDS REVIEW: replace the iframe below with the real Tally form embed at deploy. Form-tool decision is locked to Tally; embed src/HTML pending.</p>
+
+  <!-- NEEDS REVIEW: replace with Tally form embed at deploy -->
+  <iframe
+    class="tally-stub"
+    src="about:blank"
+    title="Hire form (Tally) — STUB"
+    loading="lazy"
+  ></iframe>
+
+</section>

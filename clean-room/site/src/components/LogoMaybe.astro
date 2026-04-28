@@ -1,0 +1,30 @@
+---
+// Renders <img> if a logo SVG exists at /public/logos/<slug>.svg.
+// Renders nothing if the slug isn't in AVAILABLE_LOGOS.
+// Add a slug here once its SVG ships in public/logos/.
+const AVAILABLE_LOGOS = new Set([
+  'meta', 'netflix', 'spotify', 'nbc',
+  'universal', 'warner', 'sesac',
+]);
+
+interface Props {
+  slug: string;
+  alt: string;
+  class?: string;
+}
+const { slug, alt, class: cls = 'h-6' } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+const stripBase = (b: string) => (b.endsWith('/') ? b.slice(0, -1) : b);
+const url = `${stripBase(base)}/logos/${slug}.svg`;
+
+const has = AVAILABLE_LOGOS.has(slug);
+---
+{has && (
+  <img
+    src={url}
+    alt={alt}
+    class={`logo-mono ${cls}`}
+    loading="lazy"
+  />
+)}

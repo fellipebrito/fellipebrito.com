@@ -1,4 +1,6 @@
 ---
+import LogoMaybe from './LogoMaybe.astro';
+
 interface Props {
   name: string;
   slug: string;
@@ -6,10 +8,6 @@ interface Props {
   displayOnly?: 'logo' | 'card';
 }
 const { name, slug, caseNote, displayOnly = 'card' } = Astro.props;
-
-const base = import.meta.env.BASE_URL;
-const stripBase = (b: string) => (b.endsWith('/') ? b.slice(0, -1) : b);
-const logo = `${stripBase(base)}/logos/${slug}.svg`;
 
 const isPlaceholder = caseNote?.startsWith('NEEDS REVIEW') ?? false;
 const paragraphs = caseNote && !isPlaceholder
@@ -23,7 +21,8 @@ const paragraphs = caseNote && !isPlaceholder
     data-display="logo"
     class="py-8 px-4 border border-rule rounded-md flex items-center justify-center text-center bg-bg min-h-[88px]"
   >
-    <img src={logo} alt={name} class="logo-mono max-h-8 w-auto max-w-[120px]" loading="lazy" />
+    <LogoMaybe slug={slug} alt={name} class="max-h-8 w-auto max-w-[120px]" />
+    <span class="sr-only">{name}</span>
   </article>
 ) : (
   <article
@@ -32,9 +31,12 @@ const paragraphs = caseNote && !isPlaceholder
     data-display="card"
     class="p-6 md:p-7 border border-rule rounded-md bg-bg"
   >
-    <h3 class="text-xl md:text-2xl font-semibold tracking-tight mb-3">
-      {name}
-    </h3>
+    <div class="flex items-center justify-between gap-4 mb-3 flex-wrap">
+      <h3 class="text-xl md:text-2xl font-semibold tracking-tight">
+        {name}
+      </h3>
+      <LogoMaybe slug={slug} alt={name} class="h-6 max-w-[100px] w-auto" />
+    </div>
     {isPlaceholder ? (
       <p class="needs-review">{caseNote}</p>
     ) : (

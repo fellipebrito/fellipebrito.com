@@ -1,13 +1,19 @@
 ---
+import LogoMaybe from './LogoMaybe.astro';
+
 interface Props {
   company: string;
+  logoSlug?: string;
   years?: string;
 }
-const { company, years } = Astro.props;
+const { company, logoSlug, years } = Astro.props;
 ---
 <article data-component="WorkRow" class="py-6 border-b border-rule last:border-b-0">
-  <div class="flex items-baseline justify-between gap-4 mb-2 flex-wrap">
-    <h3 class="text-xl md:text-2xl font-semibold tracking-tight">{company}</h3>
+  <div class="flex items-center justify-between gap-4 mb-3 flex-wrap">
+    <div class="flex items-center gap-3 flex-wrap">
+      {logoSlug && <LogoMaybe slug={logoSlug} alt={company} class="h-6 max-w-[100px] w-auto" />}
+      <h3 class="text-xl md:text-2xl font-semibold tracking-tight">{company}</h3>
+    </div>
     {years && (
       <p class="text-sm font-mono text-muted whitespace-nowrap">{years}</p>
     )}

@@ -3,6 +3,7 @@
 // Renders nothing if the slug isn't in AVAILABLE_LOGOS.
 // Add a slug + extension here once its file ships in public/logos/.
 const AVAILABLE_LOGOS: Record<string, string> = {
+  // Brand logos (wordmarks / silhouettes)
   meta: 'svg',
   netflix: 'svg',
   spotify: 'svg',
@@ -15,6 +16,11 @@ const AVAILABLE_LOGOS: Record<string, string> = {
   rumblefish: 'png',
   'whiskey-social': 'png',
   uvl: 'png',
+  // App icons (square, sourced from iTunes Lookup API)
+  'season-seek': 'png',
+  'tee-time-trainer': 'png',
+  'prayer-stones': 'png',
+  'koine-quest': 'png',
 };
 
 interface Props {

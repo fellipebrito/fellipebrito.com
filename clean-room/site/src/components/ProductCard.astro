@@ -1,4 +1,6 @@
 ---
+import LogoMaybe from './LogoMaybe.astro';
+
 interface ProductLinks {
   ios?: string | null;
   android?: string | null;
@@ -19,7 +21,10 @@ const android = links?.android;
   id={`product-${slug}`}
   class="p-6 md:p-7 border border-rule rounded-md bg-bg flex flex-col"
 >
-  <h3 class="text-xl md:text-2xl font-semibold tracking-tight mb-3">{name}</h3>
+  <div class="flex items-center gap-4 mb-3">
+    <LogoMaybe slug={slug} alt={`${name} app icon`} class="w-12 h-12 rounded-lg flex-shrink-0" />
+    <h3 class="text-xl md:text-2xl font-semibold tracking-tight">{name}</h3>
+  </div>
   {isPlaceholder
     ? <p class="needs-review">{blurb}</p>
     : <p class="text-base leading-relaxed text-ink mb-4 flex-1">{blurb}</p>}

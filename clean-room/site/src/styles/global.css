@@ -157,12 +157,13 @@ mark, .highlight {
    --------------------------------------------------------------------------- */
 
 /* Strict-grayscale logo treatment.
-   - brightness(0) flat-blacks every fill; saturate(100%) keeps form
-   - opacity mutes them so they don't compete with type
-   - hover restores full presence */
+   grayscale(100%) preserves internal contrast (white text inside a
+   colored mark stays white, dark fills stay dark) — important for
+   logos like SESAC + Warner that have detail. opacity mutes overall
+   presence so logos don't compete with type. hover restores. */
 .logo-mono {
-  filter: grayscale(100%) brightness(0);
-  opacity: 0.6;
+  filter: grayscale(100%) contrast(105%);
+  opacity: 0.7;
   transition: opacity 200ms ease;
 }
 .logo-mono:hover {

@@ -29,7 +29,7 @@ const {
   ]}
 >
   <h1
-    data-animate={variant === 'page-default' ? 'mask' : undefined}
+    data-animate="mask"
     class:list={[
       'font-semibold tracking-tight text-ink',
       variant === 'home'
@@ -52,9 +52,10 @@ const {
     <div class="mt-10">
       <a
         href={primaryCtaHref}
-        class="inline-block px-6 py-3 text-base md:text-lg font-medium text-bg bg-navy hover:bg-navy-hover rounded-sm transition-colors"
+        class="cta-primary inline-flex items-center gap-2 px-6 py-3 text-base md:text-lg font-medium text-bg bg-navy hover:bg-navy-hover rounded-sm transition-colors"
       >
-        {primaryCtaText}
+        <span>{primaryCtaText}</span>
+        <span class="cta-arrow" aria-hidden="true">&rarr;</span>
       </a>
     </div>
   )}

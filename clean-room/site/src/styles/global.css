@@ -156,6 +156,20 @@ mark, .highlight {
    Component-specific patterns Tailwind utilities can't express cleanly
    --------------------------------------------------------------------------- */
 
+/* CTA button — constant, non-intrusive arrow nudge.
+   Pure CSS, GPU-only (transform), honors prefers-reduced-motion. */
+.cta-primary .cta-arrow {
+  display: inline-block;
+  animation: cta-nudge 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes cta-nudge {
+  0%, 60%, 100% { transform: translateX(0); }
+  30% { transform: translateX(0.3em); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta-primary .cta-arrow { animation: none; }
+}
+
 /* Strict-grayscale logo treatment.
    grayscale(100%) preserves internal contrast (white text inside a
    colored mark stays white, dark fills stay dark) — important for

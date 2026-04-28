@@ -43,9 +43,7 @@ const {
   </h1>
 
   {supporting && (
-    <p class="text-lg md:text-xl text-muted mt-5 max-w-3xl leading-snug">
-      {supporting}
-    </p>
+    <p class="text-lg md:text-xl text-muted mt-5 max-w-3xl leading-snug" set:html={supporting}></p>
   )}
 
   {variant === 'home' && primaryCtaHref && primaryCtaText && (

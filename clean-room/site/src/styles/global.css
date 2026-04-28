@@ -121,10 +121,16 @@ blockquote .recommendations-link a:hover {
   color: var(--color-amber);
 }
 
-/* Mark / highlight — newspaper-pen amber-soft background. Pair with
-   <strong> when both bold and highlight are needed. */
+/* Mark / highlight — newspaper-pen amber-soft background.
+   Implemented as a linear-gradient (same start+end color) so background-size
+   can animate. Default is 100% (fully highlighted) so non-JS visitors get
+   the static highlight. JS in BaseLayout sets size to 0% on load and
+   animates to 100% as each mark enters viewport — left-to-right pen draw. */
 mark, .highlight {
-  background-color: var(--color-amber-soft);
+  background-image: linear-gradient(var(--color-amber-soft), var(--color-amber-soft));
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: 0 0;
   padding: 0 0.2em;
   color: var(--color-ink);
   border-radius: 2px;

@@ -125,6 +125,17 @@ const { title } = Astro.props;
             });
           });
 
+          // -------- highlight pen (yellow highlighter sweep on <mark>) --------
+          // Initial state: 0% width (invisible). CSS transition handles the
+          // sweep when JS sets size to 100% via inView.
+          document.querySelectorAll('mark, .highlight').forEach((el) => {
+            el.style.backgroundSize = '0% 100%';
+            el.style.transition = 'background-size 800ms cubic-bezier(0.16, 1, 0.3, 1)';
+          });
+          inView('mark, .highlight', (target) => {
+            target.style.backgroundSize = '100% 100%';
+          });
+
           // -------- safety net (force-reveal anything still hidden after 3s) --------
           setTimeout(() => {
             document.querySelectorAll('[data-animate="fade-up"]').forEach((el) => {
@@ -144,6 +155,11 @@ const { title } = Astro.props;
             document.querySelectorAll('[data-animate="mask"]').forEach((el) => {
               if (el.style.clipPath && el.style.clipPath.includes('100%')) {
                 el.style.clipPath = 'inset(0 0 0 0)';
+              }
+            });
+            document.querySelectorAll('mark, .highlight').forEach((el) => {
+              if (el.style.backgroundSize === '0% 100%') {
+                el.style.backgroundSize = '100% 100%';
               }
             });
           }, 3000);

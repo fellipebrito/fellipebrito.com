@@ -81,11 +81,11 @@ const { title } = Astro.props;
             );
           });
 
-          // -------- logo cycle (gray → original color → gray, sequenced) --------
+          // -------- logo cycle (gray → original color → gray, repeats 5x, sequenced) --------
           inView('[data-cycle="logos"]', (target) => {
             const logos = target.querySelectorAll('.logo-mono');
             logos.forEach((logo, i) => {
-              animate(
+              const controls = animate(
                 logo,
                 {
                   filter: [
@@ -98,10 +98,19 @@ const { title } = Astro.props;
                 {
                   duration: 2.4,
                   delay: i * 0.6,
+                  repeat: 4,           // 1 + 4 = 5 total iterations per logo
                   times: [0, 0.5, 1],
                   ease: EASE,
                 }
               );
+              // After cycle finishes, clear inline styles so :hover CSS
+              // (filter override) can take over
+              if (controls && controls.then) {
+                controls.then(() => {
+                  logo.style.filter = '';
+                  logo.style.opacity = '';
+                }).catch(() => {});
+              }
             });
           });
 

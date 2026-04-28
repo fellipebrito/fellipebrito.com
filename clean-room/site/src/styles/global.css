@@ -129,10 +129,11 @@ blockquote .recommendations-link a:hover {
    enabled visitors start at 0% width and the inView animation draws the
    highlight in left-to-right with no FOUC. */
 mark, .highlight {
-  background-image: linear-gradient(var(--color-amber-soft), var(--color-amber-soft));
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: 0 0;
+  /* Shorthand resets background-color to transparent (initial), overriding
+     the UA stylesheet default mark{background:yellow}. Without this, the
+     yellow shows through whenever background-size < 100% — including the
+     entire JS-hidden initial state. */
+  background: linear-gradient(var(--color-amber-soft), var(--color-amber-soft)) 0 0 / 100% 100% no-repeat;
   padding: 0 0.2em;
   color: var(--color-ink);
   border-radius: 2px;

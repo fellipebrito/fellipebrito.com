@@ -8,10 +8,12 @@ const { author, role, showRecommendationsLink = false } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const stripBase = (b: string) => (b.endsWith('/') ? b.slice(0, -1) : b);
 ---
-<blockquote data-component="TestimonialQuote">
+<blockquote data-component="TestimonialQuote" class="max-w-3xl">
   <slot />
   <footer>&mdash; {author}, {role}</footer>
   {showRecommendationsLink && (
-    <p class="recommendations-link"><a href={`${stripBase(base)}/recommendations`}>more recommendations &rarr;</a></p>
+    <p class="recommendations-link">
+      <a href={`${stripBase(base)}/recommendations`}>more recommendations &rarr;</a>
+    </p>
   )}
 </blockquote>

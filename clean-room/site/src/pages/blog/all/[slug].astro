@@ -29,9 +29,10 @@ const { Content } = await entry.render();
     title={article.title}
     date={article.date}
     category={article.category}
+    translatedFromPt={entry.data.translated_from_pt}
   />
 
-  <article data-component="ArticleBody">
+  <article data-component="ArticleBody" class="prose mx-auto">
     <Content />
   </article>
 

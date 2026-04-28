@@ -1,22 +1,26 @@
 ---
-import TestimonialQuote from './TestimonialQuote.astro';
-const base = import.meta.env.BASE_URL;
-const stripBase = (b: string) => (b.endsWith('/') ? b.slice(0, -1) : b);
 ---
-<section data-component="ContactBlock">
+<section data-component="ContactBlock" class="max-w-2xl">
 
-  <p>Three kinds of work. Software builds, full product or specific systems. Strategy and advisory when the problem is upstream of code. Longer-term partnerships when the work doesn't end at delivery.</p>
+  <p class="text-lg leading-relaxed mb-4">
+    Three kinds of work. Software builds, full product or specific systems. Strategy and advisory when the problem is upstream of code. Longer-term partnerships when the work doesn't end at delivery.
+  </p>
 
-  <p>If you're not sure which one your project is, that's fine. Use the form anyway. We'll figure it out.</p>
+  <p class="text-lg leading-relaxed mb-8">
+    If you're not sure which one your project is, that's fine. Use the form anyway. We'll figure it out.
+  </p>
 
-  <p class="needs-review">NEEDS REVIEW: replace the iframe below with the real Tally form embed at deploy. Form-tool decision is locked to Tally; embed src/HTML pending.</p>
-
-  <!-- NEEDS REVIEW: replace with Tally form embed at deploy -->
   <iframe
-    class="tally-stub"
-    src="about:blank"
-    title="Hire form (Tally) — STUB"
+    data-tally-src="https://tally.so/embed/1AbyAQ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
     loading="lazy"
+    width="100%"
+    height="600"
+    frameborder="0"
+    marginheight="0"
+    marginwidth="0"
+    title="Work with me — contact form"
+    class="w-full"
   ></iframe>
+  <script async src="https://tally.so/widgets/embed.js"></script>
 
 </section>

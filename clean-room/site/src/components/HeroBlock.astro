@@ -21,22 +21,49 @@ const {
   secondaryLinkText,
 } = Astro.props;
 ---
-<section data-component="HeroBlock" data-variant={variant}>
-  <h1>{h1}</h1>
+<section
+  data-component="HeroBlock"
+  data-variant={variant}
+  class:list={[
+    'w-full',
+    variant === 'home' ? 'py-12 md:py-20' : 'py-8 md:py-12',
+  ]}
+>
+  <h1
+    class:list={[
+      'font-semibold tracking-tight text-ink',
+      variant === 'home'
+        ? 'text-4xl md:text-5xl lg:text-6xl max-w-4xl'
+        : 'text-3xl md:text-4xl max-w-3xl',
+    ]}
+  >
+    {h1.split('\n').map((line, i, arr) => (
+      <>{line}{i < arr.length - 1 && <br />}</>
+    ))}
+  </h1>
 
   {supporting && (
-    <p>{supporting}</p>
+    <p class="text-lg md:text-xl text-muted mt-5 max-w-3xl leading-snug">
+      {supporting}
+    </p>
   )}
 
   {variant === 'home' && (
-    <>
+    <div class="mt-10 max-w-md">
       <NewsletterForm variant="hero" />
       {microcopy && (
-        <p><small>{microcopy}</small></p>
+        <p class="text-sm text-muted mt-3">{microcopy}</p>
       )}
       {secondaryLinkHref && secondaryLinkText && (
-        <p><a href={secondaryLinkHref}>{secondaryLinkText}</a></p>
+        <p class="mt-6 text-sm">
+          <a
+            href={secondaryLinkHref}
+            class="text-navy hover:text-amber border-b border-current"
+          >
+            {secondaryLinkText}
+          </a>
+        </p>
       )}
-    </>
+    </div>
   )}
 </section>

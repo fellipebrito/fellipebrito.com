@@ -1,11 +1,10 @@
 ---
 title: It is she!
-date: null
+date: 2017-12-04
 category: Short Stories
 slug: it-is-she
 ---
 
-<!-- NEEDS REVIEW: Fellipe to supply real date -->
 
 The step step step coming from the hallway was unmistakable. After 3 long months, they would be together again
 

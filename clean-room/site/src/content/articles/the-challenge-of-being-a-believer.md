@@ -1,6 +1,6 @@
 ---
 title: The Challenge of Being "A Believer"
-date: 2015-04-06
+date: 2014-08-14
 category: Free Thought
 slug: the-challenge-of-being-a-believer
 ---

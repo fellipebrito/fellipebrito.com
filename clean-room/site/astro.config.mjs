@@ -1,8 +1,13 @@
-// NEEDS REVIEW: replace 'https://fellipebrito.github.io' with the actual GitHub Pages URL once the repo is set up.
-// NEEDS REVIEW: replace base '/' with the repo name (e.g. '/fellipebrito') if deploying to project pages, or leave as '/' for a custom domain root.
+// Initial deploy: project page URL.
+// When custom domain (fellipebrito.com) is wired, switch site → 'https://fellipebrito.com'
+// and base → '/'.
 import { defineConfig } from 'astro/config';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://fellipebrito.github.io',
-  base: '/',
+  base: '/fellipebrito.com',
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });

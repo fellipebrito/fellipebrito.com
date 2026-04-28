@@ -3,23 +3,25 @@ const base = import.meta.env.BASE_URL;
 const stripBase = (b: string) => (b.endsWith('/') ? b.slice(0, -1) : b);
 const link = (p: string) => `${stripBase(base)}${p}`;
 ---
-<section data-component="AboutBlock">
+<section data-component="AboutBlock" class="prose">
 
   <!-- Sub-section 1 — Who I am (lead paragraph, no heading) -->
-  <div>
-    <p>I'm Fellipe. I run Bossa Nova Solutions, building products across music, social, transportation, golf, faith, and education.</p>
-    <p>Self-taught. Still learning. I write here weekly.</p>
+  <div class="mt-8 first:mt-0">
+    <p class="text-xl md:text-2xl leading-snug text-ink">
+      I'm Fellipe. I run Bossa Nova Solutions, building products across music, social, transportation, golf, faith, and education.
+    </p>
+    <p class="text-lg text-muted mt-3">Self-taught. Still learning. I write here weekly.</p>
   </div>
 
   <!-- Sub-section 2 — What I do now -->
-  <div>
+  <div class="mt-12">
     <h3>What I do now</h3>
     <p>Most days: building Bossa Nova Solutions. Client work, advisory, and a few products of my own.</p>
     <p>Client work spans music, social, transportation, golf, faith, and education. Different industries, same job: solve the problem creatively, ship something that lasts.</p>
   </div>
 
   <!-- Sub-section 3 — Where I've been -->
-  <div>
+  <div class="mt-12">
     <h3>Where I've been</h3>
     <p>Embedded at Meta, SESAC, Rumblefish. Shipped for Netflix, NBC, Spotify, Universal, Warner. Currently building with PING, QWIRE, Whiskey Social, UVL.</p>
     <p>Plus my own products: Tee Time Trainer, Season Seek, Prayer Stones, Koine Quest.</p>
@@ -27,7 +29,7 @@ const link = (p: string) => `${stripBase(base)}${p}`;
   </div>
 
   <!-- Sub-section 4 — What I write about -->
-  <div>
+  <div class="mt-12">
     <h3>What I write about</h3>
     <p>
       Four threads:
@@ -40,14 +42,14 @@ const link = (p: string) => `${stripBase(base)}${p}`;
   </div>
 
   <!-- Sub-section 5 — How to find me -->
-  <div>
+  <div class="mt-12">
     <h3>How to find me</h3>
     <p>Pick your channel.</p>
-    <ul>
-      <li><a href="https://www.linkedin.com/in/fellipebrito/" rel="me">LinkedIn</a></li>
-      <li><a href="https://github.com/fellipebrito/NOVA" rel="me">GitHub</a></li>
-      <li><a href="https://www.instagram.com/fellipeeduardo/" rel="me">Instagram</a></li>
-      <li><a href="https://soundcloud.com/fellipe-brito" rel="me">SoundCloud</a></li>
+    <ul class="not-prose flex flex-wrap gap-x-5 gap-y-2 text-base">
+      <li><a href="https://www.linkedin.com/in/fellipebrito/" rel="me" class="text-navy hover:text-amber border-b border-current">LinkedIn</a></li>
+      <li><a href="https://github.com/fellipebrito/NOVA" rel="me" class="text-navy hover:text-amber border-b border-current">GitHub</a></li>
+      <li><a href="https://www.instagram.com/fellipeeduardo/" rel="me" class="text-navy hover:text-amber border-b border-current">Instagram</a></li>
+      <li><a href="https://soundcloud.com/fellipe-brito" rel="me" class="text-navy hover:text-amber border-b border-current">SoundCloud</a></li>
     </ul>
   </div>
 

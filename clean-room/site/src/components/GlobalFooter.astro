@@ -4,22 +4,40 @@ const base = import.meta.env.BASE_URL;
 const href = (p: string) => (base.endsWith('/') ? base.slice(0, -1) : base) + p;
 const year = new Date().getFullYear();
 ---
-<footer data-component="GlobalFooter">
-  <p><strong>Fellipe Brito</strong></p>
+<footer
+  data-component="GlobalFooter"
+  class="mt-20 border-t border-rule bg-bg"
+>
+  <div class="w-full max-w-[var(--container-wide)] mx-auto px-5 md:px-8 py-10 md:py-14">
+    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
+      <div class="md:max-w-md">
+        <p class="font-semibold text-lg mb-3">Fellipe Brito</p>
+        <p class="text-sm text-muted mb-4">Tuesday Notes — written Mondays, sent Tuesdays.</p>
+        <NewsletterForm variant="footer" />
+      </div>
 
-  <NewsletterForm variant="footer" />
+      <nav class="md:text-right">
+        <ul class="flex flex-wrap gap-x-5 gap-y-2 text-sm md:flex-col md:gap-2">
+          <li><a href={href('/blog/all')} class="text-ink hover:text-navy">Writing</a></li>
+          <li><a href={href('/work')} class="text-ink hover:text-navy">Work</a></li>
+          <li><a href={href('/about')} class="text-ink hover:text-navy">About</a></li>
+          <li><a href={href('/hire')} class="text-ink hover:text-navy">Hire</a></li>
+          <li><a href={href('/recommendations')} class="text-ink hover:text-navy">Recommendations</a></li>
+        </ul>
+      </nav>
+    </div>
 
-  <nav>
-    <ul>
-      <li><a href={href('/blog/all')}>Writing</a></li>
-      <li><a href={href('/work')}>Work</a></li>
-      <li><a href={href('/about')}>About</a></li>
-      <li><a href={href('/hire')}>Hire</a></li>
-      <li><a href={href('/recommendations')}>Recommendations</a></li>
-    </ul>
-  </nav>
+    <hr class="my-8" />
 
-  <p><small>&copy; {year} Fellipe Brito &middot; Bossa Nova Solutions</small></p>
-
-  <p><small>I refuse to pay my way into not needing people anymore. <a href={href('/blog/all/ai-where-i-m-drawing-the-line')}>Why &rarr;</a></small></p>
+    <div class="flex flex-col md:flex-row md:justify-between gap-3 text-xs text-muted">
+      <p>&copy; {year} Fellipe Brito &middot; Bossa Nova Solutions</p>
+      <p>
+        I refuse to pay my way into not needing people anymore.
+        <a
+          href={href('/blog/all/ai-where-i-m-drawing-the-line')}
+          class="text-navy hover:text-amber border-b border-current ml-1"
+        >Why &rarr;</a>
+      </p>
+    </div>
+  </div>
 </footer>

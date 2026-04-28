@@ -12,13 +12,33 @@ const paragraphs = caseNote && !isPlaceholder
   ? caseNote.split('\n\n').filter((p) => p.trim().length > 0)
   : [];
 ---
-<article data-component="ClientCaseNote" id={`client-${slug}`} data-display={displayOnly}>
-  <h3>{name}</h3>
-  {displayOnly === 'card' && (
-    isPlaceholder ? (
+{displayOnly === 'logo' ? (
+  <article
+    data-component="ClientCaseNote"
+    id={`client-${slug}`}
+    data-display="logo"
+    class="py-6 px-4 border border-rule rounded-md flex items-center justify-center text-center bg-bg"
+  >
+    <h3 class="text-base md:text-lg font-mono font-medium uppercase tracking-wider text-muted">
+      {name}
+    </h3>
+  </article>
+) : (
+  <article
+    data-component="ClientCaseNote"
+    id={`client-${slug}`}
+    data-display="card"
+    class="p-6 md:p-7 border border-rule rounded-md bg-bg"
+  >
+    <h3 class="text-xl md:text-2xl font-semibold tracking-tight mb-3">
+      {name}
+    </h3>
+    {isPlaceholder ? (
       <p class="needs-review">{caseNote}</p>
     ) : (
-      paragraphs.map((p) => <p>{p}</p>)
-    )
-  )}
-</article>
+      paragraphs.map((p) => (
+        <p class="text-base leading-relaxed text-ink mb-3 last:mb-0">{p}</p>
+      ))
+    )}
+  </article>
+)}

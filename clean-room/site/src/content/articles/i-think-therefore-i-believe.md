@@ -1,11 +1,10 @@
 ---
 title: I think, therefore I believe
-date: null
+date: 2016-04-12
 category: Bible
 slug: i-think-therefore-i-believe
 ---
 
-<!-- NEEDS REVIEW: Fellipe to supply real date -->
 
 ### Intro
 First of all, I do not intend to have the final answers. As Sir Isaac Newton once said, *"if I have seen further it is by standing on the shoulders of giants."*

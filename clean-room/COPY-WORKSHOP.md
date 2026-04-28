@@ -21,11 +21,11 @@ This file collects every piece of draft copy on the site that needs your revisio
 
 ### Sam Kling letter (SESAC, Chief Creative Officer)
 The strongest narrative material for About / hero supporting copy. Quote-mineable lines:
-- *"In a world of probabilities, where circumstances often predetermine outcomes, Fillipe Britto is an absolute improbability — a phenomenon that defies conventional expectations."*
-- *"I first encountered Fillipe's remarkable journey while working together at SESAC a decade ago. Little did I know that when Facebook recruited him, our paths would intertwine again at Qwire, Inc."*
-- *"Born in a remote corner of Brazil, Fillipe's ascent to prominence is extraordinary. A self-taught technologist and visionary leader."*
+- *"In a world of probabilities, where circumstances often predetermine outcomes, Fellipe Brito is an absolute improbability — a phenomenon that defies conventional expectations."*
+- *"I first encountered Fellipe's remarkable journey while working together at SESAC a decade ago. Little did I know that when Facebook recruited him, our paths would intertwine again at Qwire, Inc."*
+- *"Born in a remote corner of Brazil, Fellipe's ascent to prominence is extraordinary. A self-taught technologist and visionary leader."*
 - *"He possesses a unique blend of engineering, architecture, and project management."*
-- *"Bossa Nova Solutions (Fillipe's post-Meta brainchild)."*
+- *"Bossa Nova Solutions (Fellipe's post-Meta brainchild)."*
 - *"12 out of 10-star results."*
 - *"Honestly, it's almost annoying."* — voice line, you can use as a self-deprecating sign-off somewhere
 - *"In an industry often marred by opportunistic ambiguity and opacity."* — strong "anti-vendor" framing

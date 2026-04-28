@@ -5,7 +5,14 @@ import BlogList from '../../components/BlogList.astro';
 import NewsletterInline from '../../components/NewsletterInline.astro';
 import articlesData from '../../data/articles.json';
 
-const articles = articlesData.articles.filter((a) => a.category === 'Music');
+const articles = articlesData.articles
+  .filter((a) => a.category === 'Music')
+  .sort((a, b) => {
+    if (!a.date && !b.date) return 0;
+    if (!a.date) return 1;
+    if (!b.date) return -1;
+    return a.date < b.date ? 1 : -1;
+  });
 ---
 <BaseLayout title="Music — Fellipe Brito">
   <HeroBlock

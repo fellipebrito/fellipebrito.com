@@ -7,15 +7,17 @@ import TestimonialQuote from '../components/TestimonialQuote.astro';
 <BaseLayout title="Work with me — Fellipe Brito">
   <HeroBlock variant="page-default" h1="Work with me" />
 
-  <section data-component="HireTestimonial">
+  <section data-component="HireTestimonial" class="py-8">
     <TestimonialQuote
       author="Sam Kling"
       role="Chief Creative Officer, SESAC"
       showRecommendationsLink={true}
     >
-      <p>"In a world of probabilities, where circumstances often predetermine outcomes, Fellipe Britto is an absolute improbability."</p>
+      <p>"In a world of probabilities, where circumstances often predetermine outcomes, Fellipe Brito is an absolute improbability."</p>
     </TestimonialQuote>
   </section>
 
-  <ContactBlock />
+  <section class="py-8 border-t border-rule">
+    <ContactBlock />
+  </section>
 </BaseLayout>

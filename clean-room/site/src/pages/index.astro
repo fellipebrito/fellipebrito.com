@@ -11,7 +11,7 @@ const stripBase = (b: string) => (b.endsWith('/') ? b.slice(0, -1) : b);
 <BaseLayout title="Fellipe Brito">
   <HeroBlock
     variant="home"
-    h1="Christian. Entrepreneur. Creative problem solver."
+    h1={`Christian. Entrepreneur.\nCreative problem solver.`}
     supporting="Bossa Nova Solutions. Past lives at Facebook and SESAC. Currently building solutions for PING, QWIRE, and a few others."
     microcopy="One short note. Faith, tech, golf, and what I'm building. Written Mondays. Sent Tuesdays."
     secondaryLinkHref={`${stripBase(base)}/hire`}

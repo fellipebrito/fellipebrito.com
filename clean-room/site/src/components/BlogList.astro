@@ -12,8 +12,8 @@ interface Props {
 }
 const { articles } = Astro.props;
 ---
-<section data-component="BlogList">
-  <div class="card-grid">
+<section data-component="BlogList" class="py-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
     {articles.map((a) => (
       <BlogCard
         title={a.title}

@@ -15,23 +15,31 @@ const current = articles[idx];
 const prev = current?.prev_slug ? articles.find((a) => a.slug === current.prev_slug) : null;
 const next = current?.next_slug ? articles.find((a) => a.slug === current.next_slug) : null;
 ---
-<nav data-component="ArticleNavigation" class="article-nav">
+<nav data-component="ArticleNavigation" class="article-nav max-w-[var(--container-text)] mx-auto">
   <div class="nav-prev">
     {prev ? (
-      <a href={`${stripBase(base)}/blog/all/${prev.slug}`}>
-        &larr; Previous: {prev.title}
+      <a
+        href={`${stripBase(base)}/blog/all/${prev.slug}`}
+        class="flex flex-col text-navy hover:text-amber group"
+      >
+        <span class="text-xs text-muted uppercase tracking-wider mb-2 font-mono">&larr; Previous</span>
+        <span class="text-base self-start border-b border-current group-hover:border-amber">{prev.title}</span>
       </a>
     ) : (
-      <span><small>(no previous article)</small></span>
+      <span class="text-sm text-muted">(no previous article)</span>
     )}
   </div>
   <div class="nav-next">
     {next ? (
-      <a href={`${stripBase(base)}/blog/all/${next.slug}`}>
-        Next: {next.title} &rarr;
+      <a
+        href={`${stripBase(base)}/blog/all/${next.slug}`}
+        class="flex flex-col items-end text-navy hover:text-amber group"
+      >
+        <span class="text-xs text-muted uppercase tracking-wider mb-2 font-mono">Next &rarr;</span>
+        <span class="text-base self-end border-b border-current group-hover:border-amber">{next.title}</span>
       </a>
     ) : (
-      <span><small>(no next article)</small></span>
+      <span class="text-sm text-muted">(no next article)</span>
     )}
   </div>
 </nav>

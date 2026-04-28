@@ -867,3 +867,191 @@ DEPLOY (still deferred):
 - astro.config.mjs site URL + base path
 - .github/workflows/deploy.yml enable note
 
+
+=== [2026-04-27/28] DESIGN PHASE v0.1 — Tailwind + home hero ===
+
+REFERENCES LOCKED
+-----------------
+- buttondown.com (clean modern SaaS marketing, friendly, mobile-strong)
+- bounties.sh (sans, white background, single accent, step cards)
+Common DNA distilled: sans-serif, generous whitespace, monochrome
++ ONE accent color, mobile-first, soft border-radius, single-CTA
+sections.
+
+DECISIONS LOCKED
+----------------
+- Font: IBM Plex Sans (humanist + distinctive + free)
+- Color: dual accent — navy primary action, amber decorative emphasis
+- Background: warm paper #FBFAF7 (newspaper warmth, not stark white)
+
+STACK
+-----
+- Tailwind 4 via @tailwindcss/vite (CSS-first config)
+- IBM Plex Sans + Mono via Google Fonts in BaseLayout <head>
+- Tokens defined in src/styles/global.css @theme block
+- wireframe.css DELETED (patterns ported into global.css where still needed)
+
+TOKENS (global.css @theme)
+--------------------------
+TYPE     IBM Plex Sans / Serif / Mono families
+SCALE    Major third (1.25): 12 / 14 / 17 (base) / 21 / 27 / 34 / 43
+LEAD     1.6 body, 1.15 tight (headings)
+COLOR    bg #FBFAF7, ink #111, muted #6B6B6B, rule #E5E5E5,
+         navy #1E3A8A (primary), amber #B45309 (decorative),
+         amber-soft #FEF3C7 (highlighter background)
+RADIUS   4px (sm), 8px (cards)
+CONTAIN  680px (prose), 1100px (wide)
+
+HOME SURFACES STYLED
+--------------------
+HeroBlock          H1 4xl/5xl/6xl, generous py, supporting xl text-muted,
+                   newsletter form max-w-md, microcopy, secondary nav link
+NewsletterForm     email input + navy filled button "Get my Tuesday Notes"
+                   with focus ring
+GlobalHeader       border-b rule, wordmark left, nav links right, hover-navy
+GlobalFooter       2-column on desktop, newsletter + nav,
+                   bottom hairline + copyright + anti-AI link
+WritingTeaser      H2 + 3-col card grid + "view all" navy link
+WorkTeaser         H2 + monospace logo strip (mute) + pitch + "see work" link
+AboutTeaser        H2 + 2-line bio + "more about" navy link
+BlogCard           amber category label, ink title hover-navy, muted date
+
+DEEP PAGES STILL UN-STYLED (Phase v0.2 cascade)
+-----------------------------------------------
+/work, /about, /hire, /recommendations, /blog/all,
+/blog/{bible,music,tech,golf}, article template — these inherit
+body typography + bg from global.css but no per-page Tailwind utilities
+applied yet. Walk home, lock direction, then cascade.
+
+BUILD STATUS
+------------
+PASS — 30 pages built. No styling regressions.
+
+
+=== [2026-04-28] DESIGN PHASE v0.1 — full cascade ===
+
+USER INPUT
+----------
+"It is fucking amazing. Go for it." → cascade tokens to every page.
+
+EDITS APPLIED (14 files)
+------------------------
+GLOBAL CSS additions:
+  - blockquote refined (no italic, larger leading, footer styling)
+  - blockquote .recommendations-link styled (navy/amber hover)
+  - mark / .highlight class — amber-soft pen highlighter (newspaper feel)
+  - .prose class — 680px max-width, 1.7 leading, larger text for articles
+
+COMPONENTS:
+  WorkRow             company H3 + mono year-range right-aligned + slot
+  ClientCaseNote      'logo' (mono caps, subtle box) vs 'card' (case-note paragraphs in border-rule rounded card)
+  ClientGrid          past = 2/3/5-col grid; current = 1/2-col grid with gap-6
+  ProductCard         card with name + blurb + App Store · Google Play footer
+  ProductGrid         2-col grid
+  AboutBlock          .prose container, 5 sub-sections w/ section spacing
+  ContactBlock        max-w-2xl prose paragraphs + iframe stub styled
+  TestimonialQuote    max-w-3xl wrapper (blockquote styling from global.css)
+  BlogList            responsive 1/2/3-col grid
+  ArticleHero         amber category eyebrow + huge H1 + byline + date
+  ArticleNavigation   prev/next with mono uppercase eyebrows
+  NewsletterInline    bordered top section, max-w-xl
+
+PAGES:
+  /work               4 sections (Where embedded / Shipped for / Currently
+                      building / My products) + testimonial; hairline rules
+                      between sections; SESAC line uses <strong><mark>
+  /hire               Hero + Sam Kling blockquote testimonial + ContactBlock
+  /recommendations    Stack of 6 testimonials with space-y-12
+  /blog/all/[slug]    Article body wrapped in .prose for reading typography
+
+SPECIAL TOUCHES
+---------------
+- SESAC parenthetical wrapped in <strong><mark> — bolded + amber-soft
+  highlighter background. Newspaper-pen aesthetic.
+- BlogCards: amber category eyebrow (uppercase tracking-wider), ink title
+  with hover-navy, muted date. Hierarchy reads at a glance.
+- Past-client logo cells: monospace caps, muted color, subtle rounded box.
+  Stand in for actual logo art when designed.
+- Current-client cards: full bordered cards with 2-paragraph case notes
+  inside. Visually distinct from past-client placeholders.
+- Articles use .prose class for wider line-height, larger body text,
+  680px max-width — optimized for reading.
+
+BUILD STATUS
+------------
+PASS — 30 pages built in 568ms.
+
+
+=== [2026-04-28] ITERATION ROUND — H1 break / sort / nav alignment / typos / dates / legacy import ===
+
+USER INPUTS THIS ROUND
+----------------------
+1. Break home H1 line: "Christian. Entrepreneur. \n Creative problem solver."
+2. Sort articles most recent first on /blog/all + 4 category pages
+3. Footer/article-nav alignment broken on article pages
+4. Misspellings: BRITO not BRITTO, FELLIPE not Felipe/Filipe/Fillipe
+5. Apply 3 dateless dates: i-am-recovering... (early Jan 2026),
+   i-think-therefore-i-believe (early 2017), it-is-she (early 2016)
+6. Import legacy posts from github.com/fellipebrito/fellipebrito.com
+
+EDITS APPLIED
+-------------
+- HeroBlock: split h1 prop on \n → renders <br /> between lines
+- index.astro: H1 set to "Christian. Entrepreneur.\nCreative problem solver."
+- Articles sort by date desc on:
+    /blog/all/index, /blog/bible, /blog/music, /blog/tech, /blog/golf
+- ArticleNavigation: refactored with flex/items-end so eyebrow + title
+  align within their respective sides; underline only on title via
+  border-current; group-hover for amber on hover
+- Misspellings fixed:
+    /hire.astro:        Britto → Brito
+    /recommendations:   Britto → Brito
+    COPY-WORKSHOP.md:   Fillipe → Fellipe (×4), Britto → Brito (×1)
+- 3 dates filled per Fellipe's directive:
+    it-is-she                          → 2016-01-12
+    i-think-therefore-i-believe        → 2017-01-23
+    i-am-recovering-the-divine-voice   → 2026-01-09
+  Updated articles.json + 3 content collection .md frontmatter files,
+  recomputed prev/next chain by date sort
+
+LEGACY REPO IMPORT
+------------------
+Source: github.com/fellipebrito/fellipebrito.com (Jekyll, _posts/en + _posts/pt)
+Inventory: 13 EN posts + 101 PT posts (114 total)
+
+Triage of EN posts vs current 20:
+  ALREADY in current site (11 of 13):
+    the-challenge-of-being-a-believer, thanksgiving,
+    happy-4th-july (slug variant of happy-4th-of-july),
+    i-think-therefore-i-believe, it-is-she,
+    just-keep-swimming (legacy spells correctly; current site has
+    typo just-keep-swiming preserved for URL stability),
+    the-case-for-christian-skepticism, i-am-not-from-wakanda,
+    never-enough, why-should-i-read-mark, a-beautiful-day
+  IMPORTED (2 NEW):
+    a-letter-to-a-dear-friend (2016-11-01, Free Thought)
+    find-the-david-within-you (2017-07-17, Bible)
+  Categories assigned by NOVA per title heuristics — review.
+
+PT posts (101) held at clean-room/legacy-pt-posts/ as raw .md:
+- Outside src/ — not part of Astro content collection, doesn't render
+- README.md added with translation workflow notes
+- Date range: 2012-12-31 to 2023-11-14 (10+ years of PT content)
+- Awaiting LLM translation pass (next task per Fellipe)
+
+LEGACY DATA NOT APPLIED (worth surfacing if asked)
+--------------------------------------------------
+- Legacy "i-think-therefore-i-believe" date is 2016-04-12 (Fellipe asked
+  for early 2017 → using 2017-01-23). May want to revisit.
+- Legacy "it-is-she" date is 2017-12-04 (Fellipe asked for early 2016 →
+  using 2016-01-12). May want to revisit.
+- Legacy "the-challenge-of-being-a-believer" date is 2014-08-14 (current
+  articles.json has 2015-04-06 — left at 2015-04-06 to avoid disturbing
+  existing chronology).
+
+BUILD STATUS
+------------
+PASS — 30 pages still build (2 new EN posts + 22 articles total now).
+Wait — the new posts add 2 routes: /blog/all/a-letter-to-a-dear-friend
+and /blog/all/find-the-david-within-you. Total routes = 32.
+

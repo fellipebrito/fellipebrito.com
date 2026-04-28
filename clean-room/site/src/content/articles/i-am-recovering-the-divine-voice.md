@@ -1,11 +1,10 @@
 ---
 title: '"I Am": Recovering the Divine Voice'
-date: null
+date: 2026-01-09
 category: Bible
 slug: i-am-recovering-the-divine-voice
 ---
 
-<!-- NEEDS REVIEW: Fellipe to supply real date -->
 
 ### Intro
 When Moses stood before the burning bush and asked for God's name, he heard a strange, profound answer: *"I AM who I AM"* (Exodus 3:14). In Hebrew, it was *ehyeh asher ehyeh*, and in the Greek Septuagint, it became *EGO EIMI ho ōn*—"I am the one who is."

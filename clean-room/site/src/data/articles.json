@@ -1,13 +1,765 @@
 {
-  "_review_note": "NEEDS REVIEW: 3 articles have date: null (i-am-recovering-the-divine-voice, i-think-therefore-i-believe, it-is-she). They are appended to the END of the chronological chain in sitemap.json order. Fellipe must supply real dates to fix prev/next ordering.",
-  "_ordering": "Articles ordered by date ascending (oldest first). prev_slug = older, next_slug = newer.",
+  "_review_note": "112 articles. 90 AI-translated from Portuguese (translated_from_pt: true in frontmatter), 22 original English.",
+  "_ordering": "Articles ordered by date ascending. prev_slug = older, next_slug = newer.",
   "articles": [
+    {
+      "slug": "goodbye-2012",
+      "title": "Goodbye 2012",
+      "date": "2012-12-31",
+      "category": "Free Thought",
+      "prev_slug": null,
+      "next_slug": "i-choose-the-way"
+    },
+    {
+      "slug": "i-choose-the-way",
+      "title": "I Choose The Way",
+      "date": "2013-03-20",
+      "category": "Free Thought",
+      "prev_slug": "goodbye-2012",
+      "next_slug": "about-changes-and-roller-coasters"
+    },
+    {
+      "slug": "about-changes-and-roller-coasters",
+      "title": "About Changes and Roller Coasters",
+      "date": "2013-04-04",
+      "category": "Free Thought",
+      "prev_slug": "i-choose-the-way",
+      "next_slug": "about-heroes-and-villains"
+    },
+    {
+      "slug": "about-heroes-and-villains",
+      "title": "About Heroes and Villains",
+      "date": "2013-05-21",
+      "category": "Free Thought",
+      "prev_slug": "about-changes-and-roller-coasters",
+      "next_slug": "and-this-remains-my-wish"
+    },
+    {
+      "slug": "and-this-remains-my-wish",
+      "title": "And This Remains My Wish",
+      "date": "2013-05-30",
+      "category": "Free Thought",
+      "prev_slug": "about-heroes-and-villains",
+      "next_slug": "protests-in-brazil"
+    },
+    {
+      "slug": "protests-in-brazil",
+      "title": "Protests in Brazil",
+      "date": "2013-06-13",
+      "category": "Free Thought",
+      "prev_slug": "and-this-remains-my-wish",
+      "next_slug": "for-the-love-of-lost-causes"
+    },
+    {
+      "slug": "for-the-love-of-lost-causes",
+      "title": "For the Love of Lost Causes",
+      "date": "2013-06-20",
+      "category": "Bible",
+      "prev_slug": "protests-in-brazil",
+      "next_slug": "brazil-before-the-throne"
+    },
+    {
+      "slug": "brazil-before-the-throne",
+      "title": "Brazil Before the Throne",
+      "date": "2013-07-16",
+      "category": "Bible",
+      "prev_slug": "for-the-love-of-lost-causes",
+      "next_slug": "about-the-pope-stones-and-accusations"
+    },
+    {
+      "slug": "about-the-pope-stones-and-accusations",
+      "title": "About the Pope, Stones, and Accusations",
+      "date": "2013-07-24",
+      "category": "Bible",
+      "prev_slug": "brazil-before-the-throne",
+      "next_slug": "cs-lewis-and-ecumenism"
+    },
+    {
+      "slug": "cs-lewis-and-ecumenism",
+      "title": "C.S. Lewis and \"Ecumenism\"",
+      "date": "2013-08-03",
+      "category": "Bible",
+      "prev_slug": "about-the-pope-stones-and-accusations",
+      "next_slug": "rush-and-the-million-dollar-question"
+    },
+    {
+      "slug": "rush-and-the-million-dollar-question",
+      "title": "Rush and the Million Dollar Question",
+      "date": "2013-09-28",
+      "category": "Free Thought",
+      "prev_slug": "cs-lewis-and-ecumenism",
+      "next_slug": "its-the-end-of-the-world"
+    },
+    {
+      "slug": "its-the-end-of-the-world",
+      "title": "It's the End of the World",
+      "date": "2013-10-05",
+      "category": "Free Thought",
+      "prev_slug": "rush-and-the-million-dollar-question",
+      "next_slug": "theres-a-boy-theres-a-rascal"
+    },
+    {
+      "slug": "theres-a-boy-theres-a-rascal",
+      "title": "There's a Boy, There's a Rascal",
+      "date": "2013-10-17",
+      "category": "Free Thought",
+      "prev_slug": "its-the-end-of-the-world",
+      "next_slug": "loose-thoughts"
+    },
+    {
+      "slug": "loose-thoughts",
+      "title": "Loose Thoughts",
+      "date": "2013-10-25",
+      "category": "Free Thought",
+      "prev_slug": "theres-a-boy-theres-a-rascal",
+      "next_slug": "a-rooster-that-doesnt-know-the-cloud"
+    },
+    {
+      "slug": "a-rooster-that-doesnt-know-the-cloud",
+      "title": "A Rooster That Doesn't Know the Cloud",
+      "date": "2013-12-19",
+      "category": "Tech",
+      "prev_slug": "loose-thoughts",
+      "next_slug": "goodbye-2013"
+    },
+    {
+      "slug": "goodbye-2013",
+      "title": "Goodbye 2013",
+      "date": "2013-12-31",
+      "category": "Free Thought",
+      "prev_slug": "a-rooster-that-doesnt-know-the-cloud",
+      "next_slug": "the-power-of-habits"
+    },
+    {
+      "slug": "the-power-of-habits",
+      "title": "The Power of Habits",
+      "date": "2014-02-08",
+      "category": "Free Thought",
+      "prev_slug": "goodbye-2013",
+      "next_slug": "its-unbearable"
+    },
+    {
+      "slug": "its-unbearable",
+      "title": "It's Unbearable",
+      "date": "2014-03-10",
+      "category": "Bible",
+      "prev_slug": "the-power-of-habits",
+      "next_slug": "noah"
+    },
+    {
+      "slug": "noah",
+      "title": "Noah",
+      "date": "2014-04-07",
+      "category": "Bible",
+      "prev_slug": "its-unbearable",
+      "next_slug": "gospel-music-is-sin-sometimes"
+    },
+    {
+      "slug": "gospel-music-is-sin-sometimes",
+      "title": "Gospel Music Is Sin… Sometimes",
+      "date": "2014-04-10",
+      "category": "Music",
+      "prev_slug": "noah",
+      "next_slug": "we-are-all-monkeys"
+    },
+    {
+      "slug": "we-are-all-monkeys",
+      "title": "We Are All Monkeys",
+      "date": "2014-04-29",
+      "category": "Free Thought",
+      "prev_slug": "gospel-music-is-sin-sometimes",
+      "next_slug": "there-will-be-a-world-cup"
+    },
+    {
+      "slug": "there-will-be-a-world-cup",
+      "title": "There Will Be a World Cup",
+      "date": "2014-05-05",
+      "category": "Free Thought",
+      "prev_slug": "we-are-all-monkeys",
+      "next_slug": "30-years"
+    },
+    {
+      "slug": "30-years",
+      "title": "30 Years",
+      "date": "2014-05-22",
+      "category": "Free Thought",
+      "prev_slug": "there-will-be-a-world-cup",
+      "next_slug": "carpe-diem"
+    },
+    {
+      "slug": "carpe-diem",
+      "title": "Carpe Diem",
+      "date": "2014-05-29",
+      "category": "Free Thought",
+      "prev_slug": "30-years",
+      "next_slug": "the-world-cup-and-christmas"
+    },
+    {
+      "slug": "the-world-cup-and-christmas",
+      "title": "The World Cup and Christmas",
+      "date": "2014-06-17",
+      "category": "Free Thought",
+      "prev_slug": "carpe-diem",
+      "next_slug": "walk-on-u2-discography"
+    },
+    {
+      "slug": "walk-on-u2-discography",
+      "title": "Walk On – [U2 Discography]",
+      "date": "2014-06-26",
+      "category": "Music",
+      "prev_slug": "the-world-cup-and-christmas",
+      "next_slug": "a-letter-to-julio-cesar"
+    },
+    {
+      "slug": "a-letter-to-julio-cesar",
+      "title": "A Letter to Julio Cesar",
+      "date": "2014-06-30",
+      "category": "Free Thought",
+      "prev_slug": "walk-on-u2-discography",
+      "next_slug": "long-live-the-world-cup"
+    },
+    {
+      "slug": "long-live-the-world-cup",
+      "title": "Long Live the World Cup!",
+      "date": "2014-07-01",
+      "category": "Free Thought",
+      "prev_slug": "a-letter-to-julio-cesar",
+      "next_slug": "the-day-of-the-contrarians"
+    },
+    {
+      "slug": "the-day-of-the-contrarians",
+      "title": "The Day of the Contrarians",
+      "date": "2014-07-08",
+      "category": "Free Thought",
+      "prev_slug": "long-live-the-world-cup",
+      "next_slug": "dont-let-the-samba-die"
+    },
+    {
+      "slug": "dont-let-the-samba-die",
+      "title": "Don't Let the Samba Die",
+      "date": "2014-07-09",
+      "category": "Free Thought",
+      "prev_slug": "the-day-of-the-contrarians",
+      "next_slug": "rest-in-peace"
+    },
+    {
+      "slug": "rest-in-peace",
+      "title": "Rest in Peace",
+      "date": "2014-07-10",
+      "category": "Free Thought",
+      "prev_slug": "dont-let-the-samba-die",
+      "next_slug": "trendy-atheist"
+    },
+    {
+      "slug": "trendy-atheist",
+      "title": "Trendy Atheist",
+      "date": "2014-07-16",
+      "category": "Free Thought",
+      "prev_slug": "rest-in-peace",
+      "next_slug": "death-toll"
+    },
+    {
+      "slug": "death-toll",
+      "title": "Death Toll",
+      "date": "2014-07-18",
+      "category": "Free Thought",
+      "prev_slug": "trendy-atheist",
+      "next_slug": "let-life-take-me"
+    },
+    {
+      "slug": "let-life-take-me",
+      "title": "Let a Vida Me Levar",
+      "date": "2014-07-19",
+      "category": "Free Thought",
+      "prev_slug": "death-toll",
+      "next_slug": "jesus-rich"
+    },
+    {
+      "slug": "jesus-rich",
+      "title": "Jesus Rich",
+      "date": "2014-07-22",
+      "category": "Bible",
+      "prev_slug": "let-life-take-me",
+      "next_slug": "you-are-not-alone"
+    },
+    {
+      "slug": "you-are-not-alone",
+      "title": "You Are Not Alone",
+      "date": "2014-07-26",
+      "category": "Bible",
+      "prev_slug": "jesus-rich",
+      "next_slug": "nerd-moment"
+    },
+    {
+      "slug": "nerd-moment",
+      "title": "Nerd Moment",
+      "date": "2014-07-30",
+      "category": "Free Thought",
+      "prev_slug": "you-are-not-alone",
+      "next_slug": "those-who-have-a-promise-dont-die"
+    },
+    {
+      "slug": "those-who-have-a-promise-dont-die",
+      "title": "Those Who Have a Promise Don't Die",
+      "date": "2014-07-30",
+      "category": "Bible",
+      "prev_slug": "nerd-moment",
+      "next_slug": "unconvert-yourself"
+    },
+    {
+      "slug": "unconvert-yourself",
+      "title": "Unconvert Yourself!",
+      "date": "2014-08-01",
+      "category": "Bible",
+      "prev_slug": "those-who-have-a-promise-dont-die",
+      "next_slug": "robin-oh-robin"
+    },
+    {
+      "slug": "robin-oh-robin",
+      "title": "Robin… oh Robin :(",
+      "date": "2014-08-13",
+      "category": "Free Thought",
+      "prev_slug": "unconvert-yourself",
+      "next_slug": "the-challenge-of-being-a-believer"
+    },
     {
       "slug": "the-challenge-of-being-a-believer",
       "title": "The Challenge of Being \"A Believer\"",
-      "date": "2015-04-06",
+      "date": "2014-08-14",
       "category": "Free Thought",
-      "prev_slug": null,
+      "prev_slug": "robin-oh-robin",
+      "next_slug": "entrepreneur-play-fair"
+    },
+    {
+      "slug": "entrepreneur-play-fair",
+      "title": "Entrepreneur, Play Fair!",
+      "date": "2014-08-15",
+      "category": "Free Thought",
+      "prev_slug": "the-challenge-of-being-a-believer",
+      "next_slug": "marina-and-the-holy-war"
+    },
+    {
+      "slug": "marina-and-the-holy-war",
+      "title": "Marina and the Holy War",
+      "date": "2014-08-19",
+      "category": "Free Thought",
+      "prev_slug": "entrepreneur-play-fair",
+      "next_slug": "a-house-is-not-a-home"
+    },
+    {
+      "slug": "a-house-is-not-a-home",
+      "title": "A House Is Not a Home",
+      "date": "2014-09-12",
+      "category": "Music",
+      "prev_slug": "marina-and-the-holy-war",
+      "next_slug": "the-place-for-the-unchurched-is-in-the-streets"
+    },
+    {
+      "slug": "the-place-for-the-unchurched-is-in-the-streets",
+      "title": "The Place for the Unchurched Is in the Streets",
+      "date": "2014-09-30",
+      "category": "Bible",
+      "prev_slug": "a-house-is-not-a-home",
+      "next_slug": "burn-a-rainbow-flag-and-get-elected"
+    },
+    {
+      "slug": "burn-a-rainbow-flag-and-get-elected",
+      "title": "Burn a Rainbow Flag and Get Elected",
+      "date": "2014-10-02",
+      "category": "Bible",
+      "prev_slug": "the-place-for-the-unchurched-is-in-the-streets",
+      "next_slug": "i-looked-sadness-in-the-eyes-and-smiled"
+    },
+    {
+      "slug": "i-looked-sadness-in-the-eyes-and-smiled",
+      "title": "I Looked Sadness in the Eyes and Smiled",
+      "date": "2014-11-11",
+      "category": "Music",
+      "prev_slug": "burn-a-rainbow-flag-and-get-elected",
+      "next_slug": "growing-old"
+    },
+    {
+      "slug": "growing-old",
+      "title": "Growing Old...",
+      "date": "2014-11-22",
+      "category": "Free Thought",
+      "prev_slug": "i-looked-sadness-in-the-eyes-and-smiled",
+      "next_slug": "black-friday"
+    },
+    {
+      "slug": "black-friday",
+      "title": "Black Friday",
+      "date": "2014-11-28",
+      "category": "Free Thought",
+      "prev_slug": "growing-old",
+      "next_slug": "exodus-gods-and-kings"
+    },
+    {
+      "slug": "exodus-gods-and-kings",
+      "title": "Exodus – Gods and Kings",
+      "date": "2014-12-20",
+      "category": "Bible",
+      "prev_slug": "black-friday",
+      "next_slug": "how-to-recognize-and-accept-jesus"
+    },
+    {
+      "slug": "how-to-recognize-and-accept-jesus",
+      "title": "How to Recognize and Accept Jesus?",
+      "date": "2014-12-25",
+      "category": "Bible",
+      "prev_slug": "exodus-gods-and-kings",
+      "next_slug": "goodbye-2014"
+    },
+    {
+      "slug": "goodbye-2014",
+      "title": "Goodbye 2014",
+      "date": "2014-12-31",
+      "category": "Free Thought",
+      "prev_slug": "how-to-recognize-and-accept-jesus",
+      "next_slug": "the-curse-of-religion"
+    },
+    {
+      "slug": "the-curse-of-religion",
+      "title": "The Curse of Religion",
+      "date": "2015-01-08",
+      "category": "Free Thought",
+      "prev_slug": "goodbye-2014",
+      "next_slug": "an-idea-for-the-church"
+    },
+    {
+      "slug": "an-idea-for-the-church",
+      "title": "An Idea for the Church",
+      "date": "2015-01-15",
+      "category": "Free Thought",
+      "prev_slug": "the-curse-of-religion",
+      "next_slug": "what-difference-does-it-make-if-god-exists"
+    },
+    {
+      "slug": "what-difference-does-it-make-if-god-exists",
+      "title": "What Difference Does It Make If God Exists?",
+      "date": "2015-02-11",
+      "category": "Bible",
+      "prev_slug": "an-idea-for-the-church",
+      "next_slug": "values-of-a-family-without-god"
+    },
+    {
+      "slug": "values-of-a-family-without-god",
+      "title": "What Are the Values of a Family Without (a) God",
+      "date": "2015-02-14",
+      "category": "Free Thought",
+      "prev_slug": "what-difference-does-it-make-if-god-exists",
+      "next_slug": "why-i-dont-go-to-church-anymore"
+    },
+    {
+      "slug": "why-i-dont-go-to-church-anymore",
+      "title": "Why Don't I Go to Church Anymore?",
+      "date": "2015-02-26",
+      "category": "Free Thought",
+      "prev_slug": "values-of-a-family-without-god",
+      "next_slug": "i-keep-choosing-the-way"
+    },
+    {
+      "slug": "i-keep-choosing-the-way",
+      "title": "I Keep Choosing the Way",
+      "date": "2015-06-09",
+      "category": "Free Thought",
+      "prev_slug": "why-i-dont-go-to-church-anymore",
+      "next_slug": "love-wins"
+    },
+    {
+      "slug": "love-wins",
+      "title": "Love Wins",
+      "date": "2015-06-27",
+      "category": "Bible",
+      "prev_slug": "i-keep-choosing-the-way",
+      "next_slug": "virtual-friends-and-loneliness"
+    },
+    {
+      "slug": "virtual-friends-and-loneliness",
+      "title": "Virtual Friends and Loneliness",
+      "date": "2015-08-07",
+      "category": "Free Thought",
+      "prev_slug": "love-wins",
+      "next_slug": "there-will-be-a-blue-sky"
+    },
+    {
+      "slug": "there-will-be-a-blue-sky",
+      "title": "There Will Be a Blue Sky",
+      "date": "2015-09-17",
+      "category": "Music",
+      "prev_slug": "virtual-friends-and-loneliness",
+      "next_slug": "x-ray"
+    },
+    {
+      "slug": "x-ray",
+      "title": "X-Ray",
+      "date": "2015-10-23",
+      "category": "Short Stories",
+      "prev_slug": "there-will-be-a-blue-sky",
+      "next_slug": "fire"
+    },
+    {
+      "slug": "fire",
+      "title": "Fire!",
+      "date": "2015-11-04",
+      "category": "Music",
+      "prev_slug": "x-ray",
+      "next_slug": "home"
+    },
+    {
+      "slug": "home",
+      "title": "Home",
+      "date": "2015-11-10",
+      "category": "Music",
+      "prev_slug": "fire",
+      "next_slug": "prayforhumanity"
+    },
+    {
+      "slug": "prayforhumanity",
+      "title": "#prayForHumanity",
+      "date": "2015-11-14",
+      "category": "Free Thought",
+      "prev_slug": "home",
+      "next_slug": "i-am-not-a-billboard"
+    },
+    {
+      "slug": "i-am-not-a-billboard",
+      "title": "I Am Not a Billboard!",
+      "date": "2015-12-26",
+      "category": "Free Thought",
+      "prev_slug": "prayforhumanity",
+      "next_slug": "goodbye-2015"
+    },
+    {
+      "slug": "goodbye-2015",
+      "title": "Goodbye 2015",
+      "date": "2015-12-31",
+      "category": "Free Thought",
+      "prev_slug": "i-am-not-a-billboard",
+      "next_slug": "i-think-therefore-i-believe"
+    },
+    {
+      "slug": "i-think-therefore-i-believe",
+      "title": "I think, therefore I believe",
+      "date": "2016-04-12",
+      "category": "Bible",
+      "prev_slug": "goodbye-2015",
+      "next_slug": "a-letter-to-a-dear-friend"
+    },
+    {
+      "slug": "a-letter-to-a-dear-friend",
+      "title": "A letter to a dear friend",
+      "date": "2016-11-01",
+      "category": "Free Thought",
+      "prev_slug": "i-think-therefore-i-believe",
+      "next_slug": "christmas-a-pagan-feast-definitive-guide-part-1-of-3"
+    },
+    {
+      "slug": "christmas-a-pagan-feast-definitive-guide-part-1-of-3",
+      "title": "Christmas, a Pagan Feast — Definitive Guide (part 1 of 3)",
+      "date": "2016-12-14",
+      "category": "Bible",
+      "prev_slug": "a-letter-to-a-dear-friend",
+      "next_slug": "christmas-a-pagan-feast-definitive-guide-part-2-of-3"
+    },
+    {
+      "slug": "christmas-a-pagan-feast-definitive-guide-part-2-of-3",
+      "title": "Christmas, a Pagan Feast — Definitive Guide (part 2 of 3)",
+      "date": "2016-12-14",
+      "category": "Free Thought",
+      "prev_slug": "christmas-a-pagan-feast-definitive-guide-part-1-of-3",
+      "next_slug": "christmas-a-pagan-feast-definitive-guide-part-3-of-3"
+    },
+    {
+      "slug": "christmas-a-pagan-feast-definitive-guide-part-3-of-3",
+      "title": "Christmas, a Pagan Feast — Definitive Guide (part 3 of 3)",
+      "date": "2016-12-14",
+      "category": "Free Thought",
+      "prev_slug": "christmas-a-pagan-feast-definitive-guide-part-2-of-3",
+      "next_slug": "harry-potter-and-christmas"
+    },
+    {
+      "slug": "harry-potter-and-christmas",
+      "title": "Harry Potter and Christmas",
+      "date": "2016-12-24",
+      "category": "Bible",
+      "prev_slug": "christmas-a-pagan-feast-definitive-guide-part-3-of-3",
+      "next_slug": "malafaia-and-the-lack-of-friends"
+    },
+    {
+      "slug": "malafaia-and-the-lack-of-friends",
+      "title": "Malafaia and the Lack of Friends",
+      "date": "2016-12-30",
+      "category": "Free Thought",
+      "prev_slug": "harry-potter-and-christmas",
+      "next_slug": "goodbye-2016"
+    },
+    {
+      "slug": "goodbye-2016",
+      "title": "Goodbye 2016",
+      "date": "2016-12-31",
+      "category": "Free Thought",
+      "prev_slug": "malafaia-and-the-lack-of-friends",
+      "next_slug": "a-third-option"
+    },
+    {
+      "slug": "a-third-option",
+      "title": "A Third Option",
+      "date": "2017-04-07",
+      "category": "Free Thought",
+      "prev_slug": "goodbye-2016",
+      "next_slug": "the-farce-of-the-gospels"
+    },
+    {
+      "slug": "the-farce-of-the-gospels",
+      "title": "The Farce of the Gospels",
+      "date": "2017-04-13",
+      "category": "Bible",
+      "prev_slug": "a-third-option",
+      "next_slug": "3-solid-reasons-why-believing-jesus-came-back-from-the-dead-is-the-result-of-brainwashing"
+    },
+    {
+      "slug": "3-solid-reasons-why-believing-jesus-came-back-from-the-dead-is-the-result-of-brainwashing",
+      "title": "3 Solid Reasons Why Believing Jesus Came Back From the Dead Is the Result of Brainwashing",
+      "date": "2017-04-14",
+      "category": "Bible",
+      "prev_slug": "the-farce-of-the-gospels",
+      "next_slug": "the-tomb-is-empty"
+    },
+    {
+      "slug": "the-tomb-is-empty",
+      "title": "The Tomb Is Empty",
+      "date": "2017-04-16",
+      "category": "Bible",
+      "prev_slug": "3-solid-reasons-why-believing-jesus-came-back-from-the-dead-is-the-result-of-brainwashing",
+      "next_slug": "vegetarian-me"
+    },
+    {
+      "slug": "vegetarian-me",
+      "title": "Vegetarian, Me?",
+      "date": "2017-05-01",
+      "category": "Free Thought",
+      "prev_slug": "the-tomb-is-empty",
+      "next_slug": "songs-that-speak-to-me-of-the-kingdom-stand-by-you"
+    },
+    {
+      "slug": "songs-that-speak-to-me-of-the-kingdom-stand-by-you",
+      "title": "Songs That Speak to Me of the Kingdom :: Stand by You",
+      "date": "2017-07-11",
+      "category": "Music",
+      "prev_slug": "vegetarian-me",
+      "next_slug": "find-the-david-within-you"
+    },
+    {
+      "slug": "find-the-david-within-you",
+      "title": "Find the David within You",
+      "date": "2017-07-17",
+      "category": "Bible",
+      "prev_slug": "songs-that-speak-to-me-of-the-kingdom-stand-by-you",
+      "next_slug": "it-is-she"
+    },
+    {
+      "slug": "it-is-she",
+      "title": "It is she!",
+      "date": "2017-12-04",
+      "category": "Short Stories",
+      "prev_slug": "find-the-david-within-you",
+      "next_slug": "i-have-a-problem-with-the-bible"
+    },
+    {
+      "slug": "i-have-a-problem-with-the-bible",
+      "title": "I Have a Problem With the Bible!",
+      "date": "2017-12-11",
+      "category": "Bible",
+      "prev_slug": "it-is-she",
+      "next_slug": "how-to-change"
+    },
+    {
+      "slug": "how-to-change",
+      "title": "How to Change?",
+      "date": "2017-12-14",
+      "category": "Bible",
+      "prev_slug": "i-have-a-problem-with-the-bible",
+      "next_slug": "goodbye-2017"
+    },
+    {
+      "slug": "goodbye-2017",
+      "title": "Goodbye 2017",
+      "date": "2017-12-31",
+      "category": "Free Thought",
+      "prev_slug": "how-to-change",
+      "next_slug": "reading-the-bible-right"
+    },
+    {
+      "slug": "reading-the-bible-right",
+      "title": "Reading the Bible Right",
+      "date": "2018-01-10",
+      "category": "Bible",
+      "prev_slug": "goodbye-2017",
+      "next_slug": "the-first-witnesses"
+    },
+    {
+      "slug": "the-first-witnesses",
+      "title": "The First Witnesses",
+      "date": "2018-03-03",
+      "category": "Bible",
+      "prev_slug": "reading-the-bible-right",
+      "next_slug": "in-defense-of-saint-thomas"
+    },
+    {
+      "slug": "in-defense-of-saint-thomas",
+      "title": "In Defense of Saint Thomas",
+      "date": "2018-03-04",
+      "category": "Bible",
+      "prev_slug": "the-first-witnesses",
+      "next_slug": "un-believable"
+    },
+    {
+      "slug": "un-believable",
+      "title": "(Un)Believable",
+      "date": "2018-03-05",
+      "category": "Bible",
+      "prev_slug": "in-defense-of-saint-thomas",
+      "next_slug": "easter-on-april-1st-resurrection-or-april-fools"
+    },
+    {
+      "slug": "easter-on-april-1st-resurrection-or-april-fools",
+      "title": "Easter on April 1st — Resurrection or April Fools?",
+      "date": "2018-03-30",
+      "category": "Bible",
+      "prev_slug": "un-believable",
+      "next_slug": "i-am-not-right-wing"
+    },
+    {
+      "slug": "i-am-not-right-wing",
+      "title": "I Am Not Right-Wing",
+      "date": "2018-04-06",
+      "category": "Free Thought",
+      "prev_slug": "easter-on-april-1st-resurrection-or-april-fools",
+      "next_slug": "all-praise-to-the-genocidal-god"
+    },
+    {
+      "slug": "all-praise-to-the-genocidal-god",
+      "title": "All Praise to the Genocidal God",
+      "date": "2018-08-09",
+      "category": "Bible",
+      "prev_slug": "i-am-not-right-wing",
+      "next_slug": "our-father"
+    },
+    {
+      "slug": "our-father",
+      "title": "Our Father",
+      "date": "2018-10-19",
+      "category": "Free Thought",
+      "prev_slug": "all-praise-to-the-genocidal-god",
+      "next_slug": "racism-in-brazil"
+    },
+    {
+      "slug": "racism-in-brazil",
+      "title": "Racism in Brazil",
+      "date": "2018-10-19",
+      "category": "Free Thought",
+      "prev_slug": "our-father",
       "next_slug": "happy-4th-of-july"
     },
     {
@@ -15,7 +767,7 @@
       "title": "Happy 4th of July",
       "date": "2023-07-04",
       "category": "Free Thought",
-      "prev_slug": "the-challenge-of-being-a-believer",
+      "prev_slug": "racism-in-brazil",
       "next_slug": "i-am-not-from-wakanda"
     },
     {
@@ -64,10 +816,10 @@
       "date": "2024-11-28",
       "category": "Bible",
       "prev_slug": "never-enough",
-      "next_slug": "just-keep-swiming"
+      "next_slug": "just-keep-swimming"
     },
     {
-      "slug": "just-keep-swiming",
+      "slug": "just-keep-swimming",
       "title": "Just keep swiming",
       "date": "2024-12-03",
       "category": "Bible",
@@ -79,7 +831,7 @@
       "title": "A Journey Through the Gospel of John",
       "date": "2025-04-16",
       "category": "Bible",
-      "prev_slug": "just-keep-swiming",
+      "prev_slug": "just-keep-swimming",
       "next_slug": "a-message-from-the-courtyard-friday-reflections"
     },
     {
@@ -120,6 +872,14 @@
       "date": "2025-08-14",
       "category": "Free Thought",
       "prev_slug": "breaking-90-and-the-illusion-of-arrival",
+      "next_slug": "i-am-recovering-the-divine-voice"
+    },
+    {
+      "slug": "i-am-recovering-the-divine-voice",
+      "title": "\"I Am\": Recovering the Divine Voice",
+      "date": "2026-01-09",
+      "category": "Bible",
+      "prev_slug": "a-conversation-with-my-anxiety",
       "next_slug": "ai-where-i-m-drawing-the-line"
     },
     {
@@ -127,7 +887,7 @@
       "title": "AI :: Where I'm drawing the line",
       "date": "2026-02-24",
       "category": "Tech",
-      "prev_slug": "a-conversation-with-my-anxiety",
+      "prev_slug": "i-am-recovering-the-divine-voice",
       "next_slug": "we-never-lose"
     },
     {
@@ -136,35 +896,7 @@
       "date": "2026-04-14",
       "category": "Golf",
       "prev_slug": "ai-where-i-m-drawing-the-line",
-      "next_slug": "i-am-recovering-the-divine-voice",
-      "_review_note": "NEEDS REVIEW: this is currently the newest dated article; next_slug points at the first dateless article. Once Fellipe supplies real dates for the dateless 3, recompute next_slug."
-    },
-    {
-      "slug": "i-am-recovering-the-divine-voice",
-      "title": "\"I Am\": Recovering the Divine Voice",
-      "date": null,
-      "category": "Bible",
-      "prev_slug": "we-never-lose",
-      "next_slug": "i-think-therefore-i-believe",
-      "_review_note": "NEEDS REVIEW: dateless article — supply real date to fix ordering."
-    },
-    {
-      "slug": "i-think-therefore-i-believe",
-      "title": "I think, therefore I believe",
-      "date": null,
-      "category": "Bible",
-      "prev_slug": "i-am-recovering-the-divine-voice",
-      "next_slug": "it-is-she",
-      "_review_note": "NEEDS REVIEW: dateless article — supply real date to fix ordering."
-    },
-    {
-      "slug": "it-is-she",
-      "title": "It is she!",
-      "date": null,
-      "category": "Short Stories",
-      "prev_slug": "i-think-therefore-i-believe",
-      "next_slug": null,
-      "_review_note": "NEEDS REVIEW: dateless article — supply real date to fix ordering."
+      "next_slug": null
     }
   ]
 }

@@ -1,17 +1,31 @@
 ---
-// ArticleHero — distinct from HeroBlock; carries article metadata.
+const base = import.meta.env.BASE_URL;
+const stripBase = (b: string) => (b.endsWith('/') ? b.slice(0, -1) : b);
+
 interface Props {
   title: string;
   date: string | null;
   category: string;
+  translatedFromPt?: boolean;
 }
-const { title, date, category } = Astro.props;
+const { title, date, category, translatedFromPt = false } = Astro.props;
 ---
-<header data-component="ArticleHero">
-  <p><small>{category}</small></p>
-  <h1>{title}</h1>
-  <p><small>By Fellipe Brito</small></p>
+<header data-component="ArticleHero" class="max-w-[var(--container-text)] mx-auto pt-4 pb-8 border-b border-rule mb-10">
+  <p class="text-xs uppercase tracking-widest text-amber font-medium mb-4">
+    {category}
+  </p>
+  <h1 class="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight text-ink">
+    {title}
+  </h1>
+  <p class="text-sm text-muted mt-4">By Fellipe Brito</p>
   {date
-    ? <p><time datetime={date}>{date}</time></p>
-    : <p class="needs-review">NEEDS REVIEW: dateless article &mdash; supply real date to fix ordering.</p>}
+    ? <p class="text-sm text-muted mt-1 font-mono"><time datetime={date}>{date}</time></p>
+    : <p class="needs-review mt-4">NEEDS REVIEW: dateless article &mdash; supply real date to fix ordering.</p>}
+
+  {translatedFromPt && (
+    <aside class="text-sm bg-amber/10 border border-amber/30 rounded-md px-4 py-3 mt-6">
+      <strong class="text-amber">AI-translated</strong> from the original Portuguese. Spot a typo or something off?
+      <a href={`${stripBase(base)}/hire`} class="text-navy hover:text-amber border-b border-current ml-1">Tell me &rarr;</a>
+    </aside>
+  )}
 </header>

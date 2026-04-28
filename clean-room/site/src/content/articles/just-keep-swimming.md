@@ -2,7 +2,7 @@
 title: Just keep swiming
 date: 2024-12-03
 category: Bible
-slug: just-keep-swiming
+slug: just-keep-swimming
 ---
 
 One of the most famous stories of the Gospels is when Jesus calms the storm.

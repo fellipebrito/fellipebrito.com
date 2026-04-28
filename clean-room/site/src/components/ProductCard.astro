@@ -14,16 +14,24 @@ const isPlaceholder = blurb.startsWith('NEEDS REVIEW');
 const ios = links?.ios;
 const android = links?.android;
 ---
-<article data-component="ProductCard" id={`product-${slug}`}>
-  <h3>{name}</h3>
+<article
+  data-component="ProductCard"
+  id={`product-${slug}`}
+  class="p-6 md:p-7 border border-rule rounded-md bg-bg flex flex-col"
+>
+  <h3 class="text-xl md:text-2xl font-semibold tracking-tight mb-3">{name}</h3>
   {isPlaceholder
     ? <p class="needs-review">{blurb}</p>
-    : <p>{blurb}</p>}
+    : <p class="text-base leading-relaxed text-ink mb-4 flex-1">{blurb}</p>}
   {(ios || android) && (
-    <p class="product-links">
-      {ios && <a href={ios}>App Store</a>}
-      {ios && android && <span> &middot; </span>}
-      {android && <a href={android}>Google Play</a>}
+    <p class="text-sm text-muted mt-auto pt-2 border-t border-rule">
+      {ios && (
+        <a href={ios} class="text-navy hover:text-amber border-b border-current">App Store</a>
+      )}
+      {ios && android && <span class="mx-2">&middot;</span>}
+      {android && (
+        <a href={android} class="text-navy hover:text-amber border-b border-current">Google Play</a>
+      )}
     </p>
   )}
 </article>

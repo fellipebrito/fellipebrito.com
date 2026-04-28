@@ -1,16 +1,35 @@
 ---
 // NewsletterForm — email + "Get my Tuesday Notes" submit.
-// Form action is stubbed; ESP/form-tool is a Phase 7+ decision.
+// Wired to Buttondown (username: fellipebrito).
 interface Props {
   variant?: 'hero' | 'footer' | 'inline';
 }
 const { variant = 'inline' } = Astro.props;
 ---
-<!-- NEEDS REVIEW: form action / ESP not chosen yet (Mailchimp / ConvertKit / Substack / Buttondown / Resend). Action stubbed to '#' until Fellipe picks. -->
-<form data-component="NewsletterForm" data-variant={variant} action="#" method="post">
-  <label>
-    <span>Email</span>
-    <input type="email" name="email" placeholder="you@domain.com" required />
+<form
+  data-component="NewsletterForm"
+  data-variant={variant}
+  action="https://buttondown.com/api/emails/embed-subscribe/fellipebrito"
+  method="post"
+  target="popupwindow"
+  onsubmit="window.open('https://buttondown.com/fellipebrito', 'popupwindow')"
+  class="flex flex-col sm:flex-row gap-2 w-full"
+>
+  <label class="flex-1">
+    <span class="sr-only">Email</span>
+    <input
+      type="email"
+      name="email"
+      placeholder="you@domain.com"
+      required
+      class="w-full px-3 py-2.5 text-base bg-bg border border-rule rounded-sm focus:outline-none focus:border-navy focus:ring-2 focus:ring-navy/20"
+    />
   </label>
-  <button type="submit">Get my Tuesday Notes</button>
+  <input type="hidden" name="embed" value="1" />
+  <button
+    type="submit"
+    class="px-5 py-2.5 text-base font-medium text-bg bg-navy hover:bg-navy-hover rounded-sm transition-colors whitespace-nowrap"
+  >
+    Get my Tuesday Notes
+  </button>
 </form>

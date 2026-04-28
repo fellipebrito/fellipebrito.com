@@ -5,9 +5,13 @@ import BlogList from '../../../components/BlogList.astro';
 import NewsletterInline from '../../../components/NewsletterInline.astro';
 import articlesData from '../../../data/articles.json';
 
-// Render in canonical /blog/all order from the wireframe — match v1 sitemap.json order.
-// articles.json is sorted chronologically; preserve that ordering on this index too.
-const articles = articlesData.articles;
+// Listing view — most recent first. Dateless articles sort to end.
+const articles = [...articlesData.articles].sort((a, b) => {
+  if (!a.date && !b.date) return 0;
+  if (!a.date) return 1;
+  if (!b.date) return -1;
+  return a.date < b.date ? 1 : -1;
+});
 ---
 <BaseLayout title="Writing — Fellipe Brito">
   <HeroBlock

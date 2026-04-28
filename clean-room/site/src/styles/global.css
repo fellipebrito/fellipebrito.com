@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   fellipebrito.com — Design tokens v0.1
+   Mood: modern minimalist with personality.
+   References: buttondown.com, bounties.sh.
+   IBM Plex family. Warm-paper background. Dual accent: navy (primary
+   action) + amber (decorative emphasis).
+   --------------------------------------------------------------------------- */
+
+@theme {
+  /* TYPE FAMILY */
+  --font-sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'IBM Plex Serif', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'Menlo', monospace;
+
+  /* TYPE SCALE — major third (1.25), editorial restraint */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.3125rem;
+  --text-xl: 1.6875rem;
+  --text-2xl: 2.125rem;
+  --text-3xl: 2.6875rem;
+
+  --leading-body: 1.6;
+  --leading-tight: 1.15;
+
+  /* COLOR — monochrome warm-paper + dual accent */
+  --color-bg: #FBFAF7;
+  --color-ink: #111111;
+  --color-muted: #6B6B6B;
+  --color-rule: #E5E5E5;
+  --color-navy: #1E3A8A;
+  --color-navy-hover: #1E40AF;
+  --color-amber: #B45309;
+  --color-amber-soft: #FEF3C7;
+
+  /* RHYTHM */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  /* CONTAINER widths */
+  --container-text: 680px;
+  --container-wide: 1100px;
+}
+
+/* ---------------------------------------------------------------------------
+   Base typography & body
+   --------------------------------------------------------------------------- */
+html {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+
+p { margin: 0.6em 0; }
+
+/* Body links inside article prose — navy with hover-amber underline.
+   Scoped to article/prose so nav/footer/UI links can be styled differently. */
+article a, .prose a {
+  color: var(--color-navy);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+article a:hover, .prose a:hover {
+  color: var(--color-navy-hover);
+  border-bottom-color: var(--color-amber);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--color-rule);
+  margin: 2rem 0;
+}
+
+/* Blockquote — used for testimonials, pull-quotes */
+blockquote {
+  margin: 1.75rem 0;
+  padding: 0 0 0 1.5rem;
+  border-left: 3px solid var(--color-amber);
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  line-height: 1.45;
+  color: var(--color-ink);
+}
+blockquote p { margin: 0.5em 0; }
+blockquote footer {
+  margin-top: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  font-style: normal;
+}
+blockquote .recommendations-link {
+  margin-top: 1rem;
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+}
+blockquote .recommendations-link a {
+  color: var(--color-navy);
+  border-bottom: 1px solid currentColor;
+}
+blockquote .recommendations-link a:hover {
+  color: var(--color-amber);
+}
+
+/* Mark / highlight — newspaper-pen amber-soft background. Pair with
+   <strong> when both bold and highlight are needed. */
+mark, .highlight {
+  background-color: var(--color-amber-soft);
+  padding: 0 0.2em;
+  color: var(--color-ink);
+  border-radius: 2px;
+}
+
+/* Prose — article body. Wider line-height, slightly larger text, max-width. */
+.prose {
+  max-width: var(--container-text);
+  font-size: var(--text-lg);
+  line-height: 1.7;
+  color: var(--color-ink);
+}
+.prose p { margin: 1.25em 0; }
+.prose h2 {
+  font-size: var(--text-2xl);
+  margin-top: 2.25em;
+  margin-bottom: 0.75em;
+}
+.prose h3 {
+  font-size: var(--text-xl);
+  margin-top: 1.75em;
+  margin-bottom: 0.5em;
+}
+.prose blockquote { margin: 1.75em 0; }
+.prose ul, .prose ol { padding-left: 1.5em; margin: 1.25em 0; }
+.prose li { margin: 0.4em 0; }
+
+/* ---------------------------------------------------------------------------
+   Component-specific patterns Tailwind utilities can't express cleanly
+   --------------------------------------------------------------------------- */
+
+/* Logo strip on home — monospaced, mute */
+.logo-strip {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  padding: 0.5em 0;
+  letter-spacing: 0.02em;
+}
+
+/* Article navigation prev/next */
+.article-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-rule);
+}
+.article-nav .nav-prev,
+.article-nav .nav-next { flex: 1; max-width: 48%; }
+.article-nav .nav-next { text-align: right; }
+@media (max-width: 600px) {
+  .article-nav { flex-direction: column; }
+  .article-nav .nav-next { text-align: left; }
+  .article-nav .nav-prev,
+  .article-nav .nav-next { max-width: 100%; }
+}
+
+/* Tally iframe (real embed via tally.so widgets script — height auto-resizes) */
+
+/* ---------------------------------------------------------------------------
+   .needs-review — UNMISSABLE marker for content TBD.
+   Removed once all NEEDS REVIEW items are resolved.
+   --------------------------------------------------------------------------- */
+.needs-review {
+  background: #FFF3A3;
+  border: 2px dashed #C00;
+  color: #600;
+  padding: 0.5em 0.75em;
+  margin: 0.6em 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}

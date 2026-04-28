@@ -7,7 +7,7 @@ import TestimonialQuote from '../components/TestimonialQuote.astro';
 <BaseLayout title="Work with me — Fellipe Brito">
   <HeroBlock variant="page-default" h1="Work with me" />
 
-  <section data-component="HireTestimonial" class="py-8">
+  <section data-component="HireTestimonial" data-animate="fade-up" class="py-8">
     <TestimonialQuote
       author="Sam Kling"
       role="Chief Creative Officer, SESAC"
@@ -18,7 +18,7 @@ import TestimonialQuote from '../components/TestimonialQuote.astro';
     </TestimonialQuote>
   </section>
 
-  <section class="py-8 border-t border-rule">
+  <section data-animate="fade-up" class="py-8 border-t border-rule">
     <ContactBlock />
   </section>
 </BaseLayout>

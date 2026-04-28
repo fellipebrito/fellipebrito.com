@@ -30,9 +30,8 @@ const { title } = Astro.props;
     </main>
     <GlobalFooter />
 
-    <!-- Scroll animations via Motion. Correct API: inView callback receives
-         (target, entry) — target is the element directly. JS-hides-then-
-         reveals + safety nets so any failure mode keeps content visible. -->
+    <!-- Scroll animations via Motion. Four effects, all opt-in via
+         data-animate attributes. JS-hides-then-reveals + safety nets. -->
     <script>
       import { animate, inView } from 'motion';
 
@@ -42,38 +41,89 @@ const { title } = Astro.props;
 
       if (!reduced) {
         try {
-          const els = document.querySelectorAll('[data-animate="fade-up"]');
-          if (els.length) {
-            // Hide initial state.
-            els.forEach((el) => {
-              el.style.opacity = '0';
-              el.style.transform = 'translateY(24px)';
-            });
+          const EASE = [0.16, 1, 0.3, 1];
 
-            // Reveal as each element enters viewport.
-            inView('[data-animate="fade-up"]', (target) => {
+          // -------- fade-up --------
+          document.querySelectorAll('[data-animate="fade-up"]').forEach((el) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(24px)';
+          });
+          inView('[data-animate="fade-up"]', (target) => {
+            animate(target, { opacity: [0, 1], y: [24, 0] }, { duration: 0.7, ease: EASE });
+          });
+
+          // -------- stagger (children of container animate in sequence) --------
+          document.querySelectorAll('[data-animate="stagger"]').forEach((container) => {
+            Array.from(container.children).forEach((child) => {
+              child.style.opacity = '0';
+              child.style.transform = 'translateY(24px)';
+            });
+          });
+          inView('[data-animate="stagger"]', (target) => {
+            Array.from(target.children).forEach((child, i) => {
               animate(
-                target,
+                child,
                 { opacity: [0, 1], y: [24, 0] },
-                { duration: 0.7, ease: [0.16, 1, 0.3, 1] }
+                { duration: 0.6, delay: i * 0.08, ease: EASE }
               );
             });
+          });
 
-            // Safety net: force-reveal anything still hidden after 3s.
-            setTimeout(() => {
-              els.forEach((el) => {
+          // -------- mask reveal (clip-path slides off, exposing content) --------
+          document.querySelectorAll('[data-animate="mask"]').forEach((el) => {
+            el.style.clipPath = 'inset(0 100% 0 0)';
+          });
+          inView('[data-animate="mask"]', (target) => {
+            animate(
+              target,
+              { clipPath: ['inset(0 100% 0 0)', 'inset(0 0 0 0)'] },
+              { duration: 0.9, ease: EASE }
+            );
+          });
+
+          // -------- counter (number ticks up to data-count-to) --------
+          inView('[data-animate="counter"]', (target) => {
+            const to = parseInt(target.dataset.countTo || '0', 10);
+            if (Number.isNaN(to)) return;
+            animate(0, to, {
+              duration: 1.5,
+              ease: EASE,
+              onUpdate: (v) => { target.textContent = Math.round(v).toString(); },
+            });
+          });
+
+          // -------- safety net (force-reveal anything still hidden after 3s) --------
+          setTimeout(() => {
+            document.querySelectorAll('[data-animate="fade-up"]').forEach((el) => {
+              if (el.style.opacity === '0') {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+              }
+            });
+            document.querySelectorAll('[data-animate="stagger"]').forEach((container) => {
+              Array.from(container.children).forEach((el) => {
                 if (el.style.opacity === '0') {
                   el.style.opacity = '1';
                   el.style.transform = 'translateY(0)';
                 }
               });
-            }, 3000);
-          }
+            });
+            document.querySelectorAll('[data-animate="mask"]').forEach((el) => {
+              if (el.style.clipPath && el.style.clipPath.includes('100%')) {
+                el.style.clipPath = 'inset(0 0 0 0)';
+              }
+            });
+          }, 3000);
         } catch (e) {
           // Any error → force-reveal everything.
-          document.querySelectorAll('[data-animate="fade-up"]').forEach((el) => {
+          document.querySelectorAll('[data-animate]').forEach((el) => {
             el.style.opacity = '1';
             el.style.transform = 'translateY(0)';
+            el.style.clipPath = 'inset(0 0 0 0)';
+            Array.from(el.children).forEach((child) => {
+              child.style.opacity = '1';
+              child.style.transform = 'translateY(0)';
+            });
           });
         }
       }

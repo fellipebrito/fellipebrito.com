@@ -3,7 +3,7 @@ const base = import.meta.env.BASE_URL;
 const stripBase = (b: string) => (b.endsWith('/') ? b.slice(0, -1) : b);
 const link = (p: string) => `${stripBase(base)}${p}`;
 ---
-<section data-component="AboutBlock" class="prose">
+<section data-component="AboutBlock" data-animate="fade-up" class="prose">
 
   <!-- Sub-section 1 — Who I am (lead paragraph, no heading) -->
   <div class="mt-8 first:mt-0">

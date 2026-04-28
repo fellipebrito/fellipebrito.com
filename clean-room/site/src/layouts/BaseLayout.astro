@@ -30,53 +30,53 @@ const { title } = Astro.props;
     </main>
     <GlobalFooter />
 
-    <!-- Scroll animations — vanilla IntersectionObserver, no library.
-         Pattern: JS hides then reveals (NOT CSS hides). Multiple safety nets:
-         try/catch, prefers-reduced-motion bailout, 3s force-reveal timeout.
-         If ANYTHING fails, content stays visible. -->
-    <script is:inline>
-      (function () {
-        if (!('IntersectionObserver' in window)) return;
-        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    <!-- Scroll animations via Motion. Correct API: inView callback receives
+         (target, entry) — target is the element directly. JS-hides-then-
+         reveals + safety nets so any failure mode keeps content visible. -->
+    <script>
+      import { animate, inView } from 'motion';
 
+      const reduced =
+        window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (!reduced) {
         try {
-          var els = document.querySelectorAll('[data-animate="fade-up"]');
-          if (!els.length) return;
-
-          var observer = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-              if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
-              }
+          const els = document.querySelectorAll('[data-animate="fade-up"]');
+          if (els.length) {
+            // Hide initial state.
+            els.forEach((el) => {
+              el.style.opacity = '0';
+              el.style.transform = 'translateY(24px)';
             });
-          }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
 
-          els.forEach(function (el) {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1)';
-            observer.observe(el);
-          });
-
-          // Safety net: force-reveal anything still hidden after 3s.
-          setTimeout(function () {
-            els.forEach(function (el) {
-              if (el.style.opacity === '0') {
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
-              }
+            // Reveal as each element enters viewport.
+            inView('[data-animate="fade-up"]', (target) => {
+              animate(
+                target,
+                { opacity: [0, 1], y: [24, 0] },
+                { duration: 0.7, ease: [0.16, 1, 0.3, 1] }
+              );
             });
-          }, 3000);
+
+            // Safety net: force-reveal anything still hidden after 3s.
+            setTimeout(() => {
+              els.forEach((el) => {
+                if (el.style.opacity === '0') {
+                  el.style.opacity = '1';
+                  el.style.transform = 'translateY(0)';
+                }
+              });
+            }, 3000);
+          }
         } catch (e) {
           // Any error → force-reveal everything.
-          document.querySelectorAll('[data-animate="fade-up"]').forEach(function (el) {
+          document.querySelectorAll('[data-animate="fade-up"]').forEach((el) => {
             el.style.opacity = '1';
             el.style.transform = 'translateY(0)';
           });
         }
-      })();
+      }
     </script>
   </body>
 </html>

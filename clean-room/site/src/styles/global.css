@@ -193,6 +193,22 @@ mark, .highlight {
 /* Tally iframe (real embed via tally.so widgets script — height auto-resizes) */
 
 /* ---------------------------------------------------------------------------
+   Scroll-animation initial states.
+   Only applied when JS is enabled AND user does NOT prefer reduced motion.
+   Without JS or with reduced motion, elements stay visible (no flash).
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-animate="fade-up"],
+  .js [data-animate="stagger"] > * {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .js [data-animate="mask"] {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+/* ---------------------------------------------------------------------------
    .needs-review — UNMISSABLE marker for content TBD.
    Removed once all NEEDS REVIEW items are resolved.
    --------------------------------------------------------------------------- */

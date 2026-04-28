@@ -15,6 +15,12 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
 
+    <!-- Mark JS as enabled BEFORE first paint so the CSS-hide-then-animate
+         pattern doesn't flash for JS users. is:inline keeps this synchronous. -->
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+
     <!-- IBM Plex Sans + Mono via Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,5 +35,57 @@ const { title } = Astro.props;
       <slot />
     </main>
     <GlobalFooter />
+
+    <!-- Scroll animations via Motion. Honors prefers-reduced-motion.
+         Effects are opt-in via data-animate attributes. -->
+    <script>
+      import { animate, inView } from 'motion';
+
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (!reducedMotion) {
+        // Effect 1 — fade-up on enter
+        inView('[data-animate="fade-up"]', (info) => {
+          animate(
+            info.target,
+            { opacity: [0, 1], y: [20, 0] },
+            { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
+          );
+        });
+
+        // Effect 3 — stagger reveal on grid children
+        inView('[data-animate="stagger"]', (info) => {
+          const children = Array.from(info.target.children);
+          children.forEach((child, i) => {
+            animate(
+              child,
+              { opacity: [0, 1], y: [20, 0] },
+              { duration: 0.6, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }
+            );
+          });
+        });
+
+        // Effect 5 — mask reveal (used on page-default H1s only)
+        inView('[data-animate="mask"]', (info) => {
+          animate(
+            info.target,
+            { clipPath: ['inset(0 100% 0 0)', 'inset(0 0 0 0)'] },
+            { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+          );
+        });
+
+        // Effect 9 — counter (text content ticks up to data-count-to)
+        inView('[data-animate="counter"]', (info) => {
+          const el = info.target;
+          const target = parseInt(el.dataset.countTo || '0', 10);
+          if (Number.isNaN(target)) return;
+          animate(0, target, {
+            duration: 1.5,
+            ease: [0.16, 1, 0.3, 1],
+            onUpdate: (v) => { el.textContent = Math.round(v).toString(); },
+          });
+        });
+      }
+    </script>
   </body>
 </html>

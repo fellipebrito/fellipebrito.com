@@ -8,7 +8,10 @@ import AboutTeaser from '../components/AboutTeaser.astro';
 const base = import.meta.env.BASE_URL;
 const stripBase = (b: string) => (b.endsWith('/') ? b.slice(0, -1) : b);
 ---
-<BaseLayout title="Fellipe Brito">
+<BaseLayout
+  title="Fellipe Brito — Christian. Entrepreneur. Creative problem solver."
+  description="Founder of Bossa Nova Solutions. Past lives at Facebook and SESAC. Now building for PING, QWIRE, UVL, and a few others. 26 years shipping software. Tuesday Notes weekly."
+>
   <HeroBlock
     variant="home"
     h1={`Christian. Entrepreneur.\nCreative problem solver.`}

@@ -81,6 +81,30 @@ const { title } = Astro.props;
             );
           });
 
+          // -------- logo cycle (gray → original color → gray, sequenced) --------
+          inView('[data-cycle="logos"]', (target) => {
+            const logos = target.querySelectorAll('.logo-mono');
+            logos.forEach((logo, i) => {
+              animate(
+                logo,
+                {
+                  filter: [
+                    'grayscale(100%) contrast(105%)',
+                    'grayscale(0%) contrast(105%)',
+                    'grayscale(100%) contrast(105%)',
+                  ],
+                  opacity: [0.7, 1, 0.7],
+                },
+                {
+                  duration: 2.4,
+                  delay: i * 0.6,
+                  times: [0, 0.5, 1],
+                  ease: EASE,
+                }
+              );
+            });
+          });
+
           // -------- counter (number ticks up to data-count-to) --------
           inView('[data-animate="counter"]', (target) => {
             const to = parseInt(target.dataset.countTo || '0', 10);

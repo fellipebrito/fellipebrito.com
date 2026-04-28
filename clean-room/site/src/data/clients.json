@@ -35,25 +35,25 @@
       "slug": "ping",
       "name": "PING",
       "phase": "current",
-      "case_note": "PING is a $5B+ golf equipment brand with a reputation for engineering precision. Their bet with Ballnamic was unusual: build a brand-agnostic golf ball fitting platform from a company that doesn't even make balls. Powered by ball-flight simulation algorithms, robot testing on the Ping Man, and doppler radar across 40+ ball models from every major brand.\n\nBossa Nova built the system end to end. The fitting engine, the consumer-facing landing page at ballfitting.com, and the physical kiosk software now showing up in golf shops like Haggin Oaks. One platform, three surfaces. Ongoing partnership."
+      "case_note": "PING is a $5B+ golf equipment brand with a reputation for engineering precision. Their bet with <mark>Ballnamic</mark> was unusual: build a brand-agnostic golf ball fitting platform from a company that doesn't even make balls. Powered by ball-flight simulation algorithms, robot testing on the Ping Man, and doppler radar across 40+ ball models from every major brand.\n\n<mark>Me and my team at Bossa Nova built the system end to end</mark>. The fitting engine, the consumer-facing landing page at ballfitting.com, and the physical kiosk software now showing up in golf shops like Haggin Oaks. One platform, three surfaces. Ongoing partnership."
     },
     {
       "slug": "qwire",
       "name": "QWIRE",
       "phase": "current",
-      "case_note": "QWIRE is a music clearance and rights tracking platform for film and TV. The clearance workflow is famously fragmented across studios, publishers, and rights holders. QWIRE consolidates it.\n\nBossa Nova has been embedded with QWIRE's team for many years. The kind of relationship where the work outlives the contract."
+      "case_note": "QWIRE is a music clearance and rights tracking platform for film and TV. The clearance workflow is famously fragmented across studios, publishers, and rights holders. QWIRE consolidates it.\n\n<mark>Bossa Nova has been THE embedded team at QWIRE for many years</mark>. The kind of relationship where the work outlives the contract."
     },
     {
       "slug": "whiskey-social",
       "name": "Whiskey Social",
       "phase": "current",
-      "case_note": "Whiskey Social is a whiskey discovery and community app built by two Tennessee enthusiasts who wanted a better way to share what they were drinking. Three pillars: collection, social, discovery. Plus venue partnerships, a 7,000+ bottle database, and an active community feed.\n\nBossa Nova handles maintenance, enhancements, and ongoing feature development. The app holds a 4.8 on the App Store and ships on both iOS and Android."
+      "case_note": "Whiskey Social is a whiskey discovery and community app built by two Tennessee enthusiasts who wanted a better way to share what they were drinking. Three pillars: collection, social, discovery. Plus venue partnerships, a 7,000+ bottle database, and an active community feed.\n\nBossa Nova handles maintenance, enhancements, and ongoing feature development. <mark>The app holds a 4.8 on the App Store and ships on both iOS and Android</mark>."
     },
     {
       "slug": "uvl",
       "name": "UVL",
       "phase": "current",
-      "case_note": "UVL is a transportation and logistics operator running on McLeod TMS. They came to Bossa Nova for a modern client-facing app and a clearer picture of their own API and backend infrastructure.\n\nBossa Nova shipped UVL's app and has continued mapping and documenting their API for future development cycles. Ongoing maintenance and partnership work as the platform scales."
+      "case_note": "UVL is a transportation and logistics operator running on McLeod TMS. They came to Bossa Nova for a modern client-facing app and a clearer picture of their own API and backend infrastructure.\n\n<mark>Bossa Nova shipped UVL's app</mark> and has continued mapping and documenting their API for future development cycles. <mark>Ongoing maintenance and partnership</mark> work as the platform scales."
     }
   ]
 }

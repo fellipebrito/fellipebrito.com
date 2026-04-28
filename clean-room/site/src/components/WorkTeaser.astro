@@ -21,12 +21,12 @@ const logos = [
     >See selected work &rarr;</a>
   </div>
 
-  <div class="flex flex-wrap items-center gap-x-8 gap-y-4 mb-6">
+  <div class="flex flex-wrap items-center gap-x-10 gap-y-6 mb-6">
     {logos.map((l) => (
       <img
         src={logo(l.slug)}
         alt={l.alt}
-        class="logo-mono h-5 md:h-6 w-auto max-w-[120px]"
+        class="logo-mono h-10 md:h-12 w-auto max-w-[240px]"
         loading="lazy"
       />
     ))}

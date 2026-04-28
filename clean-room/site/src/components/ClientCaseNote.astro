@@ -41,7 +41,7 @@ const paragraphs = caseNote && !isPlaceholder
       <p class="needs-review">{caseNote}</p>
     ) : (
       paragraphs.map((p) => (
-        <p class="text-base leading-relaxed text-ink mb-3 last:mb-0">{p}</p>
+        <p class="text-base leading-relaxed text-ink mb-3 last:mb-0" set:html={p}></p>
       ))
     )}
   </article>

@@ -7,6 +7,10 @@ interface Props {
 }
 const { name, slug, caseNote, displayOnly = 'card' } = Astro.props;
 
+const base = import.meta.env.BASE_URL;
+const stripBase = (b: string) => (b.endsWith('/') ? b.slice(0, -1) : b);
+const logo = `${stripBase(base)}/logos/${slug}.svg`;
+
 const isPlaceholder = caseNote?.startsWith('NEEDS REVIEW') ?? false;
 const paragraphs = caseNote && !isPlaceholder
   ? caseNote.split('\n\n').filter((p) => p.trim().length > 0)
@@ -17,11 +21,9 @@ const paragraphs = caseNote && !isPlaceholder
     data-component="ClientCaseNote"
     id={`client-${slug}`}
     data-display="logo"
-    class="py-6 px-4 border border-rule rounded-md flex items-center justify-center text-center bg-bg"
+    class="py-8 px-4 border border-rule rounded-md flex items-center justify-center text-center bg-bg min-h-[88px]"
   >
-    <h3 class="text-base md:text-lg font-mono font-medium uppercase tracking-wider text-muted">
-      {name}
-    </h3>
+    <img src={logo} alt={name} class="logo-mono max-h-8 w-auto max-w-[120px]" loading="lazy" />
   </article>
 ) : (
   <article

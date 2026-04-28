@@ -156,16 +156,17 @@ mark, .highlight {
    Component-specific patterns Tailwind utilities can't express cleanly
    --------------------------------------------------------------------------- */
 
-/* Logo strip on home — monospaced, mute */
-.logo-strip {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  font-family: var(--font-mono);
-  font-size: var(--text-sm);
-  color: var(--color-muted);
-  padding: 0.5em 0;
-  letter-spacing: 0.02em;
+/* Strict-grayscale logo treatment.
+   - brightness(0) flat-blacks every fill; saturate(100%) keeps form
+   - opacity mutes them so they don't compete with type
+   - hover restores full presence */
+.logo-mono {
+  filter: grayscale(100%) brightness(0);
+  opacity: 0.6;
+  transition: opacity 200ms ease;
+}
+.logo-mono:hover {
+  opacity: 1;
 }
 
 /* Article navigation prev/next */

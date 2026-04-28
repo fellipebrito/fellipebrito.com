@@ -1,24 +1,23 @@
 ---
 // HeroBlock — variants:
-//   home:         H1 + supporting line + NewsletterForm CTA + secondary text link
-//   page-default: H1 + optional subhead
-import NewsletterForm from './NewsletterForm.astro';
-
+//   home:         H1 + supporting line + primary CTA button (Work with me)
+//   page-default: H1 + optional supporting subhead
+//
+// Newsletter signup is NOT in the home hero — the footer form is the
+// site-wide capture. Hero focuses on the primary action: hire.
 interface Props {
   variant?: 'home' | 'page-default';
   h1: string;
   supporting?: string;
-  microcopy?: string;
-  secondaryLinkHref?: string;
-  secondaryLinkText?: string;
+  primaryCtaHref?: string;
+  primaryCtaText?: string;
 }
 const {
   variant = 'page-default',
   h1,
   supporting,
-  microcopy,
-  secondaryLinkHref,
-  secondaryLinkText,
+  primaryCtaHref,
+  primaryCtaText,
 } = Astro.props;
 ---
 <section
@@ -48,22 +47,14 @@ const {
     </p>
   )}
 
-  {variant === 'home' && (
-    <div class="mt-10 max-w-md">
-      <NewsletterForm variant="hero" />
-      {microcopy && (
-        <p class="text-sm text-muted mt-3">{microcopy}</p>
-      )}
-      {secondaryLinkHref && secondaryLinkText && (
-        <p class="mt-6 text-sm">
-          <a
-            href={secondaryLinkHref}
-            class="text-navy hover:text-amber border-b border-current"
-          >
-            {secondaryLinkText}
-          </a>
-        </p>
-      )}
+  {variant === 'home' && primaryCtaHref && primaryCtaText && (
+    <div class="mt-10">
+      <a
+        href={primaryCtaHref}
+        class="inline-block px-6 py-3 text-base md:text-lg font-medium text-bg bg-navy hover:bg-navy-hover rounded-sm transition-colors"
+      >
+        {primaryCtaText}
+      </a>
     </div>
   )}
 </section>

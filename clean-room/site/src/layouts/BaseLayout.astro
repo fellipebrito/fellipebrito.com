@@ -15,6 +15,13 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
 
+    <!-- Mark JS as enabled BEFORE first paint so CSS can set initial-hidden
+         state on animated elements (avoids FOUC where the static <mark>
+         flashes amber then fades to 0% before the draw-in animation). -->
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+
     <!-- IBM Plex Sans + Mono via Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -126,15 +133,11 @@ const { title } = Astro.props;
           });
 
           // -------- highlight pen (sequential — one mark at a time) --------
-          // Initial state: 0% width (invisible). CSS transition handles the
-          // sweep when JS sets size to 100% via inView. Wave-based stagger:
-          // marks that enter viewport within 1.5s of each other are queued
-          // and drawn in sequence (600ms between starts). After 1.5s of
-          // no new entries, the next wave starts fresh.
-          document.querySelectorAll('mark, .highlight').forEach((el) => {
-            el.style.backgroundSize = '0% 100%';
-            el.style.transition = 'background-size 800ms cubic-bezier(0.16, 1, 0.3, 1)';
-          });
+          // Initial 0% state + transition come from CSS (.js mark) so there's
+          // no FOUC. Wave-based stagger: marks that enter viewport within
+          // 1.5s of each other are queued and drawn in sequence (600ms
+          // between starts). After 1.5s of no new entries, the next wave
+          // starts fresh.
           let highlightWaveStart = 0;
           let highlightWaveIndex = 0;
           inView('mark, .highlight', (target) => {

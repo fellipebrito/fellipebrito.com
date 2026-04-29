@@ -16,6 +16,7 @@ const href = (p: string) => (base.endsWith('/') ? base.slice(0, -1) : base) + p;
       <ul class="flex gap-5 md:gap-7 text-sm md:text-base">
         <li><a href={href('/blog/all')} class="text-ink hover:text-navy">Writing</a></li>
         <li><a href={href('/work')} class="text-ink hover:text-navy">Work</a></li>
+        <li><a href={href('/now')} class="text-ink hover:text-navy">Now</a></li>
         <li><a href={href('/about')} class="text-ink hover:text-navy">About</a></li>
         <li><a href={href('/hire')} class="text-ink hover:text-navy font-medium">Hire</a></li>
       </ul>

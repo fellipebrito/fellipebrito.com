@@ -3,12 +3,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroBlock from '../components/HeroBlock.astro';
 import ContactBlock from '../components/ContactBlock.astro';
 import TestimonialQuote from '../components/TestimonialQuote.astro';
+
+const base = import.meta.env.BASE_URL;
+const stripBase = (b: string) => (b.endsWith('/') ? b.slice(0, -1) : b);
 ---
 <BaseLayout
   title="Work with me — Fellipe Brito"
   description="Tell me what you're building. Software for companies that need it to last. Bossa Nova Solutions — embedded teams, hard problems, no fluff."
 >
   <HeroBlock variant="page-default" h1="Work with me" />
+
+  <section data-component="HireManifesto" data-animate="fade-up" class="py-12 border-t border-rule">
+    <blockquote class="max-w-3xl">
+      <p class="text-2xl md:text-3xl font-medium leading-snug text-ink">
+        <mark>I refuse to pay my way into not needing people anymore.</mark>
+      </p>
+      <p class="text-base text-muted mt-5">
+        How I think about AI, dependence, and the people I work with.
+        <a
+          href={`${stripBase(base)}/blog/all/ai-where-i-m-drawing-the-line`}
+          class="text-navy hover:text-amber border-b border-current ml-1"
+        >Read the full piece &rarr;</a>
+      </p>
+    </blockquote>
+  </section>
 
   <section data-component="HireTestimonial" data-animate="fade-up" class="py-8">
     <TestimonialQuote

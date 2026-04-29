@@ -5,6 +5,16 @@ Personal brand site for Fellipe Brito. Astro static site, deployed to GitHub Pag
 **Repo:** github.com/fellipebrito/fellipebrito.com (default branch: `main`).
 **Old Jekyll site preserved:** `legacy-jekyll` branch on origin.
 
+## Roadmap — read at session start
+
+**Strategic roadmap lives in `ROADMAP.md` at repo root.** At the start of every session NOVA must:
+
+1. Read `ROADMAP.md` in full.
+2. Identify which Phase has the most unchecked items.
+3. Propose to Fellipe what to tackle next based on that — surface any open questions blocking the next item.
+
+When work ships, check the matching item off in `ROADMAP.md` (same commit as the work). Update the "Last roadmap update" line at the bottom. New strategic ideas land in the relevant Phase or in "Deferred".
+
 ## Stack
 - **Astro 5** with **Tailwind 4** via `@tailwindcss/vite` plugin
 - **IBM Plex Sans + Mono** via Google Fonts in BaseLayout

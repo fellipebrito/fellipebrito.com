@@ -65,6 +65,14 @@ const ogImage = image.startsWith('http')
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="theme-color" content="#FBFAF7" />
 
+    <!-- RSS — discoverable by Feedbin, Reeder, NetNewsWire, etc. -->
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Fellipe Brito — Writing"
+      href="/rss.xml"
+    />
+
     <!-- Mark JS as enabled BEFORE first paint so CSS can set initial-hidden
          state on animated elements (avoids FOUC where the static <mark>
          flashes amber then fades to 0% before the draw-in animation). -->

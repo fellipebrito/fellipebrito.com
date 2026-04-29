@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroBlock from '../components/HeroBlock.astro';
+---
+<BaseLayout
+  title="Now — Fellipe Brito"
+  description="What I'm building, training with, reading, and listening to right now. Updated monthly."
+>
+  <HeroBlock
+    variant="page-default"
+    h1="Now"
+    supporting={`What I'm doing right now — building, training, reading, listening. Updated monthly. Inspired by <a href="https://nownownow.com/about" rel="noopener" class="text-navy hover:text-amber border-b border-current">Derek Sivers' /now convention</a>.`}
+  />
+
+  <section data-component="NowBlock" data-animate="fade-up" class="prose">
+
+    <p class="text-xl md:text-2xl leading-snug text-ink mt-2">
+      May. <mark>Birthday month.</mark>
+    </p>
+
+    <p>It is night. Quiet. The window is open so I can feel the cool down of the end of a day.</p>
+
+    <p>Two weeks from now: <mark>Palm Springs</mark>. My first real golf trip. <strong>Four rounds in two days.</strong> I keep telling people this and watching their faces. <em>That's a lot,</em> they say. <em>I know,</em> I say. But the bag is already packed.</p>
+
+    <p>Mid-May, a tournament. Small stakes, big nerves.</p>
+
+    <p>May 10 I get a <strong>DEXA scan</strong>. The goal: <mark>sub-15% body fat by end of year</mark>. Last measurement was 21%. At some point I'll put a graph here, tracking the climb down. After the scan I sit with my own trainer app &mdash; built it myself, not on the App Store yet &mdash; and feed it the truth.</p>
+
+    <hr class="my-12 border-rule" />
+
+    <div class="mt-12">
+      <h3>Building</h3>
+      <p><strong>NOVA</strong>. My local LLM. <mark>Total hack mode.</mark> 8-10 hours a day on Skills &mdash; teaching the model to do specific things, in specific ways. Hard work. Exciting like I'm a teenager coding again.</p>
+    </div>
+
+    <div class="mt-12">
+      <h3>Training</h3>
+      <p>The gym, prescribed by the trainer app.</p>
+      <p><a href="https://studiogolfclub.com/locations/south-bay/" rel="noopener">Studio Golf</a> in El Segundo. The mat. The launch monitor. <a href="https://apps.apple.com/us/app/tee-time-trainer/id6503715019" rel="noopener">Tee Time Trainer</a> open on the side, drills loaded. I follow the process. <mark>Single-digit handicap by end of year.</mark></p>
+    </div>
+
+    <div class="mt-12">
+      <h3>Reading</h3>
+      <p>Four open at once. Stacked on the nightstand.</p>
+      <ul>
+        <li><a href="https://www.amazon.com/dp/1400257220" rel="noopener"><em>Garden City</em></a> &mdash; John Mark Comer. Slow. You read it like a prayer.</li>
+        <li><a href="https://www.amazon.com/dp/006256417X" rel="noopener"><em>God's Homecoming</em></a> &mdash; N. T. Wright. Theology that actually breathes.</li>
+        <li><a href="https://www.amazon.com/dp/1668043645" rel="noopener"><em>The Tiger Slam</em></a> &mdash; Kevin Cook. The year Tiger won everything. Reading it before Palm Springs.</li>
+        <li><a href="https://www.amazon.com/dp/0593653149" rel="noopener"><em>Hidden Potential</em></a> &mdash; Adam Grant. For the work. For me.</li>
+      </ul>
+    </div>
+
+    <div class="mt-12">
+      <h3>Listening</h3>
+      <p>Walking the dog or driving up the 405:</p>
+      <ul>
+        <li><a href="https://therestishistory.com/" rel="noopener">The Rest is History</a> &mdash; Tom Holland and Dominic Sandbrook making the past sound urgent.</li>
+        <li><a href="https://therestisclassified.com/" rel="noopener">The Rest is Classified</a> &mdash; spies, intelligence, real stakes.</li>
+        <li><a href="https://bolapresa.com.br/" rel="noopener">Bola Presa</a> &mdash; keeps me in the loop during the NBA Playoffs.</li>
+      </ul>
+    </div>
+
+    <div class="mt-12">
+      <h3>Gear I'm into</h3>
+      <ul>
+        <li><a href="https://jain.golf/products/the-club-caddy" rel="noopener">The Club Caddy</a> &mdash; Jain.</li>
+        <li><a href="https://www.amazon.com/dp/B0FHST34BP" rel="noopener">Nike Infinity Tour 2</a> &mdash; US Open Pack.</li>
+      </ul>
+    </div>
+
+    <p class="text-sm text-muted mt-16 italic">Last updated 2026-04-28. Next refresh: end of May.</p>
+
+  </section>
+</BaseLayout>

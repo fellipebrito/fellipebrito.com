@@ -2,7 +2,6 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import HeroBlock from '../../../components/HeroBlock.astro';
 import BlogList from '../../../components/BlogList.astro';
-import NewsletterInline from '../../../components/NewsletterInline.astro';
 import articlesData from '../../../data/articles.json';
 
 // Listing view — most recent first. Dateless articles sort to end.
@@ -128,8 +127,4 @@ const selectedEssays = [
     <p class="text-base text-muted italic mb-8">112 essays. Most recent first.</p>
     <BlogList articles={articles} />
   </section>
-  <NewsletterInline
-    heading="Get the Tuesday Notes"
-    copy="Tuesday Notes — written Mondays, sent Tuesdays."
-  />
 </BaseLayout>

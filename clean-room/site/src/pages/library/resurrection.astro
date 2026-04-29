@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroBlock from '../../components/HeroBlock.astro';
-import NewsletterInline from '../../components/NewsletterInline.astro';
 import articlesData from '../../data/articles.json';
 
 // Ten essays — ordered as a reading path (Start here → The case →
@@ -160,10 +159,5 @@ sources.forEach((slug) => {
         <li><em><a href="/blog/all/a-journey-through-the-gospel-of-john">A Journey Through the Gospel of John</a></em> &mdash; seven questions. What the risen Jesus actually does is ask things.</li>
       </ol>
     </section>
-
-    <NewsletterInline
-      heading="Get the Tuesday Notes"
-      copy="More writing on faith, work, and what I&rsquo;m building. Mondays written, Tuesdays sent."
-    />
   </div>
 </BaseLayout>

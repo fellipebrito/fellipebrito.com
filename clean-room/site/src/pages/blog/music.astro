@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroBlock from '../../components/HeroBlock.astro';
 import BlogList from '../../components/BlogList.astro';
-import NewsletterInline from '../../components/NewsletterInline.astro';
 import articlesData from '../../data/articles.json';
 
 const articles = articlesData.articles
@@ -24,8 +23,4 @@ const articles = articlesData.articles
     supporting="Exploring lyrics that move me—songs that echo questions, prayers, and glimpses of beauty in a broken world."
   />
   <BlogList articles={articles} />
-  <NewsletterInline
-    heading="Get the Tuesday Notes"
-    copy="Tuesday Notes — written Mondays, sent Tuesdays."
-  />
 </BaseLayout>

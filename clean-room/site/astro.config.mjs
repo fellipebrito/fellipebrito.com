@@ -8,6 +8,9 @@ export default defineConfig({
   site: 'https://fellipebrito.com',
   base: '/',
   integrations: [sitemap()],
+  redirects: {
+    '/blog/all/in-defense-of-saint-thomas': '/blog/all/the-case-for-christian-skepticism',
+  },
   vite: {
     plugins: [tailwindcss()],
   },

@@ -21,9 +21,29 @@ I've been challenged by some friends about the veracity of two affirmations I've
 
 If there is no God:
 
+- Every type of life we know will be extinct in death
+- There is no immortality
+- The universe will also face extinction
+
 Therefore, life has not:
 
+- Objective Meaning
+  - One's life makes no difference to the outcome of the universe
+  - There is no framework within which man's life can seem to matter
+- Objective Value
+  - There is no moral accountability
+  - Moral choices are inconsequential
+  - Moral values are delusions ingrained into us by evolution and social experience
+- Objective Purpose
+  - Without immortality, our only destination is extinction in death
+  - Without God, there is no purpose for life
+
 Now, through this atheistic worldview, it is impossible to live consistently and happy
+
+- If one lives happily
+  - It is because one is inconsistently affirming some type of meaning, value and/or purpose, despite the lack of objective foundations for it.
+- If one lives consistently
+  - One will live unhappy since one's life is meaningless, worthless and purposeless
 
 Since the only two options we have are pretty clear, the existence or not of a God is one of the most important questions we can ever answer.
 

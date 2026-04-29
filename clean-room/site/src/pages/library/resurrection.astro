@@ -4,7 +4,7 @@ import HeroBlock from '../../components/HeroBlock.astro';
 import NewsletterInline from '../../components/NewsletterInline.astro';
 import articlesData from '../../data/articles.json';
 
-// Eleven essays — the resurrection corpus, 15 years of writing.
+// Ten essays — the resurrection corpus, 15 years of writing.
 // Order in the end-matter list: chronological (oldest → newest), so a friend
 // scanning the index sees the arc.
 const sources = [
@@ -14,7 +14,6 @@ const sources = [
   'the-tomb-is-empty',
   'reading-the-bible-right',
   'the-first-witnesses',
-  'in-defense-of-saint-thomas',
   'un-believable',
   'easter-on-april-1st-resurrection-or-april-fools',
   'the-case-for-christian-skepticism',
@@ -36,7 +35,7 @@ const sourceArticles = sources.map((slug) => {
   <HeroBlock
     variant="page-default"
     h1="Library of the Resurrection"
-    supporting="Eleven essays. Fifteen years. One question that wouldn&rsquo;t leave."
+    supporting="Ten essays. Fifteen years. One question that wouldn&rsquo;t leave."
   />
 
   <section data-component="AnchorQuestion" data-animate="fade-up" class="py-8 md:py-12 border-t border-rule">
@@ -55,7 +54,7 @@ const sourceArticles = sources.map((slug) => {
     </p>
 
     <p>
-      The disciples hear the women out and decide <em><a href="/blog/all/the-case-for-christian-skepticism">they are making it all up</a></em>. Peter runs to the tomb and walks back puzzled, shaking his head. Thomas refuses to take their word for it; he wants to put his hand in the wounds. <em><a href="/blog/all/in-defense-of-saint-thomas">I won&rsquo;t believe it</a></em>. When Jesus meets them, he doesn&rsquo;t punish the doubt. He invites them to touch him.
+      The disciples hear the women out and decide <em><a href="/blog/all/the-case-for-christian-skepticism">they are making it all up</a></em>. Peter runs to the tomb and walks back puzzled, shaking his head. Thomas refuses to take their word for it; he wants to put his hand in the wounds. <em>I won&rsquo;t believe it</em>. When Jesus meets them, he doesn&rsquo;t punish the doubt. He invites them to touch him.
     </p>
 
     <p>That&rsquo;s not the rhetoric of a religion built to be sold.</p>
@@ -85,13 +84,33 @@ const sourceArticles = sources.map((slug) => {
     </p>
 
     <p>
-      That&rsquo;s why this collection. Eleven essays. Fifteen years of me circling the same room. The links above open into the pieces they came from.
+      That&rsquo;s why this collection. Ten essays. Fifteen years of me circling the same question.
+    </p>
+
+    <p>
+      And here&rsquo;s what I&rsquo;ve come to &mdash; John&rsquo;s Gospel doesn&rsquo;t end with a conclusion. It ends with a conversation. A question Jesus keeps asking. Maybe that&rsquo;s why I keep writing. Because the question never closes.
+    </p>
+
+    <p>
+      It&rsquo;s not a test. It&rsquo;s not a trap. It&rsquo;s an invitation.
+    </p>
+
+    <p>
+      To seek. To change. To stay. To doubt. To believe.
+    </p>
+
+    <p>
+      Come and see.
+    </p>
+
+    <p>
+      Read in order, you&rsquo;ll watch the voice change as much as the argument does. The earliest essays are defensive. The newest are quieter. I&rsquo;m leaving them all in.
     </p>
   </section>
 
   <section data-component="SourceList" data-animate="fade-up" class="py-8 border-t border-rule">
     <p class="text-base text-muted">
-      All eleven essays this page draws from:
+      All ten essays this page draws from:
       {sourceArticles.map((a, i) => (
         <>
           <a href={`/blog/all/${a.slug}`} class="text-ink hover:text-navy underline-offset-2 hover:underline">{a.title}</a>{i < sourceArticles.length - 1 ? ', ' : '.'}

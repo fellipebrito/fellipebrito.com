@@ -704,14 +704,6 @@
       "date": "2018-03-03",
       "category": "Bible",
       "prev_slug": "reading-the-bible-right",
-      "next_slug": "in-defense-of-saint-thomas"
-    },
-    {
-      "slug": "in-defense-of-saint-thomas",
-      "title": "In Defense of Saint Thomas",
-      "date": "2018-03-04",
-      "category": "Bible",
-      "prev_slug": "the-first-witnesses",
       "next_slug": "un-believable"
     },
     {
@@ -719,7 +711,7 @@
       "title": "(Un)Believable",
       "date": "2018-03-05",
       "category": "Bible",
-      "prev_slug": "in-defense-of-saint-thomas",
+      "prev_slug": "the-first-witnesses",
       "next_slug": "easter-on-april-1st-resurrection-or-april-fools"
     },
     {

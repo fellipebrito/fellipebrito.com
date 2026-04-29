@@ -41,6 +41,7 @@ Three vectors we're growing:
   - Top: 3-5 hand-picked featured projects (title, one-line pitch, GitHub link, optional demo, language pills).
   - Below: last 10 commits across public personal repos, fetched at build time via GH REST API.
   - **Blocked on:** which featured repos (propose 5 from public list, or specific picks). Anything to exclude.
+- [x] **B4. `/library/<topic>`** — themed collections of existing essays. Shape: a *post you read* (anchor question + woven prose with hyperlinked quotes pulling into source essays), not a directory grid. First instance: `/library/resurrection` — 11 essays, 15 years, shipped 2026-04-29. Standalone URL for now (no nav link); add more `/library/<topic>` pages as themes accumulate.
 
 ## Phase 3 — Personality bets (whenever)
 
@@ -80,4 +81,4 @@ Lower priority — quality-of-life automation. Revisit after Phase 3 lands.
 
 ---
 
-**Last roadmap update:** 2026-04-28 (Phase 1 shipped — A1/A2/A3/A4)
+**Last roadmap update:** 2026-04-29 (Phase 2 — B4 shipped: `/library/resurrection`)

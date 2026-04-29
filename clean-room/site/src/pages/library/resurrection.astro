@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroBlock from '../../components/HeroBlock.astro';
+import NewsletterInline from '../../components/NewsletterInline.astro';
+import articlesData from '../../data/articles.json';
+
+// Eleven essays — the resurrection corpus, 15 years of writing.
+// Order in the end-matter list: chronological (oldest → newest), so a friend
+// scanning the index sees the arc.
+const sources = [
+  'i-think-therefore-i-believe',
+  'the-farce-of-the-gospels',
+  '3-solid-reasons-why-believing-jesus-came-back-from-the-dead-is-the-result-of-brainwashing',
+  'the-tomb-is-empty',
+  'reading-the-bible-right',
+  'the-first-witnesses',
+  'in-defense-of-saint-thomas',
+  'un-believable',
+  'easter-on-april-1st-resurrection-or-april-fools',
+  'the-case-for-christian-skepticism',
+  'a-journey-through-the-gospel-of-john',
+];
+
+// Build-time guard: surfaces typos in the slug list as a build error rather
+// than a 404 in the browser.
+const sourceArticles = sources.map((slug) => {
+  const found = articlesData.articles.find((a) => a.slug === slug);
+  if (!found) throw new Error(`[library/resurrection] unknown slug: ${slug}`);
+  return found;
+});
+---
+<BaseLayout
+  title="Library of the Resurrection — Fellipe Brito"
+  description="Eleven essays on the question that wouldn't leave: what changes if the tomb really was empty?"
+>
+  <HeroBlock
+    variant="page-default"
+    h1="Library of the Resurrection"
+    supporting="Eleven essays. Fifteen years. One question that wouldn&rsquo;t leave."
+  />
+
+  <section data-component="AnchorQuestion" data-animate="fade-up" class="py-8 md:py-12 border-t border-rule">
+    {/*
+      Anchor question — pick one and delete the others. Drafted three:
+      A. What changes if the tomb really was empty?            (lead — least defensive, opens the door)
+      B. Why are you still hung up on a man who died two thousand years ago?  (the friend's pushback)
+      C. Is it reasonable to think a dead man came back?       (the engineer's question)
+    */}
+    <p class="text-2xl md:text-4xl font-semibold tracking-tight leading-snug max-w-3xl text-ink">
+      <em>What changes if the tomb really was empty?</em>
+    </p>
+  </section>
+
+  <section data-component="WovenResponse" data-animate="fade-up" class="prose max-w-2xl py-8 border-t border-rule">
+    <p>
+      A woman walks to a tomb at dawn with oil and aloe. She expects a body. She finds <em><a href="/blog/all/the-tomb-is-empty">the stone rolled away and the tomb open and EMPTY</a></em>. Her first thought isn&rsquo;t <em>miracle</em>. Her first thought is that someone has stolen the body.
+    </p>
+
+    <p>
+      That detail is one of the reasons I keep coming back to this story. The first witnesses to the empty tomb were women &mdash; and in first-century Jerusalem, <em><a href="/blog/all/the-first-witnesses">from women, no evidence shall be accepted</a></em> (Josephus, on the law of his own people). If you were inventing a religion, you wouldn&rsquo;t choose witnesses no court would believe. Unless that&rsquo;s actually who was there.
+    </p>
+
+    <p>
+      The disciples hear the women out and decide <em><a href="/blog/all/the-case-for-christian-skepticism">they are making it all up</a></em>. Peter runs to the tomb and walks back puzzled, shaking his head. Thomas refuses to take their word for it; he wants to put his hand in the wounds. <em><a href="/blog/all/in-defense-of-saint-thomas">I won&rsquo;t believe it</a></em>. When Jesus meets them, he doesn&rsquo;t punish the doubt. He invites them to touch him.
+    </p>
+
+    <p>That&rsquo;s not the rhetoric of a religion built to be sold.</p>
+
+    <p>
+      I&rsquo;m an engineer. I want to know what would have to be true for this to be a hoax. So I imagine the four gospel writers in a room, plotting: <em><a href="/blog/all/the-farce-of-the-gospels">we&rsquo;ll have to convince Jesus&rsquo; friends and family to spend the next 30 years telling everyone he came back from the dead</a></em>. The joke writes itself. Great liars don&rsquo;t make great martyrs.
+    </p>
+
+    <p>
+      Here&rsquo;s the load-bearing fact. The crucifixion happened &mdash; atheist historians like Bart Ehrman call it <em><a href="/blog/all/easter-on-april-1st-resurrection-or-april-fools">as certain as any other historical event</a></em>. The body was missing &mdash; both Roman and Jewish authorities had every reason to produce it, and never did. And then, in the same city where it happened, people started saying they had seen him. Hundreds of them. Many of them died for the saying.
+    </p>
+
+    <p>
+      There are alternate explanations. He wasn&rsquo;t dead. The disciples stole the body. Mass hallucination. I find each of them harder to believe than the resurrection itself. The Japanese novelist Sh&#363;saku End&#333; put it best: <em><a href="/blog/all/un-believable">if we don&rsquo;t believe in the resurrection, we run the risk of inventing alternatives that are even more unbelievable</a></em>.
+    </p>
+
+    <p>
+      Or, sarcastically: <em><a href="/blog/all/3-solid-reasons-why-believing-jesus-came-back-from-the-dead-is-the-result-of-brainwashing">three pretty strong reasons, right? They&rsquo;re super solid</a></em>. (The whole piece is sarcasm; that&rsquo;s the point.)
+    </p>
+
+    <p>
+      So when a friend asks me &mdash; politely, or impatiently &mdash; <em>what changes if the tomb really was empty?</em> &mdash; my honest answer is: everything else I think follows from this. <em><a href="/blog/all/i-think-therefore-i-believe">Faith is a reasoned choice, not something mystical in which we have no role to play</a></em>. It&rsquo;s a <em><a href="/blog/all/reading-the-bible-right">plot &mdash; death, burial, and resurrection</a></em>. Not a system. A story.
+    </p>
+
+    <p>
+      And the story doesn&rsquo;t end at the tomb. It ends with Mary, on Easter morning, mistaking the risen Jesus for a gardener: <em><a href="/blog/all/a-journey-through-the-gospel-of-john">she was looking for a dead body. Instead, she found a living Savior</a></em>.
+    </p>
+
+    <p>
+      That&rsquo;s why this collection. Eleven essays. Fifteen years of me circling the same room. The links above open into the pieces they came from.
+    </p>
+  </section>
+
+  <section data-component="SourceList" data-animate="fade-up" class="py-8 border-t border-rule">
+    <p class="text-base text-muted">
+      All eleven essays this page draws from:
+      {sourceArticles.map((a, i) => (
+        <>
+          <a href={`/blog/all/${a.slug}`} class="text-ink hover:text-navy underline-offset-2 hover:underline">{a.title}</a>{i < sourceArticles.length - 1 ? ', ' : '.'}
+        </>
+      ))}
+    </p>
+  </section>
+
+  <NewsletterInline
+    heading="Get the Tuesday Notes"
+    copy="More writing on faith, work, and what I&rsquo;m building. Mondays written, Tuesdays sent."
+  />
+</BaseLayout>

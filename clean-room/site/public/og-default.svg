@@ -1,21 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Warm paper background -->
   <rect width="1200" height="630" fill="#FBFAF7"/>
 
-  <!-- Top eyebrow rule + label -->
-  <text x="80" y="100" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="22" font-weight="500" fill="#1E3A8A" letter-spacing="3">FELLIPEBRITO.COM</text>
-  <line x1="80" y1="120" x2="1120" y2="120" stroke="#1E3A8A" stroke-width="1.5"/>
+  <!-- Photo on the right half, full height, cropped -->
+  <defs>
+    <clipPath id="photoClip">
+      <rect x="700" y="0" width="500" height="630"/>
+    </clipPath>
+  </defs>
+  <image
+    xlink:href="portrait.jpg"
+    x="540"
+    y="-30"
+    width="660"
+    height="825"
+    clip-path="url(#photoClip)"
+    preserveAspectRatio="xMidYMid slice"
+  />
 
-  <!-- Main headline -->
-  <text x="80" y="240" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="68" font-weight="700" fill="#0a0a0a">Christian.</text>
-  <text x="80" y="325" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="68" font-weight="700" fill="#0a0a0a">Entrepreneur.</text>
-  <text x="80" y="410" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="68" font-weight="700" fill="#0a0a0a">Creative problem solver.</text>
+  <!-- Subtle vertical separator between text and photo -->
+  <line x1="700" y1="60" x2="700" y2="570" stroke="#1E3A8A" stroke-width="1" stroke-opacity="0.3"/>
 
-  <!-- Amber accent under final word — matches site's <mark> highlight -->
-  <rect x="80" y="395" width="640" height="22" fill="#B45309" fill-opacity="0.18"/>
-  <text x="80" y="410" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="68" font-weight="700" fill="#0a0a0a">Creative problem solver.</text>
+  <!-- Top eyebrow -->
+  <text x="80" y="100" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="20" font-weight="500" fill="#1E3A8A" letter-spacing="3">FELLIPEBRITO.COM</text>
+  <line x1="80" y1="120" x2="660" y2="120" stroke="#1E3A8A" stroke-width="1.5"/>
 
-  <!-- Byline -->
-  <line x1="80" y1="500" x2="280" y2="500" stroke="#1E3A8A" stroke-width="1.5"/>
-  <text x="80" y="540" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="26" font-weight="500" fill="#1E3A8A">Fellipe Brito · Bossa Nova Solutions</text>
-  <text x="80" y="575" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="22" font-weight="400" fill="#6b6b6b">Meta · SESAC · PING · QWIRE · UVL</text>
+  <!-- Hi, I'm Fellipe. -->
+  <text x="80" y="240" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="64" font-weight="700" fill="#0a0a0a">Hi, I'm Fellipe.</text>
+
+  <!-- Tagline -->
+  <text x="80" y="320" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="28" font-weight="500" fill="#1E3A8A">Christian. Entrepreneur.</text>
+  <text x="80" y="360" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="28" font-weight="500" fill="#1E3A8A">Creative problem solver.</text>
+
+  <!-- Amber accent under "Creative problem solver." -->
+  <rect x="80" y="345" width="495" height="20" fill="#B45309" fill-opacity="0.18"/>
+  <text x="80" y="360" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="28" font-weight="500" fill="#1E3A8A">Creative problem solver.</text>
+
+  <!-- Sub-byline -->
+  <text x="80" y="480" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="22" font-weight="400" fill="#6b6b6b">Bossa Nova Solutions &#183; Tuesday Notes weekly.</text>
+
+  <!-- Bottom rule -->
+  <line x1="80" y1="540" x2="240" y2="540" stroke="#1E3A8A" stroke-width="1.5"/>
+  <text x="80" y="575" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="18" font-weight="400" fill="#6b6b6b">From Paranaguá to California</text>
 </svg>

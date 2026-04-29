@@ -12,6 +12,53 @@ const articles = [...articlesData.articles].sort((a, b) => {
   if (!b.date) return -1;
   return a.date < b.date ? 1 : -1;
 });
+
+// Curated entry-point selection. Source of truth: EDITORIAL.md (LinkedIn slate).
+// Update when the audit / slate changes.
+const selectedEssays = [
+  {
+    slug: 'we-never-lose',
+    title: 'We Never Lose',
+    category: 'Golf',
+    synopsis: 'A solo afternoon at the Masters becomes a meditation on collective belonging — and a 1995 Flamengo loss with my father.',
+  },
+  {
+    slug: 'ai-where-i-m-drawing-the-line',
+    title: "AI :: Where I'm Drawing the Line",
+    category: 'Tech',
+    synopsis: 'Why I keep humans in the room even when an agent is cheaper.',
+  },
+  {
+    slug: 'a-conversation-with-my-anxiety',
+    title: 'A Conversation With My Anxiety',
+    category: 'Free Thought',
+    synopsis: 'A letter from anxiety. My reply. From my father&rsquo;s fishing boats to AI doomscrolling.',
+  },
+  {
+    slug: 'breaking-90-and-the-illusion-of-arrival',
+    title: 'Breaking 90, and the Illusion of Arrival',
+    category: 'Golf',
+    synopsis: 'A tournament round on my home course doubles as a parable on goalposts that keep moving.',
+  },
+  {
+    slug: 'find-the-david-within-you',
+    title: 'Find the David Within You',
+    category: 'Bible',
+    synopsis: 'A keyboard meltdown in a Hollywood church. The Pentecostal night that followed.',
+  },
+  {
+    slug: 'thanksgiving',
+    title: 'Thanksgiving',
+    category: 'Free Thought',
+    synopsis: 'Friends of mine keep a leafless tree of gratitude in their living room. Abraham built altars for the same reason.',
+  },
+  {
+    slug: 'the-light-the-darkness-cannot-understand',
+    title: 'The Light the Darkness Cannot Understand',
+    category: 'Bible',
+    synopsis: 'Gospel of John meets Tolkien. Why Sauron couldn&rsquo;t imagine the Hobbit destroying the Ring.',
+  },
+];
 ---
 <BaseLayout
   title="Writing — Fellipe Brito"
@@ -22,7 +69,65 @@ const articles = [...articlesData.articles].sort((a, b) => {
     h1="Writing"
     supporting="Bible. Music. Tech. Golf. Tuesday Notes weekly."
   />
-  <BlogList articles={articles} />
+
+  <section data-component="WritingIntro" data-animate="fade-up" class="prose max-w-3xl py-8 border-t border-rule">
+    <p class="text-xl md:text-2xl leading-snug text-ink">
+      A note before you read.
+    </p>
+
+    <p>
+      I write like someone who walked into the church machinery, saw it up close, and walked back out &mdash; refusing to walk back in on the old terms. <mark>Not bitter. Not done. Stubbornly faithful.</mark>
+    </p>
+
+    <p>
+      I think by writing letters. <a href="/blog/all/a-conversation-with-my-anxiety">To my anxiety</a>. <a href="/blog/all/a-letter-to-a-dear-friend">To my church</a>. <a href="/blog/all/30-years">To my 20-year-old self</a>. Sometimes a letter is the only honest form.
+    </p>
+
+    <p>
+      I keep refusing the binaries. <a href="/blog/all/i-choose-the-way">I choose the way</a>. I don't know if I'll ever fit on a Church again. I'm OK with that.
+    </p>
+
+    <p>Questions I keep coming back to:</p>
+    <ul>
+      <li><em>Am I a billboard?</em> &mdash; <a href="/blog/all/i-am-not-a-billboard">I am not a billboard</a></li>
+      <li><em>Is faith reasonable for an engineer?</em> &mdash; <a href="/blog/all/the-case-for-christian-skepticism">The case for Christian skepticism</a></li>
+      <li><em>Am I arriving anywhere, or just moving?</em> &mdash; <a href="/blog/all/breaking-90-and-the-illusion-of-arrival">Breaking 90 and the illusion of arrival</a></li>
+    </ul>
+
+    <p>
+      Underneath everything: an expat's loneliness. I left a small fishing village in southern Brazil at 20. <a href="/blog/all/its-the-end-of-the-world">I've ended a lot of worlds since</a>. <a href="/blog/all/we-never-lose">Some never quite end</a>.
+    </p>
+
+    <p class="text-base text-muted italic">
+      These are 15 years of writing. Some of it is who I was. Some is who I'm becoming. Read accordingly.
+    </p>
+  </section>
+
+  <section data-component="SelectedEssays" data-animate="fade-up" class="py-12 border-t border-rule">
+    <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mb-1">If you are here, start with these.</h2>
+    <p class="text-base text-muted italic mb-8">Seven essays, hand-picked. The shortest path to the voice underneath.</p>
+
+    <div data-animate="stagger" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      {selectedEssays.map((e) => (
+        <a
+          href={`/blog/all/${e.slug}`}
+          class="block group p-6 md:p-7 border border-rule rounded-md bg-bg hover:border-navy transition-colors"
+        >
+          <p class="text-xs uppercase tracking-wider text-amber font-medium mb-2">{e.category}</p>
+          <h3 class="text-lg md:text-xl font-semibold leading-tight mb-3 text-ink group-hover:text-navy transition-colors">
+            {e.title}
+          </h3>
+          <p class="text-base text-muted leading-relaxed" set:html={e.synopsis}></p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section data-component="AllWriting" class="py-12 border-t border-rule">
+    <h2 class="text-2xl md:text-3xl font-semibold tracking-tight mb-1">All writing</h2>
+    <p class="text-base text-muted italic mb-8">112 essays. Most recent first.</p>
+    <BlogList articles={articles} />
+  </section>
   <NewsletterInline
     heading="Get the Tuesday Notes"
     copy="Tuesday Notes — written Mondays, sent Tuesdays."

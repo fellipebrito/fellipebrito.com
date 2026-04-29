@@ -1,12 +1,34 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import HeroBlock from '../components/HeroBlock.astro';
 import AboutBlock from '../components/AboutBlock.astro';
 ---
 <BaseLayout
   title="About — Fellipe Brito"
   description="Self-taught from a small town in Brazil. Built dev teams at SESAC. Tech Solutions Architect at Meta. Now running Bossa Nova Solutions. Christian first, builder by trade."
 >
-  <HeroBlock variant="page-default" h1="Hi, I'm Fellipe." />
+  <section
+    data-component="HeroBlockAbout"
+    class="grid grid-cols-1 md:grid-cols-[1fr_300px] lg:grid-cols-[1fr_360px] gap-8 md:gap-12 items-center py-8 md:py-12"
+  >
+    <div>
+      <h1
+        data-animate="mask"
+        class="font-semibold tracking-tight text-ink text-3xl md:text-4xl max-w-3xl"
+      >
+        Hi, I'm Fellipe.
+      </h1>
+    </div>
+    <div data-animate="fade-up">
+      <img
+        src="/portrait.jpg"
+        alt="Fellipe Brito at Cristo Redentor in Rio de Janeiro, wearing a Brazil number-10 jersey"
+        width="960"
+        height="1200"
+        loading="eager"
+        class="w-full max-w-[280px] md:max-w-none rounded-md border border-rule mx-auto md:mx-0"
+      />
+    </div>
+  </section>
+
   <AboutBlock />
 </BaseLayout>
